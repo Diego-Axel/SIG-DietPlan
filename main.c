@@ -29,7 +29,7 @@ int main(void) {
 }
 
 
-void menu_principal(void) {
+void menu_principal(void) { // Feito por Luís e Diêgo
     printf("\n");
     printf("//////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                        ///\n");
@@ -56,7 +56,7 @@ void menu_principal(void) {
 } 
 
 
-void menu_cliente(void) {
+void menu_cliente(void) { // Feito por Diêgo
   printf("\n");
   printf("//////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                        ///\n");
@@ -73,7 +73,7 @@ void menu_cliente(void) {
 }
 
 
-void menu_dieta(void) {
+void menu_dieta(void) { // Feito por Luís
   printf("\n");
   printf("//////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                        ///\n");
