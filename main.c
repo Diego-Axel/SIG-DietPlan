@@ -16,12 +16,13 @@
 
 // Assinatura das funções
 void menu_principal(void);
-
+void menu_servico(void);
 
 // Função principal
 int main(void) {
     setlocale(LC_CTYPE , "" );
     menu_principal();
+    menu_servico();
     return 0;
 }
 
@@ -53,3 +54,18 @@ void menu_principal(void) {
 } 
 
 
+void menu_servico(void) {
+  printf("\n");
+  printf("//////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                        ///\n");
+  wprintf(L"///                            Módulo Serviço                              ///\n");
+  printf("///                                                                        ///\n");
+  printf("//////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                        ///\n");
+  wprintf(L"///                         [1] Avaliação                                  ///\n");
+  wprintf(L"///                         [2] Dieta para hipertrófia                     ///\n"); 
+  printf("///                         [3] Dieta para perda de peso                   ///\n"); 
+  wprintf(L"///                         [4] Reavaliação                                ///\n");  
+  printf("///                                                                        ///\n");
+  printf("//////////////////////////////////////////////////////////////////////////////\n");  
+}
