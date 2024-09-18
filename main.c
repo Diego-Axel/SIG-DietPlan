@@ -16,13 +16,15 @@
 
 // Assinatura das funções
 void menu_principal(void);
-void menu_servico(void);
+void menu_cliente(void);
+void menu_dieta(void);
 
 // Função principal
 int main(void) {
-    setlocale(LC_CTYPE , "" );
+    setlocale(LC_CTYPE , "");
     menu_principal();
-    menu_servico();
+    menu_cliente();
+    menu_dieta();
     return 0;
 }
 
@@ -54,11 +56,28 @@ void menu_principal(void) {
 } 
 
 
-void menu_servico(void) {
+void menu_cliente(void) {
   printf("\n");
   printf("//////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                        ///\n");
-  wprintf(L"///                            Módulo Serviço                              ///\n");
+  wprintf(L"///                            Módulo Cliente                              ///\n");
+  printf("///                                                                        ///\n");
+  printf("//////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                        ///\n");
+  printf("///                         [1] Cadastrar Cliente                          ///\n");
+  printf("///                         [2] Exibir Cliente                             ///\n"); 
+  printf("///                         [3] Alterar Dados do Cliente                   ///\n"); 
+  printf("///                         [4] Excluir Cliente                            ///\n");  
+  printf("///                                                                        ///\n");
+  printf("//////////////////////////////////////////////////////////////////////////////\n");
+}
+
+
+void menu_dieta(void) {
+  printf("\n");
+  printf("//////////////////////////////////////////////////////////////////////////////\n");
+  printf("///                                                                        ///\n");
+  wprintf(L"///                             Módulo Dieta                               ///\n");
   printf("///                                                                        ///\n");
   printf("//////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                        ///\n");
