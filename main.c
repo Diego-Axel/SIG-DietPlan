@@ -53,6 +53,8 @@ void menu_principal(void) { // Feito por Luís e Diêgo
   wprintf(L"\t///                         [5] Módulo Informações                         ///\n"); 
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n"); 
+  printf("Tecle <ENTER> para prosseguir..."); // Sem interação no momento
 } 
 
 
@@ -70,6 +72,8 @@ void menu_cliente(void) { // Feito por Diêgo
   printf("\t///                         [4] Excluir Cliente                            ///\n");  
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n"); 
+  printf("Tecle <ENTER> para prosseguir..."); // Sem interação no momento
 }
 
 
@@ -86,5 +90,7 @@ void menu_dieta(void) { // Feito por Luís
   printf("\t///                         [3] Dieta para perda de peso                   ///\n"); 
   wprintf(L"\t///                         [4] Reavaliação                                ///\n");  
   printf("\t///                                                                        ///\n");
-  printf("\t//////////////////////////////////////////////////////////////////////////////\n");  
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n"); 
+  printf("Tecle <ENTER> para prosseguir..."); // Sem interação no momento
 }
