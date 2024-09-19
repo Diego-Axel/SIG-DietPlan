@@ -31,60 +31,60 @@ int main(void) {
 
 void menu_principal(void) { // Feito por Luís e Diêgo
   printf("\n");
-  printf("//////////////////////////////////////////////////////////////////////////////\n");
-  printf("///                                                                        ///\n");
-  printf("///             Universidade Federal do Rio Grande do Norte                ///\n");
-  wprintf(L"///                 Centro de Ensino Superior do Seridó                    ///\n");
-  wprintf(L"///               Departamento de Computação e Tecnologia                  ///\n");
-  wprintf(L"///                    Sistemas de Informação - BSI                        ///\n");
-  wprintf(L"///                  Disciplina DCT1106 -- Programação                     ///\n");
-  printf("///               Projeto Sistema de Planejamento De Dietas                ///\n");
-  wprintf(L"///              Developed by Diêgo Axel and Luís Henrique                 ///\n");
-  printf("///                    Data do projeto : 18/09/2024                        ///\n");
-  printf("///                                                                        ///\n");
-  printf("//////////////////////////////////////////////////////////////////////////////\n");
-  printf("///                                                                        ///\n");
-  printf("///            SIG Diet-Plan (Sistema de planejamento de dietas)           ///\n");
-  printf("///                                                                        ///\n");
-  wprintf(L"///                         [1] Módulo Cliente                             ///\n");
-  wprintf(L"///                         [2] Módulo Dietas                              ///\n"); 
-  wprintf(L"///                         [3] Módulo Agendamento                         ///\n"); 
-  wprintf(L"///                         [4] Módulo Relatório                           ///\n"); 
-  wprintf(L"///                         [5] Módulo Informações                         ///\n"); 
-  printf("///                                                                        ///\n");
-  printf("//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///             Universidade Federal do Rio Grande do Norte                ///\n");
+  wprintf(L"\t///                 Centro de Ensino Superior do Seridó                    ///\n");
+  wprintf(L"\t///               Departamento de Computação e Tecnologia                  ///\n");
+  wprintf(L"\t///                    Sistemas de Informação - BSI                        ///\n");
+  wprintf(L"\t///                  Disciplina DCT1106 -- Programação                     ///\n");
+  printf("\t///               Projeto Sistema de Planejamento De Dietas                ///\n");
+  wprintf(L"\t///              Developed by Diêgo Axel and Luís Henrique                 ///\n");
+  printf("\t///                    Data do projeto : 18/09/2024                        ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///            SIG Diet-Plan (Sistema de planejamento de dietas)           ///\n");
+  printf("\t///                                                                        ///\n");
+  wprintf(L"\t///                         [1] Módulo Cliente                             ///\n");
+  wprintf(L"\t///                         [2] Módulo Dietas                              ///\n"); 
+  wprintf(L"\t///                         [3] Módulo Agendamento                         ///\n"); 
+  wprintf(L"\t///                         [4] Módulo Relatório                           ///\n"); 
+  wprintf(L"\t///                         [5] Módulo Informações                         ///\n"); 
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
 } 
 
 
 void menu_cliente(void) { // Feito por Diêgo
   printf("\n");
-  printf("//////////////////////////////////////////////////////////////////////////////\n");
-  printf("///                                                                        ///\n");
-  wprintf(L"///                            Módulo Cliente                              ///\n");
-  printf("///                                                                        ///\n");
-  printf("//////////////////////////////////////////////////////////////////////////////\n");
-  printf("///                                                                        ///\n");
-  printf("///                         [1] Cadastrar Cliente                          ///\n");
-  printf("///                         [2] Exibir Cliente                             ///\n"); 
-  printf("///                         [3] Alterar Dados do Cliente                   ///\n"); 
-  printf("///                         [4] Excluir Cliente                            ///\n");  
-  printf("///                                                                        ///\n");
-  printf("//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  wprintf(L"\t///                            Módulo Cliente                              ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                         [1] Cadastrar Cliente                          ///\n");
+  printf("\t///                         [2] Exibir Cliente                             ///\n"); 
+  printf("\t///                         [3] Alterar Dados do Cliente                   ///\n"); 
+  printf("\t///                         [4] Excluir Cliente                            ///\n");  
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
 }
 
 
 void menu_dieta(void) { // Feito por Luís
   printf("\n");
-  printf("//////////////////////////////////////////////////////////////////////////////\n");
-  printf("///                                                                        ///\n");
-  wprintf(L"///                             Módulo Dieta                               ///\n");
-  printf("///                                                                        ///\n");
-  printf("//////////////////////////////////////////////////////////////////////////////\n");
-  printf("///                                                                        ///\n");
-  wprintf(L"///                         [1] Avaliação                                  ///\n");
-  wprintf(L"///                         [2] Dieta para hipertrófia                     ///\n"); 
-  printf("///                         [3] Dieta para perda de peso                   ///\n"); 
-  wprintf(L"///                         [4] Reavaliação                                ///\n");  
-  printf("///                                                                        ///\n");
-  printf("//////////////////////////////////////////////////////////////////////////////\n");  
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  wprintf(L"\t///                             Módulo Dieta                               ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  wprintf(L"\t///                         [1] Avaliação                                  ///\n");
+  wprintf(L"\t///                         [2] Dieta para hipertrófia                     ///\n"); 
+  printf("\t///                         [3] Dieta para perda de peso                   ///\n"); 
+  wprintf(L"\t///                         [4] Reavaliação                                ///\n");  
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");  
 }
