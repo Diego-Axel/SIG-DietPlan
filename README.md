@@ -22,12 +22,12 @@ Esse projeto foi desenvolvido com o seguinte editor de código:
 
 - Visual Studio Code
 
-## Desenvolvedores
+## 💼 Desenvolvedores 
 
 - Diêgo Axel
 - Luís Henrique
 
-## Sobre
+## 📍 Sobre
 
 - Este é um Projeto do Curso de Sistemas de Informação da Universidade Federal do Rio Grande do Norte(UFRN).
 
