@@ -18,6 +18,7 @@
 void menu_principal(void);
 void menu_cliente(void);
 void menu_dieta(void);
+void menu_agendamento(void);
 
 // Função principal
 int main(void) {
@@ -25,6 +26,7 @@ int main(void) {
   menu_principal();
   menu_cliente();
   menu_dieta();
+  menu_agendamento();
   return 0;
 }
 
@@ -88,9 +90,31 @@ void menu_dieta(void) { // Feito por Luís
   wprintf(L"\t///                         [1] Avaliação                                  ///\n");
   wprintf(L"\t///                         [2] Dieta para hipertrófia                     ///\n"); 
   wprintf(L"\t///                         [3] Dieta para perda de peso                   ///\n"); 
-  wprintf(L"\t///                         [4] Reavaliação                                ///\n");  
+  wprintf(L"\t///                         [4] Reavaliação                                ///\n");
+  wprintf(L"\t///                         [5] Adicionar nova dieta                        ///\n");  
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\n"); 
   printf("\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
 }
+
+
+void menu_agendamento(void) { // Feito por Luís
+  printf("\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                         Módulo Agendamento                             ///\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                         [1] Agendar consulta                           ///\n");
+  wprintf(L"\t///                         [2] Alterar consulta                           ///\n"); 
+  wprintf(L"\t///                         [3] Exibir consulta                            ///\n"); 
+  wprintf(L"\t///                         [4] Excluir consulta                           ///\n");  
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n"); 
+  printf("\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
+}
+
+
