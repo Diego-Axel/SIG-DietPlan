@@ -20,6 +20,7 @@ void menu_cliente(void);
 void menu_dieta(void);
 void menu_agendamento(void);
 void menu_profissional(void);
+void menu_relatorio(void);
 
 // Função principal
 int main(void) {
@@ -29,6 +30,7 @@ int main(void) {
   menu_dieta();
   menu_agendamento();
   menu_profissional();
+  menu_relatorio();
   return 0;
 }
 
@@ -140,4 +142,21 @@ void menu_profissional(void) { // Feito por Luís
 }
 
 
-
+void menu_relatorio(void) { // Feito por Diêgo
+  printf("\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                            Módulo Relatório                            ///\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                         [1] Clientes cadastrados                       ///\n");
+  wprintf(L"\t///                         [2] Histórico do cliente                       ///\n"); 
+  wprintf(L"\t///                         [3] Profisionais cadastrados                   ///\n"); 
+  wprintf(L"\t///                         [4] Histórico do profissional                  ///\n");
+  wprintf(L"\t///                         [5] Financeiro                                 ///\n");  
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n"); 
+  printf("\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
+}
