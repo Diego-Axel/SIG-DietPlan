@@ -21,6 +21,7 @@ void menu_dieta(void);
 void menu_agendamento(void);
 void menu_profissional(void);
 void menu_relatorio(void);
+void menu_info(void);
 
 // Função principal
 int main(void) {
@@ -31,6 +32,7 @@ int main(void) {
   menu_agendamento();
   menu_profissional();
   menu_relatorio();
+  menu_info();
   return 0;
 }
 
@@ -155,6 +157,26 @@ void menu_relatorio(void) { // Feito por Diêgo
   wprintf(L"\t///                         [3] Profisionais cadastrados                   ///\n"); 
   wprintf(L"\t///                         [4] Histórico do profissional                  ///\n");
   wprintf(L"\t///                         [5] Financeiro                                 ///\n");  
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n"); 
+  printf("\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
+}
+
+
+void menu_info(void) { // Feito por Luís
+  printf("\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                            Módulo informações                          ///\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                    Autores: Luís Henrique/Diêgo Axel                   ///\n");
+  wprintf(L"\t///                    G-mail: luis27marciano/                             ///\n"); 
+  wprintf(L"\t///                    Licença: MIT License                                ///\n"); 
+  wprintf(L"\t///                    Orientador: Flavius Gorgônio                        ///\n");
+  wprintf(L"\t///                    Instituto: UFRN - Ceres/Caicó - BSI                 ///\n");  
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\n"); 
