@@ -19,6 +19,7 @@ void menu_principal(void);
 void menu_cliente(void);
 void menu_dieta(void);
 void menu_agendamento(void);
+void menu_profissional(void);
 
 // Função principal
 int main(void) {
@@ -27,6 +28,7 @@ int main(void) {
   menu_cliente();
   menu_dieta();
   menu_agendamento();
+  menu_profissional();
   return 0;
 }
 
@@ -50,9 +52,10 @@ void menu_principal(void) { // Feito por Luís e Diêgo
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t///                         [1] Módulo Cliente                             ///\n");
   wprintf(L"\t///                         [2] Módulo Dietas                              ///\n"); 
-  wprintf(L"\t///                         [3] Módulo Agendamento                         ///\n"); 
-  wprintf(L"\t///                         [4] Módulo Relatório                           ///\n"); 
-  wprintf(L"\t///                         [5] Módulo Informações                         ///\n"); 
+  wprintf(L"\t///                         [3] Módulo Agendamento                         ///\n");
+  wprintf(L"\t///                         [4] Módulo Profissional                        ///\n"); 
+  wprintf(L"\t///                         [5] Módulo Relatório                           ///\n"); 
+  wprintf(L"\t///                         [6] Módulo Informações                         ///\n"); 
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\n"); 
@@ -68,10 +71,10 @@ void menu_cliente(void) { // Feito por Diêgo
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///                         [1] Cadastrar Cliente                          ///\n");
-  wprintf(L"\t///                         [2] Exibir Cliente                             ///\n"); 
-  wprintf(L"\t///                         [3] Alterar Dados do Cliente                   ///\n"); 
-  wprintf(L"\t///                         [4] Excluir Cliente                            ///\n");  
+  wprintf(L"\t///                         [1] Cadastrar cliente                          ///\n");
+  wprintf(L"\t///                         [2] Exibir cliente                             ///\n"); 
+  wprintf(L"\t///                         [3] Alterar dados do cliente                   ///\n"); 
+  wprintf(L"\t///                         [4] Excluir cliente                            ///\n");  
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\n"); 
@@ -91,7 +94,7 @@ void menu_dieta(void) { // Feito por Luís
   wprintf(L"\t///                         [2] Dieta para hipertrófia                     ///\n"); 
   wprintf(L"\t///                         [3] Dieta para perda de peso                   ///\n"); 
   wprintf(L"\t///                         [4] Reavaliação                                ///\n");
-  wprintf(L"\t///                         [5] Adicionar nova dieta                        ///\n");  
+  wprintf(L"\t///                         [5] Adicionar nova dieta                       ///\n");  
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\n"); 
@@ -116,5 +119,25 @@ void menu_agendamento(void) { // Feito por Luís
   printf("\n"); 
   printf("\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
 }
+
+
+void menu_profissional(void) { // Feito por Luís
+  printf("\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                            Módulo Profissional                         ///\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                         [1] Cadastrar profissional                     ///\n");
+  wprintf(L"\t///                         [2] Exibir profissional                        ///\n"); 
+  wprintf(L"\t///                         [3] Alterar dados do profissional              ///\n"); 
+  wprintf(L"\t///                         [4] Excluir profissional                       ///\n");  
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n"); 
+  printf("\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
+}
+
 
 
