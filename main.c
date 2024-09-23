@@ -35,18 +35,6 @@ int main(void) {
 
 
 void menu_principal(void) { // Feito por Luís e Diêgo 
-  printf("\n");
-  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-  printf("\t///                                                                        ///\n");
-  printf("\t///             Universidade Federal do Rio Grande do Norte                ///\n");
-  printf("\t///                 Centro de Ensino Superior do Seridó                    ///\n");
-  printf("\t///               Departamento de Computação e Tecnologia                  ///\n");
-  printf("\t///                    Sistemas de Informação - BSI                        ///\n");
-  printf("\t///                  Disciplina DCT1106 -- Programação                     ///\n");
-  printf("\t///               Projeto Sistema de Planejamento De Dietas                ///\n");
-  printf("\t///              Developed by Diêgo Axel and Luís Henrique                 ///\n");
-  printf("\t///                    Data do projeto : 18/09/2024                        ///\n");
-  printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\t///                                                                        ///\n");
   printf("\t///            SIG Diet-Plan (Sistema de Planejamento de Dietas)           ///\n");
@@ -175,12 +163,22 @@ void menu_info(void) { // Feito por Luís
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\t///                                                                        ///\n");
-  printf("\t///                    Autores: Luís Henrique/Diêgo Axel                   ///\n");
-  printf("\t///                    G-mail: luis27marciano/diegoaxelbsr@gmail.com       ///\n"); 
-  printf("\t///                    GitHub: Luis27h/Diego-Axel                          ///\n");
-  printf("\t///                    Licença: MIT License                                ///\n"); 
-  printf("\t///                    Orientador: Flavius Gorgônio                        ///\n");
-  printf("\t///                    Instituto: UFRN - Ceres/Caicó - BSI                 ///\n");  
+  printf("\t///             Universidade Federal do Rio Grande do Norte                ///\n");
+  printf("\t///                 Centro de Ensino Superior do Seridó                    ///\n");
+  printf("\t///               Departamento de Computação e Tecnologia                  ///\n");
+  printf("\t///                    Sistemas de Informação - BSI                        ///\n");
+  printf("\t///                  Disciplina DCT1106 -- Programação                     ///\n");
+  printf("\t///               Projeto Sistema de Planejamento De Dietas                ///\n");
+  printf("\t///                    Data do projeto : 18/09/2024                        ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                  Autores: Luís Henrique/Diêgo Axel                     ///\n");
+  printf("\t///                  G-mail: luis27marciano/diegoaxelbsr@gmail.com         ///\n"); 
+  printf("\t///                  GitHub: Luis27h/Diego-Axel                            ///\n");
+  printf("\t///                  Licença: MIT License                                  ///\n"); 
+  printf("\t///                  Orientador: Flavius Gorgônio                          ///\n");
+  printf("\t///                  Instituto: UFRN - Ceres/Caicó - BSI                   ///\n");  
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\n"); 
