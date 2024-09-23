@@ -12,6 +12,7 @@
 #include <stdio.h> 
 #include <wchar.h>
 #include <locale.h>
+#include <ctype.h>
 
 
 // Assinatura das funções
@@ -38,7 +39,7 @@ int main(void) {
 
 
 void menu_principal(void) { // Feito por Luís e Diêgo 
-  printf("\n");
+  wprintf(L"\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t///             Universidade Federal do Rio Grande do Norte                ///\n");
@@ -52,7 +53,7 @@ void menu_principal(void) { // Feito por Luís e Diêgo
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///            SIG Diet-Plan (Sistema de planejamento de dietas)           ///\n");
+  wprintf(L"\t///            SIG Diet-Plan (Sistema de Planejamento de Dietas)           ///\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t///                         [1] Módulo Cliente                             ///\n");
   wprintf(L"\t///                         [2] Módulo Dietas                              ///\n"); 
@@ -62,13 +63,14 @@ void menu_principal(void) { // Feito por Luís e Diêgo
   wprintf(L"\t///                         [6] Módulo Informações                         ///\n"); 
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  printf("\n"); 
-  printf("\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
+  wprintf(L"\n"); 
+  wprintf(L"\tTecle <ENTER> para prosseguir...\n"); // Sem interação no momento
+  wprintf(L"\n"); 
 } 
 
 
 void menu_cliente(void) { // Feito por Diêgo
-  printf("\n");
+  wprintf(L"\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t///                            Módulo Cliente                              ///\n");
@@ -81,13 +83,14 @@ void menu_cliente(void) { // Feito por Diêgo
   wprintf(L"\t///                         [4] Excluir cliente                            ///\n");  
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  printf("\n"); 
-  printf("\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
+  wprintf(L"\n"); 
+  wprintf(L"\tTecle <ENTER> para prosseguir...\n"); // Sem interação no momento
+  wprintf(L"\n");
 }
 
 
 void menu_dieta(void) { // Feito por Luís
-  printf("\n");
+  wprintf(L"\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t///                             Módulo Dieta                               ///\n");
@@ -101,13 +104,14 @@ void menu_dieta(void) { // Feito por Luís
   wprintf(L"\t///                         [5] Adicionar nova dieta                       ///\n");  
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  printf("\n"); 
-  printf("\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
+  wprintf(L"\n"); 
+  wprintf(L"\tTecle <ENTER> para prosseguir...\n"); // Sem interação no momento
+  wprintf(L"\n");
 }
 
 
 void menu_agendamento(void) { // Feito por Luís
-  printf("\n");
+  wprintf(L"\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t///                         Módulo Agendamento                             ///\n");
@@ -120,13 +124,14 @@ void menu_agendamento(void) { // Feito por Luís
   wprintf(L"\t///                         [4] Excluir consulta                           ///\n");  
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  printf("\n"); 
-  printf("\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
+  wprintf(L"\n"); 
+  wprintf(L"\tTecle <ENTER> para prosseguir...\n"); // Sem interação no momento
+  wprintf(L"\n");
 }
 
 
 void menu_profissional(void) { // Feito por Luís
-  printf("\n");
+  wprintf(L"\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t///                            Módulo Profissional                         ///\n");
@@ -139,13 +144,14 @@ void menu_profissional(void) { // Feito por Luís
   wprintf(L"\t///                         [4] Excluir profissional                       ///\n");  
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  printf("\n"); 
-  printf("\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
+  wprintf(L"\n"); 
+  wprintf(L"\tTecle <ENTER> para prosseguir...\n"); // Sem interação no momento
+  wprintf(L"\n");
 }
 
 
 void menu_relatorio(void) { // Feito por Diêgo
-  printf("\n");
+  wprintf(L"\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t///                            Módulo Relatório                            ///\n");
@@ -159,13 +165,14 @@ void menu_relatorio(void) { // Feito por Diêgo
   wprintf(L"\t///                         [5] Financeiro                                 ///\n");  
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  printf("\n"); 
-  printf("\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
+  wprintf(L"\n"); 
+  wprintf(L"\tTecle <ENTER> para prosseguir...\n"); // Sem interação no momento
+  wprintf(L"\n");
 }
 
 
 void menu_info(void) { // Feito por Luís
-  printf("\n");
+  wprintf(L"\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t///                            Módulo informações                          ///\n");
@@ -173,12 +180,14 @@ void menu_info(void) { // Feito por Luís
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t///                    Autores: Luís Henrique/Diêgo Axel                   ///\n");
-  wprintf(L"\t///                    G-mail: luis27marciano/                             ///\n"); 
+  wprintf(L"\t///                    G-mail: luis27marciano/diegoaxelbsr@gmail.com       ///\n"); 
+  wprintf(L"\t///                    GitHub: Luis27h/Diego-Axel                          ///\n");
   wprintf(L"\t///                    Licença: MIT License                                ///\n"); 
   wprintf(L"\t///                    Orientador: Flavius Gorgônio                        ///\n");
   wprintf(L"\t///                    Instituto: UFRN - Ceres/Caicó - BSI                 ///\n");  
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  printf("\n"); 
-  printf("\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
+  wprintf(L"\n"); 
+  wprintf(L"\tTecle <ENTER> para prosseguir...\n"); // Sem interação no momento
+  wprintf(L"\n");
 }
