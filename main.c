@@ -43,6 +43,9 @@ void menu_principal(void) { // Feito por Luís e Diêgo
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t///             SIG Diet-Plan Sistema de Planejamento de Dietas            ///\n");
+  wprintf(L"\t///                              Bem vindo(a)                              ///\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t///                         [1] Módulo Cliente                             ///\n");
   wprintf(L"\t///                         [2] Módulo Dietas                              ///\n"); 
@@ -179,12 +182,12 @@ void menu_info(void) { // Feito por Luís
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///                    Autores: Luís Henrique/Diêgo Axel                   ///\n");
-  wprintf(L"\t///                    G-mail: luis27marciano/diegoaxelbsr@gmail.com       ///\n"); 
-  wprintf(L"\t///                    GitHub: Luis27h/Diego-Axel                          ///\n");
-  wprintf(L"\t///                    Licença: MIT License                                ///\n"); 
-  wprintf(L"\t///                    Orientador: Flavius Gorgônio                        ///\n");
-  wprintf(L"\t///                    Instituto: UFRN - Ceres/Caicó - BSI                 ///\n");  
+  wprintf(L"\t///                  Autores: Luís Henrique/Diêgo Axel                     ///\n");
+  wprintf(L"\t///                  G-mail: luis27marciano/diegoaxelbsr@gmail.com         ///\n"); 
+  wprintf(L"\t///                  GitHub: Luis27h/Diego-Axel                            ///\n");
+  wprintf(L"\t///                  Licença: MIT License                                  ///\n"); 
+  wprintf(L"\t///                  Orientador: Flavius Gorgônio                          ///\n");
+  wprintf(L"\t///                  Instituto: UFRN - Ceres/Caicó - BSI                   ///\n");  
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\n"); 
