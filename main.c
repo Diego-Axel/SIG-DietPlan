@@ -16,16 +16,16 @@
 
 
 // Assinatura das funções
-void menu_principal(void);
-void menu_cliente(void);
-void menu_dieta(void);
-void menu_agendamento(void);
-void menu_profissional(void);
-void menu_relatorio(void);
-void menu_info(void);
+void menu_principal (void);
+void menu_cliente (void);
+void menu_dieta (void);
+void menu_agendamento (void);
+void menu_profissional (void);
+void menu_relatorio (void);
+void menu_info (void);
 
 // Função principal
-int main(void) {
+int main (void) {
   setlocale(LC_CTYPE , "");
   menu_principal();
   menu_cliente();
@@ -38,7 +38,7 @@ int main(void) {
 }
 
 
-void menu_principal(void) { // Feito por Luís e Diêgo 
+void menu_principal (void) { // Feito por Luís e Diêgo 
   wprintf(L"\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -61,7 +61,7 @@ void menu_principal(void) { // Feito por Luís e Diêgo
 } 
 
 
-void menu_cliente(void) { // Feito por Diêgo
+void menu_cliente (void) { // Feito por Diêgo
   wprintf(L"\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -81,7 +81,7 @@ void menu_cliente(void) { // Feito por Diêgo
 }
 
 
-void menu_dieta(void) { // Feito por Luís
+void menu_dieta (void) { // Feito por Luís
   wprintf(L"\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -102,7 +102,7 @@ void menu_dieta(void) { // Feito por Luís
 }
 
 
-void menu_agendamento(void) { // Feito por Luís
+void menu_agendamento (void) { // Feito por Luís
   wprintf(L"\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -122,7 +122,7 @@ void menu_agendamento(void) { // Feito por Luís
 }
 
 
-void menu_profissional(void) { // Feito por Luís
+void menu_profissional (void) { // Feito por Luís
   wprintf(L"\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -142,7 +142,7 @@ void menu_profissional(void) { // Feito por Luís
 }
 
 
-void menu_relatorio(void) { // Feito por Diêgo
+void menu_relatorio (void) { // Feito por Diêgo
   wprintf(L"\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -163,7 +163,7 @@ void menu_relatorio(void) { // Feito por Diêgo
 }
 
 
-void menu_info(void) { // Feito por Luís
+void menu_info (void) { // Feito por Luís
   wprintf(L"\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
