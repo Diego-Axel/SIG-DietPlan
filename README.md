@@ -77,7 +77,7 @@ Esse projeto foi desenvolvido com o seguinte editor de código:
 - Diêgo Axel
 - Luís Henrique
 
-## Contate-nós
+## Contate-nos
 
 ### Diêgo Axel ->
 - GitHub: [Diego-Axel](https://github.com/Diego-Axel)
