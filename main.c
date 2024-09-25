@@ -24,6 +24,7 @@ void menu_agendamento(void);
 void menu_profissional(void);
 void menu_relatorio(void);
 void menu_info(void);
+void menu_dev(void);
 
 
 // Função principal
@@ -36,6 +37,7 @@ int main(void) {
   menu_profissional();
   menu_relatorio();
   menu_info();
+  menu_dev();
   return 0;
 }
 
@@ -185,15 +187,43 @@ void menu_info(void) { // Feito por Luís
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///                  Autores: Luís Henrique/Diêgo Axel                     ///\n");
-  wprintf(L"\t///                  G-mail: luis27marciano/diegoaxelbsr@gmail.com         ///\n"); 
-  wprintf(L"\t///                  GitHub: Luis27h/Diego-Axel                            ///\n");
-  wprintf(L"\t///                  Licença: MIT License                                  ///\n"); 
-  wprintf(L"\t///                  Orientador: Flavius Gorgônio                          ///\n");
-  wprintf(L"\t///                  Instituto: UFRN - Ceres/Caicó - BSI                   ///\n");  
+  wprintf(L"\t///                             Sobre o Programa:                          ///\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t/// SIG-DietPlan, é um software próprio para você que é um profissional na ///\n"); 
+  wprintf(L"\t/// área da saúde, especialmente nutricionista, que quer ter um controle   ///\n");
+  wprintf(L"\t/// preciso e bastante eficiente em sua clínica. SIG-DietPlan permite você ///\n"); 
+  wprintf(L"\t/// além de ter todo o controle de gestão sobre o seu negócio, faz com que ///\n");
+  wprintf(L"\t/// você(profissional) possa cadastrar e acompanhar uma dieta completa dos ///\n");  
+  wprintf(L"\t/// seus clientes. SIG-DietPlan, a solução para os seus problemas.         ///\n"); 
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\n"); 
   wprintf(L"\tTecle <ENTER> para prosseguir...\n"); // Sem interação no momento
   wprintf(L"\n");
 }
+
+
+void menu_dev(void) { // Feito por Diêgo
+  wprintf(L"\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                          Módulo Desenvolvedores                        ///\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                             Desenvolvedores:                           ///\n");
+  wprintf(L"\t///      Luís Henrique                                      Diêgo Axel     ///\n");
+  wprintf(L"\t///------------------------------------------------------------------------///\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                                 GitHub:                                ///\n");
+  wprintf(L"\t///         Luis27h                                         Diego-Axel     ///\n");
+  wprintf(L"\t///------------------------------------------------------------------------///\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                             Entre Em Contato                           ///\n");
+  wprintf(L"\t///      luis27marciano                           diegoaxelbsr@gmail.com   ///\n");
+  wprintf(L"\t///                                                   (84) 99977-4459      ///\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+}
+
+// Falta terminar esse moódulo
