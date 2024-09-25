@@ -22,11 +22,12 @@ void menu_cliente(void);
 void menu_dieta(void);
 void menu_agendamento(void);
 void menu_profissional(void);
-void menu_relatorio (void);
+void menu_relatorio(void);
 void menu_info(void);
 
+
 // Função principal
-int main (void) {
+int main(void) {
   setlocale(LC_CTYPE , "");
   menu_principal();
   menu_cliente();
