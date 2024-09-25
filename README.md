@@ -82,6 +82,7 @@ Esse projeto foi desenvolvido com o seguinte editor de código:
 ### Diêgo Axel ->
 - GitHub: [Diego-Axel](https://github.com/Diego-Axel)
 - Linkedin: [Diêgo Axel](https://www.linkedin.com/in/di%C3%AAgo-axel-1684452b5/)
+- Instargam: https://www.instagram.com/diegoaxelbsr/
 - Portifólio: https://diego-axel.github.io/
 - E-mail: diegoaxelbsr@gmail.com
 - Celular: (84) 99977-4459
@@ -89,6 +90,7 @@ Esse projeto foi desenvolvido com o seguinte editor de código:
 ### Luís Henrique ->
 - Github: [Luis27h](https://github.com/Luis27h)
 - Linkedin:
+- Instargam: 
 - Portifólio:
 - E-mail:
 - Celular:
