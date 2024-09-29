@@ -89,11 +89,11 @@ Esse projeto foi desenvolvido com o seguinte editor de código:
 
 ### Luís Henrique ->
 - Github: [Luis27h](https://github.com/Luis27h)
-- Linkedin:
-- Instargam: 
-- Portifólio:
-- E-mail:
-- Celular:
+- Linkedin: [Luís Henrique](https://www.linkedin.com/in/luis-henrique-de-almeida-marciano-026b1632b/)
+- Instargam: https://www.instagram.com/luis_h_27/
+- Portifólio: 
+- E-mail: luis27marciano@mail.com
+- Celular: (84) 99627-4880
 
 ##  Sobre
 
