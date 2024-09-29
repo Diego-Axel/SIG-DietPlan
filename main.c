@@ -228,8 +228,8 @@ void menu_dev(void) { // Feito por Diêgo
   wprintf(L"\t///------------------------------------------------------------------------///\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t///                            Entre Em Contato:                           ///\n");
-  wprintf(L"\t///      luis27marciano                           diegoaxelbsr@gmail.com   ///\n");
-  wprintf(L"\t///                                                   (84) 99977-4459      ///\n");
+  wprintf(L"\t///  luis27marciano @gmail.com                    diegoaxelbsr@gmail.com   ///\n");
+  wprintf(L"\t///       (84) 99627-4880                             (84) 99977-4459      ///\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
 }
