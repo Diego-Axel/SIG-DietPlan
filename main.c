@@ -58,6 +58,7 @@ void menu_principal(void) { // Feito por Luís e Diêgo
   wprintf(L"\t///                         [5] Módulo Relatório                           ///\n"); 
   wprintf(L"\t///                         [6] Módulo Informações                         ///\n");
   wprintf(L"\t///                         [7] Módulo Desenvolvedores                     ///\n");
+  wprintf(L"\t///                         [0] Encerrar Programa                          ///\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\n"); 
@@ -77,7 +78,8 @@ void menu_cliente(void) { // Feito por Diêgo
   wprintf(L"\t///                         [1] Cadastrar cliente                          ///\n");
   wprintf(L"\t///                         [2] Exibir cliente                             ///\n"); 
   wprintf(L"\t///                         [3] Alterar dados do cliente                   ///\n"); 
-  wprintf(L"\t///                         [4] Excluir cliente                            ///\n");  
+  wprintf(L"\t///                         [4] Excluir cliente                            ///\n");
+  wprintf(L"\t///                         [0] Retornar ao Menu Principal                 ///\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\n"); 
@@ -98,7 +100,8 @@ void menu_dieta(void) { // Feito por Luís
   wprintf(L"\t///                         [2] Dieta para hipertrófia                     ///\n"); 
   wprintf(L"\t///                         [3] Dieta para perda de peso                   ///\n"); 
   wprintf(L"\t///                         [4] Reavaliação                                ///\n");
-  wprintf(L"\t///                         [5] Adicionar nova dieta                       ///\n");  
+  wprintf(L"\t///                         [5] Adicionar nova dieta                       ///\n");
+  wprintf(L"\t///                         [0] Retornar ao Menu Principal                 ///\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\n"); 
@@ -118,7 +121,8 @@ void menu_agendamento(void) { // Feito por Luís
   wprintf(L"\t///                         [1] Agendar consulta                           ///\n");
   wprintf(L"\t///                         [2] Alterar consulta                           ///\n"); 
   wprintf(L"\t///                         [3] Exibir consulta                            ///\n"); 
-  wprintf(L"\t///                         [4] Excluir consulta                           ///\n");  
+  wprintf(L"\t///                         [4] Excluir consulta                           ///\n");
+  wprintf(L"\t///                         [0] Retornar ao Menu Principal                 ///\n"); 
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\n"); 
@@ -138,7 +142,8 @@ void menu_profissional(void) { // Feito por Luís
   wprintf(L"\t///                         [1] Cadastrar profissional                     ///\n");
   wprintf(L"\t///                         [2] Exibir profissional                        ///\n"); 
   wprintf(L"\t///                         [3] Alterar dados do profissional              ///\n"); 
-  wprintf(L"\t///                         [4] Excluir profissional                       ///\n");  
+  wprintf(L"\t///                         [4] Excluir profissional                       ///\n");
+  wprintf(L"\t///                         [0] Retornar ao Menu Principal                 ///\n");  
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\n"); 
@@ -159,7 +164,8 @@ void menu_relatorio(void) { // Feito por Diêgo
   wprintf(L"\t///                         [2] Histórico do cliente                       ///\n"); 
   wprintf(L"\t///                         [3] Profisionais cadastrados                   ///\n"); 
   wprintf(L"\t///                         [4] Histórico do profissional                  ///\n");
-  wprintf(L"\t///                         [5] Financeiro                                 ///\n");  
+  wprintf(L"\t///                         [5] Financeiro                                 ///\n");
+  wprintf(L"\t///                         [0] Retornar ao Menu Principal                 ///\n");  
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\n"); 
