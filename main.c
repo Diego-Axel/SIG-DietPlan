@@ -19,6 +19,7 @@
 // Assinatura das funções
 void menu_principal(void);
 void menu_cliente(void);
+void cadastrar_cliente(void);
 void menu_dieta(void);
 void menu_agendamento(void);
 void menu_profissional(void);
@@ -30,6 +31,7 @@ void menu_dev(void);
 // Função principal
 int main(void) {
   setlocale(LC_CTYPE , "");
+  cadastrar_cliente();
   menu_principal();
   menu_cliente();
   menu_dieta();
@@ -84,6 +86,39 @@ void menu_cliente(void) { // Feito por Diêgo
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\n"); 
   wprintf(L"\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
+  getchar();
+}
+
+
+void cadastrar_cliente(void) {
+
+  // Variavéis
+  char nome[40];
+  char email[30];
+  char telefone[13];
+  char cpf[13];
+
+  system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                            Cadastar Cliente                            ///\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\n");
+  wprintf(L"\t//// Digite seu nome: ");
+  scanf("%[A-Z a-z]", nome);
+  getchar();
+  wprintf(L"\n");
+  wprintf(L"\t//// Digite seu e-mail: ");
+  scanf("%[A-Z a-z@.0-9]", email);
+  getchar();
+  wprintf(L"\n");
+  wprintf(L"\t//// Digite seu telefone: ");
+  scanf("%[0-9 ()-]", telefone);
+  getchar();
+  wprintf(L"\n");
+  wprintf(L"\t//// Digite seu cpf: ");
+  scanf("%[0-9.-]", cpf);
   getchar();
 }
 
