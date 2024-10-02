@@ -31,7 +31,6 @@ void menu_dev(void);
 // Função principal
 int main(void) {
   setlocale(LC_CTYPE , "");
-  cadastrar_cliente();
   menu_principal();
   menu_cliente();
   menu_dieta();
