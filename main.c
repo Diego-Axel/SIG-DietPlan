@@ -20,6 +20,7 @@
 void menu_principal(void);
 void menu_cliente(void);
 void cadastrar_cliente(void);
+void exibir_cliente(void);
 void menu_dieta(void);
 void menu_agendamento(void);
 void menu_profissional(void);
@@ -124,6 +125,50 @@ void cadastrar_cliente(void) {
   wprintf(L"\n");
   wprintf(L"\tTecle <ENTER> para prosseguir... ");
   getchar();
+}
+
+
+void exibir_cliente(void) {
+  char continuar;
+  char cpf[13];
+  
+  while (continuar != '0') {
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t///                             Exibir Cliente                             ///\n");
+    wprintf(L"\t///                              [0] Retornar                              ///\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\n");
+    wprintf(L"\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
+    scanf("%c", &continuar);
+    getchar();
+    if (continuar == '0') {
+      break;
+    }
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t///                             Exibir Cliente                             ///\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\n");
+    wprintf(L"\t//// Digite o CPF do Cliente a ser exibido: ");
+    scanf("%[0-9.-]", cpf);
+    getchar();
+    wprintf(L"\n");
+    wprintf(L"\t//// Nome: \n");
+    wprintf(L"\n");
+    wprintf(L"\t//// E-mail: \n");
+    wprintf(L"\n");
+    wprintf(L"\t//// Telefone: \n");
+    wprintf(L"\n");
+    wprintf(L"\t//// CPF: \n");
+    wprintf(L"\n");
+    wprintf(L"\ttecle <ENTER> para continuar: ");
+    getchar();
+  }
 }
 
 
