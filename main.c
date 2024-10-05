@@ -28,7 +28,7 @@ void menu_info(void);
 void menu_dev(void);
 
 
-// Função principal
+// Programa Principal
 int main(void) {
   setlocale(LC_CTYPE , "");
   menu_principal();
@@ -43,7 +43,7 @@ int main(void) {
 }
 
 
-void menu_principal(void) { // Feito por Luís e Diêgo 
+void menu_principal(void) {
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -68,7 +68,7 @@ void menu_principal(void) { // Feito por Luís e Diêgo
 } 
 
 
-void menu_cliente(void) { // Feito por Diêgo
+void menu_cliente(void) {
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -119,10 +119,15 @@ void cadastrar_cliente(void) {
   wprintf(L"\t//// Digite seu cpf: ");
   scanf("%[0-9.-]", cpf);
   getchar();
+  wprintf(L"\n");
+  wprintf(L"\t//// Cliente cadastrado com sucesso!");
+  wprintf(L"\n");
+  wprintf(L"\tTecle <ENTER> para prosseguir... ");
+  getchar();
 }
 
 
-void menu_dieta(void) { // Feito por Luís
+void menu_dieta(void) {
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -144,7 +149,7 @@ void menu_dieta(void) { // Feito por Luís
 }
 
 
-void menu_agendamento(void) { // Feito por Luís
+void menu_agendamento(void) {
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -165,7 +170,7 @@ void menu_agendamento(void) { // Feito por Luís
 }
 
 
-void menu_profissional(void) { // Feito por Luís
+void menu_profissional(void) {
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -186,7 +191,7 @@ void menu_profissional(void) { // Feito por Luís
 }
 
 
-void menu_relatorio(void) { // Feito por Diêgo
+void menu_relatorio(void) {
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -208,7 +213,7 @@ void menu_relatorio(void) { // Feito por Diêgo
 }
 
 
-void menu_info(void) { // Feito por Luís
+void menu_info(void) {
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -251,7 +256,7 @@ void menu_info(void) { // Feito por Luís
 }
 
 
-void menu_dev(void) { // Feito por Diêgo
+void menu_dev(void) {
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
