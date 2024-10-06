@@ -75,7 +75,7 @@ void menu_cliente(void) {
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///                              Módulo Cliente                            ///\n");
+  wprintf(L"\t///                              Módulo cliente                            ///\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -103,7 +103,7 @@ void cadastrar_cliente(void) {
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///                            Cadastar Cliente                            ///\n");
+  wprintf(L"\t///                            Cadastar cliente                            ///\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\n");
@@ -138,7 +138,7 @@ void exibir_cliente(void) {
     system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
     wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
     wprintf(L"\t///                                                                        ///\n");
-    wprintf(L"\t///                             Exibir Cliente                             ///\n");
+    wprintf(L"\t///                             Exibir cliente                             ///\n");
     wprintf(L"\t///                              [0] Retornar                              ///\n");
     wprintf(L"\t///                                                                        ///\n");
     wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
@@ -152,7 +152,7 @@ void exibir_cliente(void) {
     system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
     wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
     wprintf(L"\t///                                                                        ///\n");
-    wprintf(L"\t///                             Exibir Cliente                             ///\n");
+    wprintf(L"\t///                             Exibir cliente                             ///\n");
     wprintf(L"\t///                                                                        ///\n");
     wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
     wprintf(L"\n");
@@ -178,7 +178,7 @@ void menu_dieta(void) {
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///                               Módulo Dieta                             ///\n");
+  wprintf(L"\t///                               Módulo dieta                             ///\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -200,7 +200,7 @@ void menu_agendamento(void) {
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///                            Módulo Agendamento                          ///\n");
+  wprintf(L"\t///                            Módulo agendamento                          ///\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -330,7 +330,7 @@ void menu_relatorio(void) {
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///                             Módulo Relatório                           ///\n");
+  wprintf(L"\t///                             Módulo relatório                           ///\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -367,7 +367,7 @@ void menu_info(void) {
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///                             Sobre o Programa:                          ///\n");
+  wprintf(L"\t///                             Sobre o programa:                          ///\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t/// SIG-DietPlan, é um software próprio para você que é um profissional na ///\n"); 
   wprintf(L"\t/// área da saúde, especialmente nutricionista, que quer ter um controle   ///\n");
@@ -395,7 +395,7 @@ void menu_dev(void) {
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///                          Módulo Desenvolvedores                        ///\n");
+  wprintf(L"\t///                          Módulo desenvolvedores                        ///\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -414,4 +414,4 @@ void menu_dev(void) {
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
 }
 
-// Falta terminar esse moódulo
+// Falta terminar esse módulo
