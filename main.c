@@ -18,15 +18,28 @@
 
 // Assinatura das funções
 void menu_principal(void);
+
+// Assinatura do cliente
 void menu_cliente(void);
 void cadastrar_cliente(void);
 void exibir_cliente(void);
+
+// Assinatura dieta
+void menu_dieta(void);
+
+// Assinatura agendamento
+void menu_agendamento(void);
+
+// Assinaturas do profissional
+void menu_profissional(void);
 void cadastrar_prof(void);
 void exibir_prof(void);
-void menu_dieta(void);
-void menu_agendamento(void);
-void menu_profissional(void);
+void excluir_prof(void);
+
+// Assinatura relatório
 void menu_relatorio(void);
+
+// Assinatura informações
 void menu_info(void);
 void menu_dev(void);
 
@@ -254,23 +267,23 @@ void cadastrar_prof(void) {
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\n");
-  wprintf(L"\t//// Digite seu nome: ");
+  wprintf(L"\t//// Digite o nome do profissional: ");
   scanf("%[A-Z a-z]", nome);
   getchar();
   wprintf(L"\n");
-  wprintf(L"\t//// Digite seu e-mail: ");
+  wprintf(L"\t//// Digite o e-mail: ");
   scanf("%[A-Z a-z@.0-9]", email);
   getchar();
   wprintf(L"\n");
-  wprintf(L"\t//// Digite seu telefone: ");
+  wprintf(L"\t//// Digite o telefone: ");
   scanf("%[0-9 ()-]", telefone);
   getchar();
   wprintf(L"\n");
-  wprintf(L"\t//// Digite seu cpf: ");
+  wprintf(L"\t//// Digite o cpf: ");
   scanf("%[0-9.-]", cpf);
   getchar();
   wprintf(L"\n");
-  wprintf(L"\t//// Digite seu CRN: ");
+  wprintf(L"\t//// Digite o CRN: ");
   scanf("%[0-9.-]", crn);
   wprintf(L"\n");
   wprintf(L"\t//// Profissional cadastrado com sucesso!");
@@ -324,6 +337,28 @@ void exibir_prof(void) {
     getchar();
   }
 }
+
+
+void excluir_prof(void) {
+
+  // Variáveis
+  char respprof;
+
+  system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                      Excluir dados do profissional                     ///\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\tDeseja excluir os dados do profissional selecionado? s/n");
+  scanf(" %c", &respprof);
+  if (respprof == 's') {
+    printf("\tDados do profissional excludos!\n");
+  } else { 
+    wprintf(L"\tTecle <ENTER> para continuar: \n");
+  }
+
+} 
 
 
 void menu_relatorio(void) {
