@@ -34,6 +34,7 @@ void menu_agendamento(void);
 void menu_profissional(void);
 void cadastrar_prof(void);
 void exibir_prof(void);
+void recad_prof(void);
 void excluir_prof(void);
 
 // Assinatura relatório
@@ -251,7 +252,7 @@ void menu_profissional(void) {
 }
 
 
-void cadastrar_prof(void) {
+void recad_prof(void) {
 
   // Variavéis
   char nome[40];
@@ -336,6 +337,61 @@ void exibir_prof(void) {
     wprintf(L"\ttecle <ENTER> para continuar: ");
     getchar();
   }
+}
+
+// Adaptado do Chatgpt
+void recadastrar_prof(void) {
+
+  // Variáveis
+  char nome[40];
+  char email[30];
+  char telefone[13];
+  char cpf[13];
+  char crn[10];
+
+  system("clear || cls"); // se for Linux use 'clear', se for Windows use 'cls'
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                        Recadastrar profissional                        ///\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\n");
+
+  // Simulação de busca de dados antigos (pode ser substituído por uma busca real em arquivo ou banco de dados)
+  wprintf(L"\t//// Dados antigos:\n");
+  wprintf(L"\tNome: João da Silva\n");
+  wprintf(L"\tEmail: joao.silva@email.com\n");
+  wprintf(L"\tTelefone: (11) 91234-5678\n");
+  wprintf(L"\tCPF: 123.456.789-00\n");
+  wprintf(L"\tCRN: 123456\n");
+  wprintf(L"\n");
+
+  // Solicitação de novos dados
+  wprintf(L"\t//// Digite o novo nome do profissional (ou pressione ENTER para manter o atual): ");
+  fgets(nome, sizeof(nome), stdin);
+  wprintf(L"\n");
+
+  wprintf(L"\t//// Digite o novo e-mail (ou pressione ENTER para manter o atual): ");
+  fgets(email, sizeof(email), stdin);
+  wprintf(L"\n");
+
+  wprintf(L"\t//// Digite o novo telefone (ou pressione ENTER para manter o atual): ");
+  fgets(telefone, sizeof(telefone), stdin);
+  wprintf(L"\n");
+
+  wprintf(L"\t//// Digite o novo CPF (ou pressione ENTER para manter o atual): ");
+  fgets(cpf, sizeof(cpf), stdin);
+  wprintf(L"\n");
+
+  wprintf(L"\t//// Digite o novo CRN (ou pressione ENTER para manter o atual): ");
+  fgets(crn, sizeof(crn), stdin);
+  wprintf(L"\n");
+
+  // Confirmar a operação de recadastramento
+  wprintf(L"\t//// Recadastramento realizado com sucesso!");
+  wprintf(L"\n");
+  wprintf(L"\tTecle <ENTER> para prosseguir... ");
+  getchar();
 }
 
 
