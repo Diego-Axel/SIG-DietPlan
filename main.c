@@ -21,6 +21,8 @@ void menu_principal(void);
 void menu_cliente(void);
 void cadastrar_cliente(void);
 void exibir_cliente(void);
+void cadastrar_prof(void);
+void exibir_prof(void);
 void menu_dieta(void);
 void menu_agendamento(void);
 void menu_profissional(void);
@@ -233,6 +235,94 @@ void menu_profissional(void) {
   wprintf(L"\n"); 
   wprintf(L"\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
   getchar();
+}
+
+
+void cadastrar_prof(void) {
+
+  // Variavéis
+  char nome[40];
+  char email[30];
+  char telefone[13];
+  char cpf[13];
+  char crn[10];
+
+  system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                            Cadastar profissional                       ///\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\n");
+  wprintf(L"\t//// Digite seu nome: ");
+  scanf("%[A-Z a-z]", nome);
+  getchar();
+  wprintf(L"\n");
+  wprintf(L"\t//// Digite seu e-mail: ");
+  scanf("%[A-Z a-z@.0-9]", email);
+  getchar();
+  wprintf(L"\n");
+  wprintf(L"\t//// Digite seu telefone: ");
+  scanf("%[0-9 ()-]", telefone);
+  getchar();
+  wprintf(L"\n");
+  wprintf(L"\t//// Digite seu cpf: ");
+  scanf("%[0-9.-]", cpf);
+  getchar();
+  wprintf(L"\n");
+  wprintf(L"\t//// Digite seu CRN: ");
+  scanf("%[0-9.-]", crn);
+  wprintf(L"\n");
+  wprintf(L"\t//// Profissional cadastrado com sucesso!");
+  wprintf(L"\n");
+  wprintf(L"\tTecle <ENTER> para prosseguir... ");
+  getchar();
+}
+
+
+void exibir_prof(void) {
+  char continuar;
+  char cpf[13];
+  
+  while (continuar != '0') {
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t///                          Exibir profissional                           ///\n");
+    wprintf(L"\t///                              [0] Retornar                              ///\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\n");
+    wprintf(L"\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
+    scanf("%c", &continuar);
+    getchar();
+    if (continuar == '0') {
+      break;
+    }
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t///                             Exibir profissional                        ///\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\n");
+    wprintf(L"\t//// Digite o CPF do profissional a ser exibido: ");
+    scanf("%[0-9.-]", cpf);
+    getchar();
+    wprintf(L"\n");
+    wprintf(L"\t//// Nome: \n");
+    wprintf(L"\n");
+    wprintf(L"\t//// E-mail: \n");
+    wprintf(L"\n");
+    wprintf(L"\t//// Telefone: \n");
+    wprintf(L"\n");
+    wprintf(L"\t//// CPF: \n");
+    wprintf(L"\n");
+    wprintf(L"\t//// CRN: \n");
+    wprintf(L"\n");
+    wprintf(L"\ttecle <ENTER> para continuar: ");
+    getchar();
+  }
 }
 
 
