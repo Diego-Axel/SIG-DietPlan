@@ -115,7 +115,6 @@ void cadastrar_cliente(void) {
   char email[30];
   char telefone[13];
   char cpf[13];
-  int ativo = 1; // Cliente Ativo -> true
 
 
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
@@ -195,7 +194,7 @@ void exibir_cliente(void) {
 void alterar_cliente(void) {
 
   // Variavéis
-  char resp[10];
+  char resp[15];
   char nome[40];
   char email[30];
   char telefone[13];
@@ -208,14 +207,14 @@ void alterar_cliente(void) {
   while (verificador) {
     wprintf(L"\t//// Digite o cpf do cliente ou Digite '0' para retornar: ");
     scanf("%d", &verificador);
-    int verificador = 0; // false
+    verificador = 0; // false
     if (cpf == "0") {
       return;
     } 
   }
 
   // Reiniciando a verificação
-  int verificador = 1; // true
+  verificador = 1; // true
   
   while (verificador) {
     system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
@@ -240,22 +239,26 @@ void alterar_cliente(void) {
     if ((resp == "Nome") || (resp == "NOME")) {
       wprintf(L"//// Digite o Nome do Cliente: ");
       scanf("%s", nome);
+      getchar();
     } 
     else if ((resp == "Email") || (resp == "E-mail") || (resp == "E-MAIL")) {
       wprintf(L"//// Digite o E-mail do Cliente: ");
       scanf("%s", email);
+      getchar();
     }
     else if ((resp == "Telefone") || (resp == "TELEFONE")) {
       wprintf(L"//// Digite o Telefone do Cliente: ");
       scanf("%s", telefone);
+      getchar();
     }
     else if ((resp == "cpf") || (resp == "CPF")) {
       wprintf(L"//// Digite o CPF do Cliente: ");
       scanf("%s", cpf);
+      getchar();
     }
     else if ((resp == "0")) {
       wprintf(L"//// Alteração Cancelada");
-      int verificador = 0; // false
+      verificador = 0; // false
     }
   }
   wprintf(L"\tTecle <ENTER> para prosseguir...");
