@@ -36,7 +36,7 @@ void menu_agendamento(void);
 void menu_profissional(void);
 void cadastrar_prof(void);
 void exibir_prof(void);
-void recad_prof(void);
+void recadastrar_prof(void);
 void excluir_prof(void);
 
 // Assinatura relatório
@@ -352,7 +352,7 @@ void menu_profissional(void) {
 }
 
 
-void recad_prof(void) {
+void cadastrar_prof(void) {
 
   // Variavéis
   char nome[40];
