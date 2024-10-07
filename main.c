@@ -201,12 +201,12 @@ void alterar_cliente(void) {
   char cpf[13];
 
   // Variavel Booleana
-  int verificador = 1; // true
+  int verificador = 1;
 
 
-  while (verificador) {
+  while (verificador == 1) {
     wprintf(L"\t//// Digite o cpf do cliente ou Digite '0' para retornar: ");
-    scanf("%d", &verificador);
+    scanf("%s", &cpf);
     verificador = 0; // false
     if (cpf == "0") {
       return;
@@ -214,9 +214,9 @@ void alterar_cliente(void) {
   }
 
   // Reiniciando a verificação
-  verificador = 1; // true
+  verificador = 1;
   
-  while (verificador) {
+  while (verificador == 1) {
     system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
     wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
     wprintf(L"\t///                                                                        ///\n");
@@ -258,7 +258,7 @@ void alterar_cliente(void) {
     }
     else if ((resp == "0")) {
       wprintf(L"//// Alteração Cancelada");
-      verificador = 0; // false
+      verificador = 0;
     }
   }
   wprintf(L"\tTecle <ENTER> para prosseguir...");
