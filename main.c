@@ -24,6 +24,7 @@ void menu_cliente(void);
 void cadastrar_cliente(void);
 void exibir_cliente(void);
 void alterar_cliente(void);
+void excluir_cliente(void);
 
 // Assinatura dieta
 void menu_dieta(void);
@@ -239,7 +240,7 @@ void alterar_cliente(void) {
     if ((resp == "Nome") || (resp == "NOME")) {
       wprintf(L"//// Digite o Nome do Cliente: ");
       scanf("%s", nome);
-    }
+    } 
     else if ((resp == "Email") || (resp == "E-mail") || (resp == "E-MAIL")) {
       wprintf(L"//// Digite o E-mail do Cliente: ");
       scanf("%s", email);
@@ -259,6 +260,28 @@ void alterar_cliente(void) {
   }
   wprintf(L"\tTecle <ENTER> para prosseguir...");
   getchar();
+}
+
+
+void excluir_cliente(void) {
+
+    // Variáveis
+  char resp;
+
+  system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                        Excluir Dados do Cliente                        ///\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\tDeseja excluir os dados do Cliente selecionado (S/N) ");
+  scanf(" %c", &resp);
+  if ((resp == 's') || (resp == 'S')) {
+    printf("\tDados do profissional excludos!\n");
+  } 
+  else { 
+    wprintf(L"\tTecle <ENTER> para continuar: \n");
+  }
 }
 
 
