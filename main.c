@@ -23,6 +23,7 @@ void menu_principal(void);
 void menu_cliente(void);
 void cadastrar_cliente(void);
 void exibir_cliente(void);
+void alterar_cliente(void);
 
 // Assinatura dieta
 void menu_dieta(void);
@@ -113,6 +114,8 @@ void cadastrar_cliente(void) {
   char email[30];
   char telefone[13];
   char cpf[13];
+  int ativo = 1; // Cliente Ativo -> true
+
 
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
@@ -185,6 +188,77 @@ void exibir_cliente(void) {
     wprintf(L"\ttecle <ENTER> para continuar: ");
     getchar();
   }
+}
+
+
+void alterar_cliente(void) {
+
+  // Variavéis
+  char resp[10];
+  char nome[40];
+  char email[30];
+  char telefone[13];
+  char cpf[13];
+
+  // Variavel Booleana
+  int verificador = 1; // true
+
+
+  while (verificador) {
+    wprintf(L"\t//// Digite o cpf do cliente ou Digite '0' para retornar: ");
+    scanf("%d", &verificador);
+    int verificador = 0; // false
+    if (cpf == "0") {
+      return;
+    } 
+  }
+
+  // Reiniciando a verificação
+  int verificador = 1; // true
+  
+  while (verificador) {
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t///                        Alterar Dados do Cliente                        ///\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\n");
+    // Simulação de busca de dados antigos (pode ser substituído por uma busca real em arquivo ou banco de dados)
+    wprintf(L"\t//// Dados Atuais:\n");
+    wprintf(L"\n");
+    wprintf(L"\t//// Nome: João da Silva\n");
+    wprintf(L"\t//// Email: joao.silva@email.com\n");
+    wprintf(L"\t//// Telefone: (11) 91234-5678\n");
+    wprintf(L"\t//// CPF: 123.456.789-00\n");
+    wprintf(L"\n");
+    wprintf(L"\t//// Qual Dado deseja alterar (0 Para Cancelar)? ");
+    scanf("%s", resp);
+    getchar();
+    wprintf(L"\n");
+    if ((resp == "Nome") || (resp == "NOME")) {
+      wprintf(L"//// Digite o Nome do Cliente: ");
+      scanf("%s", nome);
+    }
+    else if ((resp == "Email") || (resp == "E-mail") || (resp == "E-MAIL")) {
+      wprintf(L"//// Digite o E-mail do Cliente: ");
+      scanf("%s", email);
+    }
+    else if ((resp == "Telefone") || (resp == "TELEFONE")) {
+      wprintf(L"//// Digite o Telefone do Cliente: ");
+      scanf("%s", telefone);
+    }
+    else if ((resp == "cpf") || (resp == "CPF")) {
+      wprintf(L"//// Digite o CPF do Cliente: ");
+      scanf("%s", cpf);
+    }
+    else if ((resp == "0")) {
+      wprintf(L"//// Alteração Cancelada");
+      int verificador = 0; // false
+    }
+  }
+  wprintf(L"\tTecle <ENTER> para prosseguir...");
+  getchar();
 }
 
 
