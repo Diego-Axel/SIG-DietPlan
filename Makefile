@@ -1,5 +1,5 @@
 
-OBJS = main.o
+OBJS = main.o \
 
 default: sigDiet
 
@@ -8,3 +8,4 @@ sigDiet: $(OBJS)
 
 main.o: main.c 
 	gcc -c main.c
+	
