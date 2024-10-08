@@ -17,10 +17,10 @@
 
 
 // Assinatura das funções
-void menu_principal(void);
+char menu_principal(void);
 
 // Assinatura do cliente
-void menu_cliente(void);
+char menu_cliente(void);
 void cadastrar_cliente(void);
 void exibir_cliente(void);
 void alterar_cliente(void);
@@ -50,8 +50,22 @@ void menu_dev(void);
 // Programa Principal
 int main(void) {
   setlocale(LC_CTYPE , "");
-  menu_principal();
-  menu_cliente();
+
+  // Variáveis para as opções
+  char op_principal;
+  char op_cliente;
+
+
+  do { 
+    op_principal = menu_principal();
+    if (op_principal == '1') {
+      do {
+        op_cliente = menu_cliente();
+      } while (op_cliente != '0');    
+    }  
+  } while (op_principal != '0');
+   
+
   menu_dieta();
   menu_agendamento();
   menu_profissional();
@@ -62,7 +76,10 @@ int main(void) {
 }
 
 
-void menu_principal(void) {
+char menu_principal(void) {
+
+  char op_principal;
+
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -82,12 +99,16 @@ void menu_principal(void) {
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\n"); 
-  wprintf(L"\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
-  getchar();
+  wprintf(L"\t//// Escolha uma opção: ");
+  scanf("%c", &op_principal);
+  return op_principal;
 } 
 
 
-void menu_cliente(void) {
+char menu_cliente(void) {
+
+  char op_cliente;
+
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -103,8 +124,9 @@ void menu_cliente(void) {
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\n"); 
-  wprintf(L"\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
-  getchar();
+  wprintf(L"\t//// Escolha uma opção: "); 
+  scanf("%c", &op_cliente);
+  return op_cliente;
 }
 
 
