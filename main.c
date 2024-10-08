@@ -61,17 +61,22 @@ int main(void) {
     if (op_principal == '1') {
       do {
         op_cliente = menu_cliente();
+        if (op_cliente == '1') {
+          cadastrar_cliente();
+        }
+        else if (op_cliente == '2') {
+          exibir_cliente();
+        }
+        else if (op_cliente == '3') {
+          alterar_cliente();
+        }
+        else if (op_cliente == '4') {
+          excluir_cliente();
+        }  
       } while (op_cliente != '0');    
     }  
   } while (op_principal != '0');
-   
 
-  menu_dieta();
-  menu_agendamento();
-  menu_profissional();
-  menu_relatorio();
-  menu_info();
-  menu_dev();
   return 0;
 }
 
