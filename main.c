@@ -27,7 +27,7 @@ void alterar_cliente(void);
 void excluir_cliente(void);
 
 // Assinatura dieta
-void menu_dieta(void);
+char menu_dieta(void);
 
 // Assinatura agendamento
 void menu_agendamento(void);
@@ -54,6 +54,7 @@ int main(void) {
   // Variáveis para as opções
   char op_principal;
   char op_cliente;
+  char op_dietas;
 
 
   do { 
@@ -74,7 +75,12 @@ int main(void) {
           excluir_cliente();
         }  
       } while (op_cliente != '0');    
-    }  
+    }
+    else if (op_principal == '2') {
+      do {
+        op_dietas = menu_dieta();
+      } while (op_dietas != '0'); 
+    }
   } while (op_principal != '0');
 
   return 0;
@@ -304,18 +310,24 @@ void excluir_cliente(void) {
   wprintf(L"\t///                        Excluir Dados do Cliente                        ///\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  wprintf(L"\tDeseja excluir os dados do Cliente selecionado (S/N) ");
+  wprintf(L"\tDeseja excluir os dados do Cliente selecionado (S/N) \n");
   scanf(" %c", &resp);
   if ((resp == 's') || (resp == 'S')) {
-    printf("\tDados do profissional excludos!\n");
+    wprintf(L"\tDados do profissional excludos!\n");
+    wprintf(L"\ttecle <ENTER> para continuar... ");
+    getchar();
   } 
   else { 
-    wprintf(L"\tTecle <ENTER> para continuar: \n");
+    wprintf(L"\tTecle <ENTER> para continuar... ");
+    getchar();
   }
 }
 
 
-void menu_dieta(void) {
+char menu_dieta(void) {
+
+  char op_dieta;
+
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -332,8 +344,9 @@ void menu_dieta(void) {
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\n"); 
-  wprintf(L"\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
-  getchar();
+  wprintf(L"\t//// Escolha uma opção: "); 
+  scanf("%c", &op_dieta);
+  return op_dieta;
 }
 
 
