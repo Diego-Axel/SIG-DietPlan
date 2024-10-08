@@ -226,75 +226,49 @@ void exibir_cliente(void) {
 
 void alterar_cliente(void) {
 
-  // Variavéis
-  char resp[15];
+  // Variáveis
   char nome[40];
   char email[30];
   char telefone[13];
   char cpf[13];
 
-  // Variavel Booleana
-  int verificador = 1;
+  system("clear || cls"); // se for Linux use 'clear', se for Windows use 'cls'
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                             Alterar Cliente                            ///\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\n");
 
+  // Simulação de busca de dados antigos (pode ser substituído por uma busca real em arquivo ou banco de dados)
+  wprintf(L"\t//// Dados antigos:\n");
+  wprintf(L"\tNome: João da Silva\n");
+  wprintf(L"\tEmail: joao.silva@email.com\n");
+  wprintf(L"\tTelefone: (11) 91234-5678\n");
+  wprintf(L"\tCPF: 123.456.789-00\n");
+  wprintf(L"\n");
 
-  while (verificador == 1) {
-    wprintf(L"\t//// Digite o cpf do cliente ou Digite '0' para retornar: ");
-    scanf("%s", &cpf);
-    verificador = 0; // false
-    if (cpf == "0") {
-      return;
-    } 
-  }
+  // Solicitação de novos dados
+  wprintf(L"\t//// Digite o novo nome do profissional (ou pressione ENTER para manter o atual): ");
+  fgets(nome, sizeof(nome), stdin);
+  wprintf(L"\n");
 
-  // Reiniciando a verificação
-  verificador = 1;
-  
-  while (verificador == 1) {
-    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-    wprintf(L"\t///                                                                        ///\n");
-    wprintf(L"\t///                        Alterar Dados do Cliente                        ///\n");
-    wprintf(L"\t///                                                                        ///\n");
-    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-    wprintf(L"\n");
-    // Simulação de busca de dados antigos (pode ser substituído por uma busca real em arquivo ou banco de dados)
-    wprintf(L"\t//// Dados Atuais:\n");
-    wprintf(L"\n");
-    wprintf(L"\t//// Nome: João da Silva\n");
-    wprintf(L"\t//// Email: joao.silva@email.com\n");
-    wprintf(L"\t//// Telefone: (11) 91234-5678\n");
-    wprintf(L"\t//// CPF: 123.456.789-00\n");
-    wprintf(L"\n");
-    wprintf(L"\t//// Qual Dado deseja alterar (0 Para Cancelar)? ");
-    scanf("%s", resp);
-    getchar();
-    wprintf(L"\n");
-    if ((resp == "Nome") || (resp == "NOME")) {
-      wprintf(L"//// Digite o Nome do Cliente: ");
-      scanf("%s", nome);
-      getchar();
-    } 
-    else if ((resp == "Email") || (resp == "E-mail") || (resp == "E-MAIL")) {
-      wprintf(L"//// Digite o E-mail do Cliente: ");
-      scanf("%s", email);
-      getchar();
-    }
-    else if ((resp == "Telefone") || (resp == "TELEFONE")) {
-      wprintf(L"//// Digite o Telefone do Cliente: ");
-      scanf("%s", telefone);
-      getchar();
-    }
-    else if ((resp == "cpf") || (resp == "CPF")) {
-      wprintf(L"//// Digite o CPF do Cliente: ");
-      scanf("%s", cpf);
-      getchar();
-    }
-    else if ((resp == "0")) {
-      wprintf(L"//// Alteração Cancelada");
-      verificador = 0;
-    }
-  }
-  wprintf(L"\tTecle <ENTER> para prosseguir...");
+  wprintf(L"\t//// Digite o novo e-mail (ou pressione ENTER para manter o atual): ");
+  fgets(email, sizeof(email), stdin);
+  wprintf(L"\n");
+
+  wprintf(L"\t//// Digite o novo telefone (ou pressione ENTER para manter o atual): ");
+  fgets(telefone, sizeof(telefone), stdin);
+  wprintf(L"\n");
+
+  wprintf(L"\t//// Digite o novo CPF (ou pressione ENTER para manter o atual): ");
+  fgets(cpf, sizeof(cpf), stdin);
+  wprintf(L"\n");
+
+  // Confirmar a operação de recadastramento
+  wprintf(L"\t//// Recadastramento realizado com sucesso!");
+  wprintf(L"\n");
+  wprintf(L"\tTecle <ENTER> para prosseguir... ");
   getchar();
 }
 
