@@ -322,6 +322,7 @@ char menu_dieta(void) {
   wprintf(L"\n"); 
   wprintf(L"\t//// Escolha uma opção: "); 
   scanf("%c", &op_dieta);
+  getchar();
   return op_dieta;
 }
 
