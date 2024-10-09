@@ -112,6 +112,7 @@ char menu_principal(void) {
   wprintf(L"\n"); 
   wprintf(L"\t//// Escolha uma opção: ");
   scanf("%c", &op_principal);
+  getchar();
   return op_principal;
 } 
 
@@ -137,6 +138,7 @@ char menu_cliente(void) {
   wprintf(L"\n"); 
   wprintf(L"\t//// Escolha uma opção: "); 
   scanf("%c", &op_cliente);
+  getchar();
   return op_cliente;
 }
 
