@@ -28,6 +28,7 @@ void excluir_cliente(void);
 
 // Assinatura dieta
 char menu_dieta(void);
+void avaliacao(void);
 
 // Assinatura agendamento
 void menu_agendamento(void);
@@ -324,6 +325,39 @@ char menu_dieta(void) {
   scanf("%c", &op_dieta);
   getchar();
   return op_dieta;
+}
+
+
+void avaliacao(void) {
+  
+  char continuar;
+  char cpf[13];
+  
+  do {
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t///                               Avaliação                                ///\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\n"); 
+    wprintf(L"\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
+    scanf("%c", &continuar);
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t///                               Avaliação                                ///\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\n"); 
+    wprintf(L"\t//// Digite o CPF do Cliente que deseja verificar: ");
+    scanf("%s", cpf);
+    getchar();
+    
+  } while (continuar != '0');
+  wprintf(L"\n"); 
+  wprintf(L"tecle <ENTER> para retornar... ");
+  getchar();
 }
 
 
