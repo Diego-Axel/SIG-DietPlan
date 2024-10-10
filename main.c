@@ -80,6 +80,10 @@ int main(void) {
     else if (op_principal == '2') {
       do {
         op_dietas = menu_dieta();
+        if (op_dietas == '1') {
+          avaliacao();
+        }
+        
       } while (op_dietas != '0'); 
     }
   } while (op_principal != '0');
@@ -343,6 +347,12 @@ void avaliacao(void) {
     wprintf(L"\n"); 
     wprintf(L"\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
     scanf("%c", &continuar);
+    getchar();
+    if (continuar == '0') {
+      wprintf(L"\n");
+      wprintf(L"\t-> Avaliação Cancelada <-\n");
+      break;
+    }
     system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
     wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
     wprintf(L"\t///                                                                        ///\n");
@@ -353,10 +363,20 @@ void avaliacao(void) {
     wprintf(L"\t//// Digite o CPF do Cliente que deseja verificar: ");
     scanf("%s", cpf);
     getchar();
-    
+    wprintf(L"\n"); 
+    wprintf(L"\t//// Nome do Cliente: \n");
+    wprintf(L"\n");
+    wprintf(L"\t//// Profissional Responsável: \n");
+    wprintf(L"\n");
+    wprintf(L"\t//// Tipo De Dieta: \n");
+    wprintf(L"\n");
+    wprintf(L"\t//// Andamento: \n");
+    wprintf(L"\n");
+    wprintf(L"\ttecle <ENTER> para continuar... ");
+    getchar();
   } while (continuar != '0');
   wprintf(L"\n"); 
-  wprintf(L"tecle <ENTER> para retornar... ");
+  wprintf(L"\ttecle <ENTER> para retornar... ");
   getchar();
 }
 
