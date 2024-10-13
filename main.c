@@ -32,6 +32,7 @@ void avaliacao(void);
 void dieta_para_hipertrofia(void);
 void dieta_para_perda_de_peso(void);
 void reavaliacao(void);
+void nova_dieta(void);
 
 // Assinatura agendamento
 char menu_agendamento(void);
@@ -96,6 +97,9 @@ int main(void) {
         }
         else if (op_dietas == '4') {
           reavaliacao();
+        }
+        else if (op_dietas == '5') {
+          nova_dieta();
         }
       } while (op_dietas != '0'); 
     }
@@ -519,6 +523,46 @@ void reavaliacao(void) {
     wprintf(L"\t//// Digite o CRN do Profissional que sera responsável pela dieta: ");
     scanf("%[0-9.-]", crn);
     getchar();
+  } while (continuar != '0');
+  wprintf(L"\n");
+  wprintf(L"\ttecle <ENTER> para continuar... ");
+  getchar();
+}
+
+
+void nova_dieta(void) {
+
+  char nome_dieta[13];
+  char continuar;
+
+
+  do {
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t///                           Adicionar Nova Dieta                         ///\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\n");
+    wprintf(L"\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
+    scanf("%c", &continuar);
+    getchar();
+    if (continuar == '0') {
+      wprintf(L"\n");
+      wprintf(L"\t-> Inclusão de Nova Dieta Cancelada <-\n");
+      break;
+    }
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t///                           Adicionar Nova Dieta                         ///\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\n");
+    wprintf(L"\t//// Digite o nome da nova dieta que você deseja adicionar: ");
+    scanf("%s", nome_dieta);
+    getchar();
+    wprintf(L"\n");
   } while (continuar != '0');
   wprintf(L"\n");
   wprintf(L"\ttecle <ENTER> para continuar... ");
