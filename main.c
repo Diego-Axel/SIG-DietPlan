@@ -84,7 +84,9 @@ int main(void) {
         if (op_dietas == '1') {
           avaliacao();
         }
-        
+        else if (op_dietas == '2') {
+          dieta_para_hipertrofia();
+        }
       } while (op_dietas != '0'); 
     }
   } while (op_principal != '0');
@@ -384,6 +386,26 @@ void avaliacao(void) {
 
 void dieta_para_hipertrofia(void) {
 
+  char cpf[13];
+  char crn[10];
+
+  system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t///                         Dieta Para Hipertrofia                         ///\n");
+  wprintf(L"\t///                                                                        ///\n");
+  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\n");
+  wprintf(L"\t//// Digite o CPF do cliente no qual você deseja atrelar essa dieta: ");
+  scanf("%[0-9.-]", cpf);
+  getchar();
+  wprintf(L"\n");
+  wprintf(L"\t//// Digite o CRN do Profissional que sera responsável pela dieta: ");
+  scanf("%[0-9.-]", crn);
+  getchar();
+  wprintf(L"\n");
+  wprintf(L"\ttecle <ENTER> para continuar... ");
+  getchar();
 }
 
 
@@ -681,5 +703,3 @@ void menu_dev(void) {
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
 }
-
-// versão 0.3
