@@ -36,6 +36,7 @@ void nova_dieta(void);
 
 // Assinatura agendamento
 char menu_agendamento(void);
+void agendar(void);
 void exibir_agendamento(void);
 void excluir_agendamento(void);
 
