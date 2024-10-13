@@ -29,6 +29,7 @@ void excluir_cliente(void);
 // Assinatura dieta
 char menu_dieta(void);
 void avaliacao(void);
+void dieta_para_hipertrofia(void);
 
 // Assinatura agendamento
 void menu_agendamento(void);
@@ -361,7 +362,7 @@ void avaliacao(void) {
     wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
     wprintf(L"\n"); 
     wprintf(L"\t//// Digite o CPF do Cliente que deseja verificar: ");
-    scanf("%s", cpf);
+    scanf("%[0-9.-]", cpf);
     getchar();
     wprintf(L"\n"); 
     wprintf(L"\t//// Nome do Cliente: \n");
@@ -378,6 +379,11 @@ void avaliacao(void) {
   wprintf(L"\n"); 
   wprintf(L"\ttecle <ENTER> para retornar... ");
   getchar();
+}
+
+
+void dieta_para_hipertrofia(void) {
+
 }
 
 
