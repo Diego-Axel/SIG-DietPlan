@@ -62,6 +62,7 @@ int main(void) {
   char op_principal;
   char op_cliente;
   char op_dietas;
+  char op_agendar;
 
 
   do { 
@@ -102,6 +103,20 @@ int main(void) {
           nova_dieta();
         }
       } while (op_dietas != '0'); 
+    }
+    else if (op_principal == '3') {
+      do {
+        op_agendar = menu_agendamento();
+        if (op_agendar == '1') {
+          agendar();
+        }
+        else if (op_agendar == '2')  {
+          exibir_agendamento();
+        }
+        else if (op_agendar == '3') {
+          excluir_agendamento();
+        }
+      } while (op_agendar != '0');
     }
   } while (op_principal != '0');
 
@@ -582,9 +597,8 @@ char menu_agendamento(void) {
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t///                         [1] Agendar consulta                           ///\n");
-  wprintf(L"\t///                         [2] Alterar consulta                           ///\n"); 
-  wprintf(L"\t///                         [3] Exibir consulta                            ///\n"); 
-  wprintf(L"\t///                         [4] Excluir consulta                           ///\n");
+  wprintf(L"\t///                         [2] Exibir consulta                            ///\n"); 
+  wprintf(L"\t///                         [3] Excluir consulta                           ///\n");
   wprintf(L"\t///                         [0] Retornar ao Menu Principal                 ///\n"); 
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
