@@ -31,6 +31,7 @@ char menu_dieta(void);
 void avaliacao(void);
 void dieta_para_hipertrofia(void);
 void dieta_para_perda_de_peso(void);
+void reavaliacao(void);
 
 // Assinatura agendamento
 char menu_agendamento(void);
@@ -92,6 +93,9 @@ int main(void) {
         }
         else if (op_dietas == '3') {
           dieta_para_perda_de_peso();
+        }
+        else if (op_dietas == '4') {
+          reavaliacao();
         }
       } while (op_dietas != '0'); 
     }
@@ -465,6 +469,50 @@ void dieta_para_perda_de_peso(void) {
     wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
     wprintf(L"\n");
     wprintf(L"\t//// Digite o CPF do cliente no qual você deseja atrelar essa dieta: ");
+    scanf("%[0-9.-]", cpf);
+    getchar();
+    wprintf(L"\n");
+    wprintf(L"\t//// Digite o CRN do Profissional que sera responsável pela dieta: ");
+    scanf("%[0-9.-]", crn);
+    getchar();
+  } while (continuar != '0');
+  wprintf(L"\n");
+  wprintf(L"\ttecle <ENTER> para continuar... ");
+  getchar();
+}
+
+
+void reavaliacao(void) {
+
+  char cpf[13];
+  char crn[10];
+  char continuar;
+
+
+  do {
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t///                               Reavaliação                              ///\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\n");
+    wprintf(L"\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
+    scanf("%c", &continuar);
+    getchar();
+    if (continuar == '0') {
+      wprintf(L"\n");
+      wprintf(L"\t-> Reavaliação Cancelada <-\n");
+      break;
+    }
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t///                               Reavaliação                              ///\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\n");
+    wprintf(L"\t//// Digite o CPF do cliente no qual você deseja fazer a reavaliação: ");
     scanf("%[0-9.-]", cpf);
     getchar();
     wprintf(L"\n");
