@@ -975,10 +975,7 @@ char menu_relatorio(void) {
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t///                         [1] Clientes cadastrados                       ///\n");
-  wprintf(L"\t///                         [2] Histórico do cliente                       ///\n"); 
-  wprintf(L"\t///                         [3] Profisionais cadastrados                   ///\n"); 
-  wprintf(L"\t///                         [4] Histórico do profissional                  ///\n");
-  wprintf(L"\t///                         [5] Financeiro                                 ///\n");
+  wprintf(L"\t///                         [2] Profisionais cadastrados                   ///\n"); 
   wprintf(L"\t///                         [0] Retornar ao Menu Principal                 ///\n");  
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
