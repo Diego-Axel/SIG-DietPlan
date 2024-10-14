@@ -41,7 +41,7 @@ void exibir_agendamento(void);
 void excluir_agendamento(void);
 
 // Assinaturas do profissional
-void menu_profissional(void);
+char menu_profissional(void);
 void cadastrar_prof(void);
 void exibir_prof(void);
 void recadastrar_prof(void);
@@ -64,6 +64,7 @@ int main(void) {
   char op_cliente;
   char op_dietas;
   char op_agendar;
+  char op_profissional;
 
 
   do { 
@@ -118,6 +119,23 @@ int main(void) {
           excluir_agendamento();
         }
       } while (op_agendar != '0');
+    }
+    else if (op_principal == '4') {
+      do {
+        op_profissional = menu_profissional();
+        if (op_profissional == '1') {
+          cadastrar_prof();
+        }
+        else if (op_profissional == '2') {
+          exibir_prof();
+        }
+        else if (op_profissional == '3') {
+          recadastrar_prof();
+        }
+        else if (op_profissional == '4') {
+          excluir_prof();
+        }
+      } while (op_profissional != '0');
     }
   } while (op_principal != '0');
 
@@ -742,7 +760,9 @@ void excluir_agendamento(void) {
 }
 
 
-void menu_profissional(void) {
+char menu_profissional(void) {
+  char op_profissional;
+
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -758,8 +778,11 @@ void menu_profissional(void) {
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\n"); 
-  wprintf(L"\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
+  wprintf(L"\tEscolha uma opção: ");
+  scanf(" %c", &op_profissional);
   getchar();
+  
+  return op_profissional;
 }
 
 
