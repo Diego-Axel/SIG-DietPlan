@@ -48,7 +48,7 @@ void recadastrar_prof(void);
 void excluir_prof(void);
 
 // Assinatura relatório
-void menu_relatorio(void);
+char menu_relatorio(void);
 
 // Assinatura informações
 void menu_info(void);
@@ -65,6 +65,7 @@ int main(void) {
   char op_dietas;
   char op_agendar;
   char op_profissional;
+  char op_relatorio;
 
 
   do { 
@@ -137,8 +138,18 @@ int main(void) {
         }
       } while (op_profissional != '0');
     }
+    else if (op_principal == '5') {
+      do {
+        op_relatorio = menu_relatorio();
+      } while (op_relatorio != '0');   
+    }
+    else if (op_principal == '6') {
+      menu_info();
+    }
+    else if (op_principal == '7') {
+      menu_dev();
+    }
   } while (op_principal != '0');
-
   return 0;
 }
 
@@ -952,7 +963,10 @@ void excluir_prof(void) {
 } 
 
 
-void menu_relatorio(void) {
+char menu_relatorio(void) {
+
+  char op_relatorio;
+
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\t///                                                                        ///\n");
@@ -969,8 +983,10 @@ void menu_relatorio(void) {
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\n"); 
-  wprintf(L"\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
+  wprintf(L"\t//// Escolha uma opção: "); 
+  scanf("%c", &op_relatorio);
   getchar();
+  return op_relatorio;
 }
 
 
@@ -1012,7 +1028,7 @@ void menu_info(void) {
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\n"); 
-  wprintf(L"\tTecle <ENTER> para prosseguir..."); // Sem interação no momento
+  wprintf(L"\tTecle <ENTER> para retornar...");
   getchar();
 }
 
@@ -1038,4 +1054,7 @@ void menu_dev(void) {
   wprintf(L"\t///       (84) 99627-4880                             (84) 99977-4459      ///\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+  wprintf(L"\n"); 
+  wprintf(L"\tTecle <ENTER> para retornar...");
+  getchar();
 }
