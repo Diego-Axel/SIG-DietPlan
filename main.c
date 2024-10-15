@@ -50,6 +50,7 @@ void excluir_prof(void);
 // Assinatura relatório
 char menu_relatorio(void);
 void relatorio_clientes(void);
+void relatorio_profissional(void);
 
 // Assinatura informações
 void menu_info(void);
@@ -144,6 +145,9 @@ int main(void) {
         op_relatorio = menu_relatorio();
         if (op_relatorio == '1') {
           relatorio_clientes();
+        }
+        else if (op_relatorio == '2') {
+          relatorio_profissional();
         }
       } while (op_relatorio != '0');   
     }
@@ -1018,6 +1022,44 @@ void relatorio_clientes(void) {
     wprintf(L"\t///                                                                                                       ///\n");
     wprintf(L"\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
     wprintf(L"\t|          NOME           |          E-mail          |           Telefone          |           CPF          |\n"); 
+    wprintf(L"\n");
+    wprintf(L"\ttecle <ENTER> para continuar... ");
+    getchar();
+  } while (continuar != '0');
+  wprintf(L"\n"); 
+  wprintf(L"\ttecle <ENTER> para retornar... ");
+  getchar();
+  
+}
+
+
+void relatorio_profissional(void) {
+
+  char continuar;
+  
+  do {
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t///                        Relatório de Profissionais                      ///\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\n"); 
+    wprintf(L"\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
+    scanf("%c", &continuar);
+    getchar();
+    if (continuar == '0') {
+      wprintf(L"\n");
+      wprintf(L"\t-> Consulta Cancelada <-\n");
+      break;
+    }
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\t///                                                                                                                                ///\n");
+    wprintf(L"\t///                                                  Relatório de Profissionais                                                    ///\n");
+    wprintf(L"\t///                                                                                                                                ///\n");
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\t|          NOME           |          E-mail          |           Telefone          |           CPF          |           CRN          |\n"); 
     wprintf(L"\n");
     wprintf(L"\ttecle <ENTER> para continuar... ");
     getchar();
