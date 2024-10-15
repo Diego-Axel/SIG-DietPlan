@@ -49,6 +49,7 @@ void excluir_prof(void);
 
 // Assinatura relatório
 char menu_relatorio(void);
+void relatorio_clientes(void);
 
 // Assinatura informações
 void menu_info(void);
@@ -141,6 +142,9 @@ int main(void) {
     else if (op_principal == '5') {
       do {
         op_relatorio = menu_relatorio();
+        if (op_relatorio == '1') {
+          relatorio_clientes();
+        }
       } while (op_relatorio != '0');   
     }
     else if (op_principal == '6') {
@@ -984,6 +988,44 @@ char menu_relatorio(void) {
   scanf("%c", &op_relatorio);
   getchar();
   return op_relatorio;
+}
+
+
+void relatorio_clientes(void) {
+
+  char continuar;
+  
+  do {
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t///                           Relatório de Clientes                        ///\n");
+    wprintf(L"\t///                                                                        ///\n");
+    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\n"); 
+    wprintf(L"\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
+    scanf("%c", &continuar);
+    getchar();
+    if (continuar == '0') {
+      wprintf(L"\n");
+      wprintf(L"\t-> Consulta Cancelada <-\n");
+      break;
+    }
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    wprintf(L"\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\t///                                                                                                       ///\n");
+    wprintf(L"\t///                                         Relatório de Clientes                                         ///\n");
+    wprintf(L"\t///                                                                                                       ///\n");
+    wprintf(L"\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+    wprintf(L"\t|          NOME           |          E-mail          |           Telefone          |           CPF          |\n"); 
+    wprintf(L"\n");
+    wprintf(L"\ttecle <ENTER> para continuar... ");
+    getchar();
+  } while (continuar != '0');
+  wprintf(L"\n"); 
+  wprintf(L"\ttecle <ENTER> para retornar... ");
+  getchar();
+  
 }
 
 
