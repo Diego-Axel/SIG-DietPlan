@@ -7,13 +7,13 @@ CC := gcc
 CFLAGS := -Wall -Wextra -pedantic
 
 # Source files
-SRCS := main.c clientes/clientes.c 
+SRCS := main.c clientes/clientes.c dietas/dietas.c
 
 # Object files
 OBJS := $(SRCS:.c=.o)
 
 # Header files
-HDRS := clientes/clientes.h
+HDRS := clientes/clientes.h dietas/dietas.h
 
 # Executable name
 TARGET := main
