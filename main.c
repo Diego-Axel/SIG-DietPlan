@@ -361,14 +361,20 @@ void excluir_cliente(void) {
   wprintf(L"\t///                        Excluir Dados do Cliente                        ///\n");
   wprintf(L"\t///                                                                        ///\n");
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  wprintf(L"\tDeseja excluir os dados do Cliente selecionado (S/N) \n");
-  scanf(" %c", &resp);
+   wprintf(L"\n");
+  wprintf(L"\tDeseja excluir os dados do Cliente selecionado (S/N) ");
+  scanf("%c", &resp);
+  getchar();
+  wprintf(L"\n");
   if ((resp == 's') || (resp == 'S')) {
     wprintf(L"\tDados do cilente excluídos!\n");
+    wprintf(L"\n");
     wprintf(L"\ttecle <ENTER> para continuar... ");
     getchar();
   } 
   else { 
+    wprintf(L"\tExclusão Cancelada!\n");
+    wprintf(L"\n");
     wprintf(L"\tTecle <ENTER> para continuar... ");
     getchar();
   }
