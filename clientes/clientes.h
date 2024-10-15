@@ -1,6 +1,6 @@
 // Assinatura das funções
-#ifndef CLIENTE
-#define CLIENTE
+#ifndef CLIENTES
+#define CLIENTES
 
 char menu_cliente(void);
 void cadastrar_cliente(void);
