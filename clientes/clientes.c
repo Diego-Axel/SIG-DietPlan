@@ -32,7 +32,6 @@ char menu_cliente(void) {
   wprintf(L"\t//// Escolha uma opção: "); 
   scanf("%c", &op_cliente);
   limparBuffer();
-  getchar();
   return op_cliente;
 }
 
@@ -56,22 +55,18 @@ void cadastrar_cliente(void) {
   wprintf(L"\t//// Digite seu nome: ");
   scanf("%[A-Z a-z]", nome);
   limparBuffer();
-  getchar();
   wprintf(L"\n");
   wprintf(L"\t//// Digite seu e-mail: ");
   scanf("%[A-Z a-z@.0-9]", email);
   limparBuffer();
-  getchar();
   wprintf(L"\n");
   wprintf(L"\t//// Digite seu telefone: ");
   scanf("%[0-9 ()-]", telefone);
   limparBuffer();
-  getchar();
   wprintf(L"\n");
   wprintf(L"\t//// Digite seu cpf: ");
   scanf("%[0-9.-]", cpf);
   limparBuffer();
-  getchar();
   wprintf(L"\n");
   wprintf(L"\t//// Cliente cadastrado com sucesso!");
   wprintf(L"\n");
@@ -96,7 +91,6 @@ void exibir_cliente(void) {
     wprintf(L"\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
     scanf("%c", &continuar);
     limparBuffer();
-    getchar();
     if (continuar == '0') {
       break;
     }
@@ -110,7 +104,6 @@ void exibir_cliente(void) {
     wprintf(L"\t//// Digite o CPF do Cliente a ser exibido: ");
     scanf("%[0-9.-]", cpf);
     limparBuffer();
-    getchar();
     wprintf(L"\n");
     wprintf(L"\t//// Nome: \n");
     wprintf(L"\n");
@@ -194,7 +187,6 @@ void excluir_cliente(void) {
   wprintf(L"\tDeseja excluir os dados do Cliente selecionado (S/N) ");
   scanf("%c", &resp);
   limparBuffer();
-  getchar();
   wprintf(L"\n");
   if ((resp == 's') || (resp == 'S')) {
     wprintf(L"\tDados do cilente excluídos!\n");
