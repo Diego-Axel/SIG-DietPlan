@@ -6,6 +6,7 @@
 #include <locale.h>
 #include <ctype.h>
 #include "dietas.h"
+#include "../utilitarios/utis.h" // Assinatura das utilidades
 
 // Funções 
 
@@ -31,7 +32,7 @@ char menu_dieta(void) {
   wprintf(L"\n"); 
   wprintf(L"\t//// Escolha uma opção: "); 
   scanf("%c", &op_dieta);
-  getchar();
+  limparBuffer();
   return op_dieta;
 }
 
@@ -51,7 +52,7 @@ void avaliacao(void) {
     wprintf(L"\n"); 
     wprintf(L"\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
     scanf("%c", &continuar);
-    getchar();
+    limparBuffer();
     if (continuar == '0') {
       wprintf(L"\n");
       wprintf(L"\t-> Avaliação Cancelada <-\n");
@@ -66,7 +67,7 @@ void avaliacao(void) {
     wprintf(L"\n"); 
     wprintf(L"\t//// Digite o CPF do Cliente que deseja verificar: ");
     scanf("%[0-9.-]", cpf);
-    getchar();
+    limparBuffer();
     wprintf(L"\n"); 
     wprintf(L"\t//// Nome do Cliente: \n");
     wprintf(L"\n");
@@ -102,7 +103,7 @@ void dieta_para_hipertrofia(void) {
     wprintf(L"\n");
     wprintf(L"\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
     scanf("%c", &continuar);
-    getchar();
+    limparBuffer();
     if (continuar == '0') {
       wprintf(L"\n");
       wprintf(L"\t-> Avaliação Cancelada <-\n");
@@ -117,11 +118,11 @@ void dieta_para_hipertrofia(void) {
     wprintf(L"\n");
     wprintf(L"\t//// Digite o CPF do cliente no qual você deseja atrelar essa dieta: ");
     scanf("%[0-9.-]", cpf);
-    getchar();
+    limparBuffer();
     wprintf(L"\n");
     wprintf(L"\t//// Digite o CRN do Profissional que sera responsável pela dieta: ");
     scanf("%[0-9.-]", crn);
-    getchar();
+    limparBuffer();
   } while (continuar != '0');
   wprintf(L"\n");
   wprintf(L"\ttecle <ENTER> para continuar... ");
@@ -146,7 +147,7 @@ void dieta_para_perda_de_peso(void) {
     wprintf(L"\n");
     wprintf(L"\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
     scanf("%c", &continuar);
-    getchar();
+    limparBuffer();
     if (continuar == '0') {
       wprintf(L"\n");
       wprintf(L"\t-> Avaliação Cancelada <-\n");
@@ -161,11 +162,11 @@ void dieta_para_perda_de_peso(void) {
     wprintf(L"\n");
     wprintf(L"\t//// Digite o CPF do cliente no qual você deseja atrelar essa dieta: ");
     scanf("%[0-9.-]", cpf);
-    getchar();
+    limparBuffer();
     wprintf(L"\n");
     wprintf(L"\t//// Digite o CRN do Profissional que sera responsável pela dieta: ");
     scanf("%[0-9.-]", crn);
-    getchar();
+    limparBuffer();
   } while (continuar != '0');
   wprintf(L"\n");
   wprintf(L"\ttecle <ENTER> para continuar... ");
@@ -190,7 +191,7 @@ void reavaliacao(void) {
     wprintf(L"\n");
     wprintf(L"\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
     scanf("%c", &continuar);
-    getchar();
+    limparBuffer();
     if (continuar == '0') {
       wprintf(L"\n");
       wprintf(L"\t-> Reavaliação Cancelada <-\n");
@@ -205,11 +206,11 @@ void reavaliacao(void) {
     wprintf(L"\n");
     wprintf(L"\t//// Digite o CPF do cliente no qual você deseja fazer a reavaliação: ");
     scanf("%[0-9.-]", cpf);
-    getchar();
+    limparBuffer();
     wprintf(L"\n");
     wprintf(L"\t//// Digite o CRN do Profissional que sera responsável pela dieta: ");
     scanf("%[0-9.-]", crn);
-    getchar();
+    limparBuffer();
   } while (continuar != '0');
   wprintf(L"\n");
   wprintf(L"\ttecle <ENTER> para continuar... ");
@@ -233,7 +234,7 @@ void nova_dieta(void) {
     wprintf(L"\n");
     wprintf(L"\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
     scanf("%c", &continuar);
-    getchar();
+    limparBuffer();
     if (continuar == '0') {
       wprintf(L"\n");
       wprintf(L"\t-> Inclusão de Nova Dieta Cancelada <-\n");
@@ -248,7 +249,7 @@ void nova_dieta(void) {
     wprintf(L"\n");
     wprintf(L"\t//// Digite o nome da nova dieta que você deseja adicionar: ");
     scanf("%s", nome_dieta);
-    getchar();
+    limparBuffer();
     wprintf(L"\n");
   } while (continuar != '0');
   wprintf(L"\n");
