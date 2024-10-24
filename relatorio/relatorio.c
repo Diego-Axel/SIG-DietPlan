@@ -6,6 +6,7 @@
 #include <locale.h>
 #include <ctype.h>
 #include "relatorio.h"
+#include "../utilitarios/utis.h" // Assinatura das utilidades
 
 // Funções
 
@@ -28,7 +29,7 @@ char menu_relatorio(void) {
   wprintf(L"\n"); 
   wprintf(L"\t//// Escolha uma opção: "); 
   scanf("%c", &op_relatorio);
-  getchar();
+  limparBuffer();
   return op_relatorio;
 }
 
@@ -47,7 +48,7 @@ void relatorio_clientes(void) {
     wprintf(L"\n"); 
     wprintf(L"\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
     scanf("%c", &continuar);
-    getchar();
+    limparBuffer();
     if (continuar == '0') {
       wprintf(L"\n");
       wprintf(L"\t-> Consulta Cancelada <-\n");
@@ -85,7 +86,7 @@ void relatorio_profissional(void) {
     wprintf(L"\n"); 
     wprintf(L"\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
     scanf("%c", &continuar);
-    getchar();
+    limparBuffer();
     if (continuar == '0') {
       wprintf(L"\n");
       wprintf(L"\t-> Consulta Cancelada <-\n");
