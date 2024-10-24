@@ -6,6 +6,7 @@
 #include <locale.h>
 #include <ctype.h>
 #include "interfaces.h"
+#include "../utilitarios/utis.h" // Assinatura das utilidades
 
 // Funções
 
@@ -34,7 +35,7 @@ char menu_principal(void) {
   wprintf(L"\n"); 
   wprintf(L"\t//// Escolha uma opção: ");
   scanf("%c", &op_principal);
-  getchar();
+  limparBuffer();
   return op_principal;
 } 
 
