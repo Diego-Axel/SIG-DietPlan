@@ -6,6 +6,7 @@
 #include <locale.h>
 #include <ctype.h>
 #include "clientes.h"
+#include "../utilitarios/utis.h" // Assinatura das utilidades
 
 // Funções 
 
@@ -30,6 +31,7 @@ char menu_cliente(void) {
   wprintf(L"\n"); 
   wprintf(L"\t//// Escolha uma opção: "); 
   scanf("%c", &op_cliente);
+  limparBuffer();
   getchar();
   return op_cliente;
 }
@@ -53,18 +55,22 @@ void cadastrar_cliente(void) {
   wprintf(L"\n");
   wprintf(L"\t//// Digite seu nome: ");
   scanf("%[A-Z a-z]", nome);
+  limparBuffer();
   getchar();
   wprintf(L"\n");
   wprintf(L"\t//// Digite seu e-mail: ");
   scanf("%[A-Z a-z@.0-9]", email);
+  limparBuffer();
   getchar();
   wprintf(L"\n");
   wprintf(L"\t//// Digite seu telefone: ");
   scanf("%[0-9 ()-]", telefone);
+  limparBuffer();
   getchar();
   wprintf(L"\n");
   wprintf(L"\t//// Digite seu cpf: ");
   scanf("%[0-9.-]", cpf);
+  limparBuffer();
   getchar();
   wprintf(L"\n");
   wprintf(L"\t//// Cliente cadastrado com sucesso!");
@@ -89,6 +95,7 @@ void exibir_cliente(void) {
     wprintf(L"\n");
     wprintf(L"\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
     scanf("%c", &continuar);
+    limparBuffer();
     getchar();
     if (continuar == '0') {
       break;
@@ -102,6 +109,7 @@ void exibir_cliente(void) {
     wprintf(L"\n");
     wprintf(L"\t//// Digite o CPF do Cliente a ser exibido: ");
     scanf("%[0-9.-]", cpf);
+    limparBuffer();
     getchar();
     wprintf(L"\n");
     wprintf(L"\t//// Nome: \n");
@@ -145,18 +153,22 @@ void alterar_cliente(void) {
   // Solicitação de novos dados
   wprintf(L"\t//// Digite o novo nome do profissional (ou pressione ENTER para manter o atual): ");
   fgets(nome, sizeof(nome), stdin);
+  limparBuffer();
   wprintf(L"\n");
 
   wprintf(L"\t//// Digite o novo e-mail (ou pressione ENTER para manter o atual): ");
   fgets(email, sizeof(email), stdin);
+  limparBuffer();
   wprintf(L"\n");
 
   wprintf(L"\t//// Digite o novo telefone (ou pressione ENTER para manter o atual): ");
   fgets(telefone, sizeof(telefone), stdin);
+  limparBuffer();
   wprintf(L"\n");
 
   wprintf(L"\t//// Digite o novo CPF (ou pressione ENTER para manter o atual): ");
   fgets(cpf, sizeof(cpf), stdin);
+  limparBuffer();
   wprintf(L"\n");
 
   // Confirmar a operação de recadastramento
@@ -181,6 +193,7 @@ void excluir_cliente(void) {
    wprintf(L"\n");
   wprintf(L"\tDeseja excluir os dados do Cliente selecionado (S/N) ");
   scanf("%c", &resp);
+  limparBuffer();
   getchar();
   wprintf(L"\n");
   if ((resp == 's') || (resp == 'S')) {
