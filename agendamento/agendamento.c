@@ -6,6 +6,7 @@
 #include <locale.h>
 #include <ctype.h>
 #include "agendamento.h"
+#include "../utilitarios/utis.h" // Assinatura das utilidades
 
 // Funções
 
@@ -29,7 +30,7 @@ char menu_agendamento(void) {
   wprintf(L"\n"); 
   wprintf(L"\t//// Escolha uma opção: "); 
   scanf("%c", &op_agendar);
-  getchar();
+  limparBuffer();
   return op_agendar;
 }
 
@@ -53,7 +54,7 @@ void agendar(void) {
     wprintf(L"\n"); 
     wprintf(L"\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
     scanf("%c", &continuar);
-    getchar();
+    limparBuffer();
     if (continuar == '0') {
       wprintf(L"\n");
       wprintf(L"\t-> Agendamento Cancelado <-\n");
@@ -68,22 +69,23 @@ void agendar(void) {
     wprintf(L"\n"); 
     wprintf(L"\t//// Digite o CPF do Cliente que deseja agendar: ");
     scanf("%[0-9.-]", cpf);
-    getchar();
+    limparBuffer();
     wprintf(L"\n"); 
     wprintf(L"\t//// Nome do Cliente: \n");
     scanf("%[A-Za-z]", nome);
-    getchar();
+    limparBuffer();
     wprintf(L"\n");
     wprintf(L"\t//// Profissional Responsável: \n");
     scanf("%[A-Za-z]", prof);
-    getchar();
+    limparBuffer();
     wprintf(L"\n");
     wprintf(L"\t//// Tipo De Dieta: \n");
     scanf("%[A-Za-z]", dieta);
-    getchar();
+    limparBuffer();
     wprintf(L"\n");
     wprintf(L"\t//// Horário: \n");
     scanf("%[0-9 :]", hora);
+    limparBuffer();
     wprintf(L"\n");
     wprintf(L"\ttecle <ENTER> para continuar... ");
     getchar();
@@ -109,7 +111,7 @@ void exibir_agendamento(void) {
     wprintf(L"\n");
     wprintf(L"\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
     scanf("%c", &continuar);
-    getchar();
+    limparBuffer();
     if (continuar == '0') {
       break;
     }
@@ -122,7 +124,7 @@ void exibir_agendamento(void) {
     wprintf(L"\n");
     wprintf(L"\t//// Digite o CPF do cliente a ser exibido: ");
     scanf("%[0-9.-]", cpf);
-    getchar();
+    limparBuffer();
     wprintf(L"\n");
     wprintf(L"\t//// Nome: \n");
     wprintf(L"\n");
@@ -153,6 +155,7 @@ void excluir_agendamento(void) {
   wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
   wprintf(L"\tDeseja excluir o agendamento selecionado (S/N) \n");
   scanf(" %c", &resp);
+  limparBuffer();
   if ((resp == 's') || (resp == 'S')) {
     wprintf(L"\tAgendamento excluído!\n");
     wprintf(L"\ttecle <ENTER> para continuar... ");
