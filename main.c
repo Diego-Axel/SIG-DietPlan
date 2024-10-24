@@ -34,6 +34,9 @@
 // Assinatura relatório
 #include "relatorio/relatorio.h"
 
+// Assinatura das utilidades
+#include "utilitarios/utis.h"
+
 // Programa Principal
 int main(void) {
   setlocale(LC_CTYPE , "");
