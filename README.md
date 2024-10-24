@@ -33,7 +33,15 @@ git clone https://github.com/Diego-Axel/SIG-DietPlan.git
 ### No Windows:
 
 ```shell
-gcc -c -Wall main.c
+OBS: Para sistema operacional Windows, não possui Makefile, então a compilação será feita de forma "manual" ou, você pode buscar meios alternativos, como exemplo o WSL que simula um terminal do Linux no seu sistema operacional Windows. Para você baixar o WSL recomendo que pesquise na internet ou então peça ajuda do ChatGPT.
+```
+
+```shell
+gcc -c -Wall main.c interfacePrincipal/interfaces.c clientes/clientes.c dietas/dietas.c agendamento/agendamento.c profissional/profissional.c relatorio/relatorio.c utilitarios/utis.c
+```
+
+```shell
+gcc -c -Wall interfacePrincipal/interfaces.h clientes/clientes.h dietas/dietas.h agendamento/agendamento.h profissional/profissional.h relatorio/relatorio.h utilitarios/utis.h
 ```
 
 ```shell
@@ -48,17 +56,17 @@ SIG-DietPlan.exe
 ### No Linux:
 
 ```shell
-gcc -c -Wall main.c
-```
-
-```shell
-gcc -o SIG-DietPlan main.o
+No Linux poderá ser usado o Makefile. Vá no seu terminal e digite "Make" se você não tiver, o linux irá mostrar o comando para baixar via terminal. Caso queria saber se você já possui o make, digite em seu terminal o comando "make --version".
 ```
 
 ### Para Executar
 
 ```shell
-./SIG-DietPlan
+Com o Make baixado, dentro do diretório do projeto, digite "make run", ele vai compilar todos os arquvos .c e .h, criando o executavel automaticamente e já rodando o programa.
+```
+
+```shell
+Ao final, quando o programa for encerrado, digite o comando "make clean", isso limpara todos os arquivos criados pelo primeiro comando "make run".
 ```
 
 ##  Tecnologia
