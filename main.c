@@ -11,10 +11,6 @@
 // Bibliotecas
 #include <stdio.h> 
 #include <stdlib.h>
-#include <wchar.h>
-#include <locale.h>
-#include <ctype.h>
-
 
 // Assinatura das funções do Menu Principal (interfaces)
 #include "interfacePrincipal/interfaces.h"
@@ -39,7 +35,6 @@
 
 // Programa Principal
 int main(void) {
-  setlocale(LC_CTYPE , "");
 
   // Variáveis para as opções
   char op_principal;

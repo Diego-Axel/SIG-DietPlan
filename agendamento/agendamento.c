@@ -2,9 +2,6 @@
 
 #include <stdio.h> 
 #include <stdlib.h>
-#include <wchar.h>
-#include <locale.h>
-#include <ctype.h>
 #include "agendamento.h"
 #include "../utilitarios/utis.h" // Assinatura das utilidades
 
@@ -15,20 +12,20 @@ char menu_agendamento(void) {
   char op_agendar;
 
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///                            Módulo agendamento                          ///\n");
-  wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///                         [1] Agendar consulta                           ///\n");
-  wprintf(L"\t///                         [2] Exibir consulta                            ///\n"); 
-  wprintf(L"\t///                         [3] Excluir consulta                           ///\n");
-  wprintf(L"\t///                         [0] Retornar ao Menu Principal                 ///\n"); 
-  wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  wprintf(L"\n"); 
-  wprintf(L"\t//// Escolha uma opção: "); 
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                            Módulo agendamento                          ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                         [1] Agendar consulta                           ///\n");
+  printf("\t///                         [2] Exibir consulta                            ///\n"); 
+  printf("\t///                         [3] Excluir consulta                           ///\n");
+  printf("\t///                         [0] Retornar ao Menu Principal                 ///\n"); 
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n"); 
+  printf("\t//// Escolha uma opção: "); 
   scanf("%c", &op_agendar);
   limparBuffer();
   return op_agendar;
@@ -46,52 +43,52 @@ void agendar(void) {
 
   do {
     system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-    wprintf(L"\t///                                                                        ///\n");
-    wprintf(L"\t///                               Agendar                                  ///\n");
-    wprintf(L"\t///                                                                        ///\n");
-    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-    wprintf(L"\n"); 
-    wprintf(L"\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
+    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+    printf("\t///                                                                        ///\n");
+    printf("\t///                               Agendar                                  ///\n");
+    printf("\t///                                                                        ///\n");
+    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n"); 
+    printf("\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
     scanf("%c", &continuar);
     limparBuffer();
     if (continuar == '0') {
-      wprintf(L"\n");
-      wprintf(L"\t-> Agendamento Cancelado <-\n");
+      printf("\n");
+      printf("\t-> Agendamento Cancelado <-\n");
       break;
     }
     system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-    wprintf(L"\t///                                                                        ///\n");
-    wprintf(L"\t///                               Agendamento                              ///\n");
-    wprintf(L"\t///                                                                        ///\n");
-    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-    wprintf(L"\n"); 
-    wprintf(L"\t//// Digite o CPF do Cliente que deseja agendar: ");
+    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+    printf("\t///                                                                        ///\n");
+    printf("\t///                               Agendamento                              ///\n");
+    printf("\t///                                                                        ///\n");
+    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n"); 
+    printf("\t//// Digite o CPF do Cliente que deseja agendar: ");
     scanf("%[0-9.-]", cpf);
     limparBuffer();
-    wprintf(L"\n"); 
-    wprintf(L"\t//// Nome do Cliente: \n");
+    printf("\n"); 
+    printf("\t//// Nome do Cliente: \n");
     scanf("%[A-Za-z]", nome);
     limparBuffer();
-    wprintf(L"\n");
-    wprintf(L"\t//// Profissional Responsável: \n");
+    printf("\n");
+    printf("\t//// Profissional Responsável: \n");
     scanf("%[A-Za-z]", prof);
     limparBuffer();
-    wprintf(L"\n");
-    wprintf(L"\t//// Tipo De Dieta: \n");
+    printf("\n");
+    printf("\t//// Tipo De Dieta: \n");
     scanf("%[A-Za-z]", dieta);
     limparBuffer();
-    wprintf(L"\n");
-    wprintf(L"\t//// Horário: \n");
+    printf("\n");
+    printf("\t//// Horário: \n");
     scanf("%[0-9 :]", hora);
     limparBuffer();
-    wprintf(L"\n");
-    wprintf(L"\ttecle <ENTER> para continuar... ");
+    printf("\n");
+    printf("\ttecle <ENTER> para continuar... ");
     getchar();
   } while (continuar != '0');
-  wprintf(L"\n"); 
-  wprintf(L"\ttecle <ENTER> para retornar... ");
+  printf("\n"); 
+  printf("\ttecle <ENTER> para retornar... ");
   getchar();
 }
 
@@ -102,41 +99,41 @@ void exibir_agendamento(void) {
   
   while (continuar != '0') {
     system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-    wprintf(L"\t///                                                                        ///\n");
-    wprintf(L"\t///                           Exibir agendamento                           ///\n");
-    wprintf(L"\t///                              [0] Retornar                              ///\n");
-    wprintf(L"\t///                                                                        ///\n");
-    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-    wprintf(L"\n");
-    wprintf(L"\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
+    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+    printf("\t///                                                                        ///\n");
+    printf("\t///                           Exibir agendamento                           ///\n");
+    printf("\t///                              [0] Retornar                              ///\n");
+    printf("\t///                                                                        ///\n");
+    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
     scanf("%c", &continuar);
     limparBuffer();
     if (continuar == '0') {
       break;
     }
     system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-    wprintf(L"\t///                                                                        ///\n");
-    wprintf(L"\t///                             Exibir agendamento                         ///\n");
-    wprintf(L"\t///                                                                        ///\n");
-    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-    wprintf(L"\n");
-    wprintf(L"\t//// Digite o CPF do cliente a ser exibido: ");
+    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+    printf("\t///                                                                        ///\n");
+    printf("\t///                             Exibir agendamento                         ///\n");
+    printf("\t///                                                                        ///\n");
+    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t//// Digite o CPF do cliente a ser exibido: ");
     scanf("%[0-9.-]", cpf);
     limparBuffer();
-    wprintf(L"\n");
-    wprintf(L"\t//// Nome: \n");
-    wprintf(L"\n");
-    wprintf(L"\t//// Profissional: \n");
-    wprintf(L"\n");
-    wprintf(L"\t//// Horário: \n");
-    wprintf(L"\n");
-    wprintf(L"\t//// CPF: \n");
-    wprintf(L"\n");
-    wprintf(L"\t//// Dieta: \n");
-    wprintf(L"\n");
-    wprintf(L"\ttecle <ENTER> para continuar: ");
+    printf("\n");
+    printf("\t//// Nome: \n");
+    printf("\n");
+    printf("\t//// Profissional: \n");
+    printf("\n");
+    printf("\t//// Horário: \n");
+    printf("\n");
+    printf("\t//// CPF: \n");
+    printf("\n");
+    printf("\t//// Dieta: \n");
+    printf("\n");
+    printf("\ttecle <ENTER> para continuar: ");
     getchar();
   }
 }
@@ -148,21 +145,21 @@ void excluir_agendamento(void) {
   char resp;
 
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///                          Excluir agendamento                           ///\n");
-  wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  wprintf(L"\tDeseja excluir o agendamento selecionado (S/N) \n");
-  scanf(" %c", &resp);
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                          Excluir agendamento                           ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\tDeseja excluir o agendamento selecionado (S/N) \n");
+  scanf("%c", &resp);
   limparBuffer();
   if ((resp == 's') || (resp == 'S')) {
-    wprintf(L"\tAgendamento excluído!\n");
-    wprintf(L"\ttecle <ENTER> para continuar... ");
+    printf("\tAgendamento excluído!\n");
+    printf("\ttecle <ENTER> para continuar... ");
     getchar();
   } 
   else { 
-    wprintf(L"\tTecle <ENTER> para continuar... ");
+    printf("\tTecle <ENTER> para continuar... ");
     getchar();
   }
 }

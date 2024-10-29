@@ -2,9 +2,6 @@
 
 #include <stdio.h> 
 #include <stdlib.h>
-#include <wchar.h>
-#include <locale.h>
-#include <ctype.h>
 #include "profissional.h"
 #include "../utilitarios/utis.h" // Assinatura das utilidades
 
@@ -14,21 +11,21 @@ char menu_profissional(void) {
   char op_profissional;
 
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///                             Módulo Profissional                        ///\n");
-  wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///                         [1] Cadastrar profissional                     ///\n");
-  wprintf(L"\t///                         [2] Exibir profissional                        ///\n"); 
-  wprintf(L"\t///                         [3] Alterar dados do profissional              ///\n"); 
-  wprintf(L"\t///                         [4] Excluir profissional                       ///\n");
-  wprintf(L"\t///                         [0] Retornar ao Menu Principal                 ///\n");  
-  wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  wprintf(L"\n"); 
-  wprintf(L"\tEscolha uma opção: ");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                             Módulo Profissional                        ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                         [1] Cadastrar profissional                     ///\n");
+  printf("\t///                         [2] Exibir profissional                        ///\n"); 
+  printf("\t///                         [3] Alterar dados do profissional              ///\n"); 
+  printf("\t///                         [4] Excluir profissional                       ///\n");
+  printf("\t///                         [0] Retornar ao Menu Principal                 ///\n");  
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n"); 
+  printf("\tEscolha uma opção: ");
   scanf(" %c", &op_profissional);
   limparBuffer();
   
@@ -46,35 +43,35 @@ void cadastrar_prof(void) {
   char crn[10];
 
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///                            Cadastar profissional                       ///\n");
-  wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  wprintf(L"\n");
-  wprintf(L"\t//// Digite o nome do profissional: ");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                            Cadastar profissional                       ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n");
+  printf("\t//// Digite o nome do profissional: ");
   scanf("%[A-Z a-z]", nome);
   limparBuffer();
-  wprintf(L"\n");
-  wprintf(L"\t//// Digite o e-mail: ");
+  printf("\n");
+  printf("\t//// Digite o e-mail: ");
   scanf("%[A-Z a-z@.0-9]", email);
   limparBuffer();
-  wprintf(L"\n");
-  wprintf(L"\t//// Digite o telefone: ");
+  printf("\n");
+  printf("\t//// Digite o telefone: ");
   scanf("%[0-9 ()-]", telefone);
   limparBuffer();
-  wprintf(L"\n");
-  wprintf(L"\t//// Digite o cpf: ");
+  printf("\n");
+  printf("\t//// Digite o cpf: ");
   scanf("%[0-9.-]", cpf);
   limparBuffer();
-  wprintf(L"\n");
-  wprintf(L"\t//// Digite o CRN: ");
+  printf("\n");
+  printf("\t//// Digite o CRN: ");
   scanf("%[0-9.-]", crn);
   limparBuffer();
-  wprintf(L"\n");
-  wprintf(L"\t//// Profissional cadastrado com sucesso!");
-  wprintf(L"\n");
-  wprintf(L"\tTecle <ENTER> para prosseguir... ");
+  printf("\n");
+  printf("\t//// Profissional cadastrado com sucesso!");
+  printf("\n");
+  printf("\tTecle <ENTER> para prosseguir... ");
   getchar();
 }
 
@@ -85,41 +82,41 @@ void exibir_prof(void) {
   
   while (continuar != '0') {
     system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-    wprintf(L"\t///                                                                        ///\n");
-    wprintf(L"\t///                          Exibir profissional                           ///\n");
-    wprintf(L"\t///                              [0] Retornar                              ///\n");
-    wprintf(L"\t///                                                                        ///\n");
-    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-    wprintf(L"\n");
-    wprintf(L"\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
+    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+    printf("\t///                                                                        ///\n");
+    printf("\t///                          Exibir profissional                           ///\n");
+    printf("\t///                              [0] Retornar                              ///\n");
+    printf("\t///                                                                        ///\n");
+    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
     scanf("%c", &continuar);
     limparBuffer();
     if (continuar == '0') {
       break;
     }
     system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-    wprintf(L"\t///                                                                        ///\n");
-    wprintf(L"\t///                             Exibir profissional                        ///\n");
-    wprintf(L"\t///                                                                        ///\n");
-    wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-    wprintf(L"\n");
-    wprintf(L"\t//// Digite o CPF do profissional a ser exibido: ");
+    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+    printf("\t///                                                                        ///\n");
+    printf("\t///                             Exibir profissional                        ///\n");
+    printf("\t///                                                                        ///\n");
+    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t//// Digite o CPF do profissional a ser exibido: ");
     scanf("%[0-9.-]", cpf);
     limparBuffer();
-    wprintf(L"\n");
-    wprintf(L"\t//// Nome: \n");
-    wprintf(L"\n");
-    wprintf(L"\t//// E-mail: \n");
-    wprintf(L"\n");
-    wprintf(L"\t//// Telefone: \n");
-    wprintf(L"\n");
-    wprintf(L"\t//// CPF: \n");
-    wprintf(L"\n");
-    wprintf(L"\t//// CRN: \n");
-    wprintf(L"\n");
-    wprintf(L"\ttecle <ENTER> para continuar: ");
+    printf("\n");
+    printf("\t//// Nome: \n");
+    printf("\n");
+    printf("\t//// E-mail: \n");
+    printf("\n");
+    printf("\t//// Telefone: \n");
+    printf("\n");
+    printf("\t//// CPF: \n");
+    printf("\n");
+    printf("\t//// CRN: \n");
+    printf("\n");
+    printf("\ttecle <ENTER> para continuar: ");
     getchar();
   }
 }
@@ -135,52 +132,52 @@ void recadastrar_prof(void) {
   char crn[10];
 
   system("clear || cls"); // se for Linux use 'clear', se for Windows use 'cls'
-  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///                        Recadastrar profissional                        ///\n");
-  wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  wprintf(L"\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                        Recadastrar profissional                        ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n");
 
   // Simulação de busca de dados antigos (pode ser substituído por uma busca real em arquivo ou banco de dados)
-  wprintf(L"\t//// Dados antigos:\n");
-  wprintf(L"\tNome: João da Silva\n");
-  wprintf(L"\tEmail: joao.silva@email.com\n");
-  wprintf(L"\tTelefone: (11) 91234-5678\n");
-  wprintf(L"\tCPF: 123.456.789-00\n");
-  wprintf(L"\tCRN: 123456\n");
-  wprintf(L"\n");
+  printf("\t//// Dados antigos:\n");
+  printf("\tNome: João da Silva\n");
+  printf("\tEmail: joao.silva@email.com\n");
+  printf("\tTelefone: (11) 91234-5678\n");
+  printf("\tCPF: 123.456.789-00\n");
+  printf("\tCRN: 123456\n");
+  printf("\n");
 
   // Solicitação de novos dados
-  wprintf(L"\t//// Digite o novo nome do profissional (ou pressione ENTER para manter o atual): ");
+  printf("\t//// Digite o novo nome do profissional (ou pressione ENTER para manter o atual): ");
   fgets(nome, sizeof(nome), stdin);
   limparBuffer();
-  wprintf(L"\n");
+  printf("\n");
 
-  wprintf(L"\t//// Digite o novo e-mail (ou pressione ENTER para manter o atual): ");
+  printf("\t//// Digite o novo e-mail (ou pressione ENTER para manter o atual): ");
   fgets(email, sizeof(email), stdin);
   limparBuffer();
-  wprintf(L"\n");
+  printf("\n");
 
-  wprintf(L"\t//// Digite o novo telefone (ou pressione ENTER para manter o atual): ");
+  printf("\t//// Digite o novo telefone (ou pressione ENTER para manter o atual): ");
   fgets(telefone, sizeof(telefone), stdin);
   limparBuffer();
-  wprintf(L"\n");
+  printf("\n");
 
-  wprintf(L"\t//// Digite o novo CPF (ou pressione ENTER para manter o atual): ");
+  printf("\t//// Digite o novo CPF (ou pressione ENTER para manter o atual): ");
   fgets(cpf, sizeof(cpf), stdin);
   limparBuffer();
-  wprintf(L"\n");
+  printf("\n");
 
-  wprintf(L"\t//// Digite o novo CRN (ou pressione ENTER para manter o atual): ");
+  printf("\t//// Digite o novo CRN (ou pressione ENTER para manter o atual): ");
   fgets(crn, sizeof(crn), stdin);
   limparBuffer();
-  wprintf(L"\n");
+  printf("\n");
 
   // Confirmar a operação de recadastramento
-  wprintf(L"\t//// Recadastramento realizado com sucesso!");
-  wprintf(L"\n");
-  wprintf(L"\tTecle <ENTER> para prosseguir... ");
+  printf("\t//// Recadastramento realizado com sucesso!");
+  printf("\n");
+  printf("\tTecle <ENTER> para prosseguir... ");
   getchar();
 }
 
@@ -191,18 +188,18 @@ void excluir_prof(void) {
   char respprof;
 
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t///                      Excluir dados do profissional                     ///\n");
-  wprintf(L"\t///                                                                        ///\n");
-  wprintf(L"\t//////////////////////////////////////////////////////////////////////////////\n");
-  wprintf(L"\tDeseja excluir os dados do profissional selecionado? s/n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                      Excluir dados do profissional                     ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\tDeseja excluir os dados do profissional selecionado? s/n");
   scanf(" %c", &respprof);
   limparBuffer();
   if (respprof == 's') {
     printf("\tDados do profissional excluídos!\n");
   } else { 
-    wprintf(L"\tTecle <ENTER> para continuar: \n");
+    printf("\tTecle <ENTER> para continuar: \n");
     getchar();
   }
 
