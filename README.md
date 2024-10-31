@@ -103,6 +103,14 @@ Esse projeto foi desenvolvido com o seguinte editor de código:
 - E-mail: luis27marciano@mail.com
 - Celular: (84) 99627-4880
 
+### Kaio Márcio ->
+- Github: [Kaiom20](https://github.com/Kaiom20) 
+- Linkedin: [Kaio Márcio Lira](https://www.linkedin.com/in/kaio-márcio-lira-24264b2b7/)
+- Instargam: https://www.instagram.com/kaiom.20/
+- Portifólio: 
+- E-mail: kaiomacl.20@gmail.com
+- Celular: (83) 98716-3046
+
 ##  Sobre
 
 - Este é um Projeto do Curso de Sistemas de Informação da Universidade Federal do Rio Grande do Norte(UFRN).
