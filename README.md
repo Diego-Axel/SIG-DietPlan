@@ -84,6 +84,7 @@ Esse projeto foi desenvolvido com o seguinte editor de código:
 
 - Diêgo Axel
 - Luís Henrique
+- Kaio Márcio
 
 ## Contate-nos
 
