@@ -8,4 +8,6 @@ int eLetra(char);
 int validaNome(char*);
 int validaEmail(const char *email);
 int validaFone(const char *telefone);
+int validaCRN(const char *crn); 
+
 #endif

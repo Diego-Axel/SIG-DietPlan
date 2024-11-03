@@ -130,3 +130,18 @@ int main() {                                          exemplo de como implementa
 */
 
 
+// Função para validar CRN
+
+int validaCRN(const char *crn) {
+
+  if (crn == NULL || strlen(crn) != 11) {        //verifica o tamanho do formato do CRN (xxxxx/CRN-x)
+    return 0;
+  }
+  
+  if (!isdigit(crn[0]) || !isdigit(crn[1]) || !isdigit(crn[2]) || !isdigit(crn[3]) || !isdigit(crn[4]) || crn[5] != '/' ||
+      crn[6] != 'C' || crn[7] != 'R' || crn[8] != 'N' || crn[9] != '-' || !isdigit(crn[10])) {
+        return 0;
+      }
+  
+  return 1;
+}
