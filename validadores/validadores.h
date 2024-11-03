@@ -8,6 +8,8 @@ int eLetra(char);
 int validaNome(char*);
 int validaEmail(const char *email);
 int validaFone(const char *telefone);
-int validaCRN(const char *crn); 
+int validaCRN(const char *crn);
+int digitos_iguais(char*);
+int valida_CPF(char*); 
 
 #endif

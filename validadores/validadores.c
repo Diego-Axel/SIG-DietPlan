@@ -48,7 +48,7 @@ int validaNome(char *nome) {                 // o "*" ao lado do "char" indica q
 
 
 // Função para validar e-mail
-// Adaptado do ChatGPT
+// créditos: ChatGPT
 
 int validaEmail(const char *email) {
     
@@ -98,7 +98,7 @@ int main() {
 */
 
 // Função para validar telefone
-// Adaptado do ChatGPT
+// créditos: ChatGPT
 
 int validaFone(const char *telefone) {
     
@@ -144,4 +144,59 @@ int validaCRN(const char *crn) {
       }
   
   return 1;
+}
+
+
+// Função para validar CPF
+// créditos: ChatGPT
+
+int digitos_iguais(char * cpf) {
+    for (int i = 1; i < 11; i++) {
+        if (cpf[i] != cpf[0]) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int valida_CPF(char * cpf) {
+
+    if (strlen(cpf) != 11) {
+        return 0;
+    }
+    
+    for (int i = 0; i < 11; i++) {
+        if (!isdigit(cpf[i])) {
+            return 0;
+        }
+    }
+    if (todosDigitosIguais(cpf)) {
+        return 0;
+    }
+
+    int soma = 0;
+    for (int i = 0; i < 9; i++) {
+        soma += (cpf[i] - '0') * (10 - i);
+    }
+    int primeiroDigitoVerificador = (soma * 10) % 11;
+    if (primeiroDigitoVerificador == 10) {
+        primeiroDigitoVerificador = 0;
+    }
+    if (primeiroDigitoVerificador != (cpf[9] - '0')) {
+        return 0;
+    }
+
+    soma = 0;
+    for (int i = 0; i < 10; i++) {
+        soma += (cpf[i] - '0') * (11 - i);
+    }
+    int segundoDigitoVerificador = (soma * 10) % 11;
+    if (segundoDigitoVerificador == 10) {
+        segundoDigitoVerificador = 0;
+    }
+    if (segundoDigitoVerificador != (cpf[10] - '0')) {
+        return 0; 
+    }
+
+    return 1;
 }
