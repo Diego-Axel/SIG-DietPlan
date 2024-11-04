@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "profissional.h"
 #include "../utilitarios/utis.h" // Assinatura das utilidades
-
+#include "validadores/validadores.h"
 
 // Funções
 
@@ -54,21 +54,60 @@ void cadastrar_prof(void) {
   scanf("%[A-Z a-z]", nome);
   limparBuffer();
   printf("\n");
-  printf("\t//// Digite o e-mail: ");
-  scanf("%[A-Z a-z@.0-9]", email);
-  limparBuffer();
+
+  // Loop para validar o e-mail
+    do {
+        printf("\t//// Digite o e-mail: ");
+        scanf("%29s", email); // Limita a entrada a 29 caracteres
+        limparBuffer();
+
+        // Verifica se o e-mail é válido
+        if (!validaEmail(email)) {
+            printf("\t//// E-mail inválido. Tente novamente.\n");
+        }
+    } while (!validaEmail(email)); // Continua pedindo até que um e-mail válido seja inserido
+
   printf("\n");
-  printf("\t//// Digite o telefone: ");
-  scanf("%[0-9 ()-]", telefone);
-  limparBuffer();
+
+ // Loop para validar o telefone
+    do {
+        printf("\t//// Digite o telefone no formato (XX) XXXXX-XXXX: ");
+        scanf("%13s", telefone); // Limita a entrada a 13 caracteres
+        limparBuffer();
+
+        if (!validaFone(telefone)) {
+            printf("\t//// Telefone inválido. Tente novamente.\n");
+        }
+    } while (!validaFone(telefone)); // Continua pedindo até que um telefone válido seja inserido
+
   printf("\n");
-  printf("\t//// Digite o cpf: ");
-  scanf("%[0-9.-]", cpf);
-  limparBuffer();
+
+  // Loop para validar o CPF
+    do {
+        printf("\t//// Digite o CPF (apenas números): ");
+        scanf("%11s", cpf); // Lê até 11 dígitos, sem considerar o caractere nulo
+        limparBuffer();
+
+        // Verifica se o CPF é válido
+        if (!valida_CPF(cpf)) {
+            printf("\t//// CPF inválido. Tente novamente.\n");
+        }
+    } while (!valida_CPF(cpf)); // Continua pedindo até que um CPF válido seja inserido
+
   printf("\n");
-  printf("\t//// Digite o CRN: ");
-  scanf("%[0-9.-]", crn);
-  limparBuffer();
+
+// Loop para validar o CRN
+    do {
+        printf("\t//// Digite o CRN : ");
+        scanf("%9s", crn); // Lê até 9 dígitos, sem considerar o caractere nulo
+        limparBuffer();
+
+        // Verifica se o CRN é válido
+        if (!validaCRN(crn)) {
+            printf("\t//// CPF inválido. Tente novamente.\n");
+        }
+    } while (!validaCRN(crn)); // Continua pedindo até que um CRN válido seja inserido
+
   printf("\n");
   printf("\t//// Profissional cadastrado com sucesso!");
   printf("\n");
