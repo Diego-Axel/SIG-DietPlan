@@ -3,5 +3,6 @@
         "locale.h": "c",
         "wchar.h": "c",
         "ctype.h": "c"
-    }
+    },
+    "makefile.configureOnOpen": false
 }
