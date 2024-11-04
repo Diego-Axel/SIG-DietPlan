@@ -170,7 +170,7 @@ int valida_CPF(char * cpf) {
             return 0;
         }
     }
-    if (todosDigitosIguais(cpf)) {
+    if (digitos_iguais(cpf)) {
         return 0;
     }
 
