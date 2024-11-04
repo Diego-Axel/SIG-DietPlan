@@ -39,7 +39,7 @@ void cadastrar_prof(void) {
   // Variavéis
   char nome[40];
   char email[30];
-  char telefone[13];
+  char telefone[15];
   char cpf[13];
   char crn[10];
 
@@ -50,9 +50,19 @@ void cadastrar_prof(void) {
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\n");
-  printf("\t//// Digite o nome do profissional: ");
-  scanf("%[A-Z a-z]", nome);
-  limparBuffer();
+
+// Loop para validar o e-mail
+    do {
+        printf("\t//// Digite o nome: ");
+        scanf("%39s", nome); // Limita a entrada a 39 caracteres
+        limparBuffer();
+
+        // Verifica se o nome é válido
+        if (!validaNome(nome)) {
+            printf("\t//// Nome inválido. Tente novamente.\n");
+        }
+    } while (!validaNome(nome)); // Continua pedindo até que um nome válido seja inserido
+
   printf("\n");
 
   // Loop para validar o e-mail
@@ -72,7 +82,7 @@ void cadastrar_prof(void) {
  // Loop para validar o telefone
     do {
         printf("\t//// Digite o telefone no formato (XX) XXXXX-XXXX: ");
-        scanf("%13s", telefone); // Limita a entrada a 13 caracteres
+        scanf("%14s", telefone); // Limita a entrada a 15 caracteres
         limparBuffer();
 
         if (!validaFone(telefone)) {

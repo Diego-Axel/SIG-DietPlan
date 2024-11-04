@@ -110,7 +110,7 @@ int validaFone(const char *telefone) {
     if (telefone[0] != '(' || !isdigit(telefone[1]) || !isdigit(telefone[2]) || telefone[3] != ')' ||
         telefone[4] != ' ' || telefone[5] != '9' || !isdigit(telefone[6]) || !isdigit(telefone[7]) ||
         !isdigit(telefone[8]) || !isdigit(telefone[9]) || telefone[10] != '-' ||
-        !isdigit(telefone[11]) || !isdigit(telefone[12]) || !isdigit(telefone[13])) {
+        !isdigit(telefone[11]) || !isdigit(telefone[12]) || !isdigit(telefone[13]) || !isdigit(telefone[14])) {
         return 0;
     }
 
