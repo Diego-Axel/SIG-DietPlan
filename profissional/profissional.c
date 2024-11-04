@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "profissional.h"
 #include "../utilitarios/utis.h" // Assinatura das utilidades
-#include "validadores/validadores.h"
+#include "../validadores/validadores.h"
 
 // Funções
 

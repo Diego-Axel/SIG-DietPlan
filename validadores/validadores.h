@@ -9,7 +9,7 @@ int validaNome(char*);
 int validaEmail(const char *email);
 int validaFone(const char *telefone);
 int validaCRN(const char *crn);
-int digitos_iguais(char*);
-int valida_CPF(char*); 
+int digitos_iguais(const char *cpf);
+int valida_CPF(const char *cpf); 
 
 #endif

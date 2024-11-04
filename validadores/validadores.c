@@ -150,7 +150,7 @@ int validaCRN(const char *crn) {
 // Função para validar CPF
 // créditos: ChatGPT
 
-int digitos_iguais(char * cpf) {
+int digitos_iguais(const char * cpf) {
     for (int i = 1; i < 11; i++) {
         if (cpf[i] != cpf[0]) {
             return 0;
@@ -159,7 +159,7 @@ int digitos_iguais(char * cpf) {
     return 1;
 }
 
-int valida_CPF(char * cpf) {
+int valida_CPF(const char * cpf) {
 
     if (strlen(cpf) != 11) {
         return 0;
