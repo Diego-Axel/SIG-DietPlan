@@ -7,7 +7,7 @@ CC := gcc
 CFLAGS := -Wall -Wextra -pedantic
 
 # Source files
-SRCS := main.c interfacePrincipal/interfaces.c clientes/clientes.c dietas/dietas.c agendamento/agendamento.c profissional/profissional.c relatorio/relatorio.c utilitarios/utis.c
+SRCS := main.c interfacePrincipal/interfaces.c clientes/clientes.c dietas/dietas.c agendamento/agendamento.c profissional/profissional.c relatorio/relatorio.c utilitarios/utis.c 
 
 # Object files
 OBJS := $(SRCS:.c=.o)
