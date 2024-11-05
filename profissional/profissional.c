@@ -39,7 +39,7 @@ void cadastrar_prof(void) {
   // Variavéis
   char nome[40];
   char email[30];
-  char telefone[15];
+  char telefone[17];
   char cpf[13];
   char crn[10];
 
@@ -81,8 +81,8 @@ void cadastrar_prof(void) {
 
  // Loop para validar o telefone
     do {
-        printf("\t//// Digite o telefone no formato (XX) XXXXX-XXXX: ");
-        scanf("%14s", telefone); // Limita a entrada a 15 caracteres
+        printf("\t//// Digite o telefone (apenas números): ");
+        scanf("%15s", telefone); // Limita a entrada a 15 caracteres
         limparBuffer();
 
         if (!validaFone(telefone)) {
@@ -114,7 +114,7 @@ void cadastrar_prof(void) {
 
         // Verifica se o CRN é válido
         if (!validaCRN(crn)) {
-            printf("\t//// CPF inválido. Tente novamente.\n");
+            printf("\t//// CRN inválido. Tente novamente.\n");
         }
     } while (!validaCRN(crn)); // Continua pedindo até que um CRN válido seja inserido
 

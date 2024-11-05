@@ -98,36 +98,24 @@ int main() {
 */
 
 // Função para validar telefone
-// créditos: ChatGPT
+// créditos: Projeto SIG-Bar
 
-int validaFone(const char *telefone) {
+int validaFone(char * telefone){
     
-    if (telefone == NULL || strlen(telefone) != 14) {          // Verifica se o telefone possui exatamente 14 caracteres
-        return 0;                                              // tem que ser exatamente no formato (xx) 9xxxx-xxxx
-    }
+    int tamanho = strlen(telefone);
 
-    // Verifica o formato específico (XX) 9XXXX-XXXX
-    if (telefone[0] != '(' || !isdigit(telefone[1]) || !isdigit(telefone[2]) || telefone[3] != ')' ||
-        telefone[4] != ' ' || telefone[5] != '9' || !isdigit(telefone[6]) || !isdigit(telefone[7]) ||
-        !isdigit(telefone[8]) || !isdigit(telefone[9]) || telefone[10] != '-' ||
-        !isdigit(telefone[11]) || !isdigit(telefone[12]) || !isdigit(telefone[13]) || !isdigit(telefone[14])) {
+    if (tamanho != 11){
         return 0;
     }
 
-    return 1; // Telefone válido
+    for (int i = 0; i < tamanho; i++){
+        if(!isdigit(telefone[i])){
+            return 0;
+        }
+    }
+
+    return 1;
 }
-
-/*
-int main() {                                          exemplo de como implementar(segundo o gpt)
-    const char *telefone1 = "(11) 91234-5678";
-    const char *telefone2 = "(21) 91234-567";
-
-    printf("Telefone %s é %s\n", telefone1, validaFone(telefone1) ? "válido" : "inválido");
-    printf("Telefone %s é %s\n", telefone2, validaFone(telefone2) ? "válido" : "inválido");
-
-    return 0;
-}
-*/
 
 
 // Função para validar CRN
@@ -138,8 +126,7 @@ int validaCRN(const char *crn) {
     return 0;
   }
   
-  if (!isdigit(crn[0]) || !isdigit(crn[1]) || !isdigit(crn[2]) || !isdigit(crn[3]) || !isdigit(crn[4]) || crn[5] != '/' ||
-      crn[6] != 'C' || crn[7] != 'R' || crn[8] != 'N' || crn[9] != '-' || !isdigit(crn[10])) {
+  if (!isdigit(crn[0]) || !isdigit(crn[1]) || !isdigit(crn[2]) || !isdigit(crn[3]) || !isdigit(crn[4]) || crn[5] != '/' || crn[6] != 'C' || crn[7] != 'R' || crn[8] != 'N' || crn[9] != '-' || !isdigit(crn[10])) {
         return 0;
       }
   
