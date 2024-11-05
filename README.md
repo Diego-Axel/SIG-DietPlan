@@ -91,7 +91,7 @@ Esse projeto foi desenvolvido com o seguinte editor de código:
 ### Diêgo Axel ->
 - GitHub: [Diego-Axel](https://github.com/Diego-Axel)
 - Linkedin: [Diêgo Axel](https://www.linkedin.com/in/di%C3%AAgo-axel-1684452b5/)
-- Instargam: https://www.instagram.com/diegoaxelbsr/
+- Instagram: https://www.instagram.com/diegoaxelbsr/
 - Portifólio: https://diego-axel.github.io/
 - E-mail: diegoaxelbsr@gmail.com
 - Celular: (84) 99977-4459
@@ -99,7 +99,7 @@ Esse projeto foi desenvolvido com o seguinte editor de código:
 ### Luís Henrique ->
 - Github: [Luis27h](https://github.com/Luis27h)
 - Linkedin: [Luís Henrique](https://www.linkedin.com/in/luis-henrique-de-almeida-marciano-026b1632b/)
-- Instargam: https://www.instagram.com/luis_h_27/
+- Instagram: https://www.instagram.com/luis_h_27/
 - Portifólio: 
 - E-mail: luis27marciano@mail.com
 - Celular: (84) 99627-4880
@@ -107,7 +107,7 @@ Esse projeto foi desenvolvido com o seguinte editor de código:
 ### Kaio Márcio ->
 - Github: [Kaiom20](https://github.com/Kaiom20) 
 - Linkedin: [Kaio Márcio Lira](https://www.linkedin.com/in/kaio-márcio-lira-24264b2b7/)
-- Instargam: https://www.instagram.com/kaiom.20/
+- Instagram: https://www.instagram.com/kaiom.20/
 - Portifólio: 
 - E-mail: kaiomacl.20@gmail.com
 - Celular: (83) 98716-3046
