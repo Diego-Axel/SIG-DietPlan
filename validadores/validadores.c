@@ -10,7 +10,7 @@
 // Funções 
 
 // Função para verificar se um caractere é um digito
-// Adaptado do Projeto Língua Solta
+// Créditos: Adaptado do Projeto Língua Solta
 
 int eDigito(char c) {
     if (c <= '9' && c >= '0') {        // retorna 1 caso o caractere recebido esteja entre 0 e 9 
@@ -22,7 +22,7 @@ int eDigito(char c) {
  
 
 // Função para verificar se um caractere é uma letra
-// Adaptado do Projeto Língua Solta
+// Créditos: Adaptado do Projeto Língua Solta
 
 int eLetra(char c) {
   if (c >= 'A' && c <= 'Z') {          // retorna 1 caso o caractere recebido seja uma letra entre ('A' e 'Z' ou 'a' e 'z')
@@ -35,7 +35,7 @@ int eLetra(char c) {
 }
 
 // Função para validar nome
-// Adaptado do Projeto Língua Solta
+// Créditos: Adaptado do Projeto Língua Solta
 
 int validaNome(char *nome) {                 // o "*" ao lado do "char" indica que "nome" é um ponteiro para um tipo char
   for (int i = 0; nome[i] != '\0'; i++) {
@@ -85,33 +85,19 @@ int validaEmail(const char *email) {
     return 1; // Email válido
 }
 
-/*                                                          exemplo de como implementar(segundo o gpt)
-int main() {
-    const char *email1 = "exemplo@dominio.com";
-    const char *email2 = "email_invalido.com";
-    
-    printf("Email %s é %s\n", email1, validaEmail(email1) ? "válido" : "inválido");
-    printf("Email %s é %s\n", email2, validaEmail(email2) ? "válido" : "inválido");
-    
-    return 0;
-}
-*/
 
 // Função para validar telefone
-// créditos: Projeto SIG-Bar
-
-int validaFone(char * telefone){
+// créditos: Adaptado do ChatGPT
     
-    int tamanho = strlen(telefone);
-
-    if (tamanho != 11){
+int validaFone(char *telefone) {
+    // Verifica se o telefone possui exatamente 14 caracteres
+     if (strlen(telefone) != 15) {
         return 0;
     }
 
-    for (int i = 0; i < tamanho; i++){
-        if(!isdigit(telefone[i])){
-            return 0;
-        }
+    if(telefone[0]!='('|| !isdigit(telefone[1])||!isdigit(telefone[2])|| telefone[3] != ')'||telefone[4]!=' '||!isdigit(telefone[5])||!isdigit(telefone[6])||!isdigit(telefone[7])||!isdigit(telefone[8])||!isdigit(telefone[9])|| telefone[10] != '-'
+       ||!isdigit(telefone[11])||!isdigit(telefone[12])||!isdigit(telefone[13])||!isdigit(telefone[14])){
+        return 0;
     }
 
     return 1;

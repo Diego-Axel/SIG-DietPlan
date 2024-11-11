@@ -1,5 +1,5 @@
 <p align="center">
-SIG-DietPlan - Um Sistema De Planejamento De Dietas
+SIG-DietPlan - Um Sistema De Planejamento De Dietas 
 </p>
 
 <p align="center">

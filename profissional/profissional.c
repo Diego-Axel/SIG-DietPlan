@@ -39,7 +39,7 @@ void cadastrar_prof(void) {
   // Variavéis
   char nome[40];
   char email[30];
-  char telefone[17];
+  char telefone[16];
   char cpf[13];
   char crn[10];
 
@@ -81,8 +81,9 @@ void cadastrar_prof(void) {
 
  // Loop para validar o telefone
     do {
-        printf("\t//// Digite o telefone (apenas números): ");
-        scanf("%15s", telefone); // Limita a entrada a 15 caracteres
+        printf("\t//// Digite o telefone no formato (XX) XXXXX-XXXX: ");
+        fgets(telefone, 16, stdin); // Limita a entrada a 15 caracteres
+        telefone[strcspn(telefone, "\n")] = '\0';
         limparBuffer();
 
         if (!validaFone(telefone)) {
