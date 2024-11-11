@@ -39,7 +39,7 @@ int eLetra(char c) {
 
 int validaNome(char *nome) {                 // o "*" ao lado do "char" indica que "nome" é um ponteiro para um tipo char
   for (int i = 0; nome[i] != '\0'; i++) {
-    if (!eLetra(nome[i])) {                  // retorna 0 caso a função "eLetra" retornar 0 também 
+    if (!eLetra(nome[i]) && nome[i] != ' ') {                  // retorna 0 caso a função "eLetra" retornar 0 também 
       return 0;
     }
   }

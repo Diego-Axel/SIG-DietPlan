@@ -51,10 +51,11 @@ void cadastrar_prof(void) {
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\n");
 
-// Loop para validar o e-mail
+// Loop para validar o nome
     do {
         printf("\t//// Digite o nome: ");
-        scanf("%39s", nome); // Limita a entrada a 39 caracteres
+        fgets(nome, 40, stdin); // Limita a entrada a 39 caracteres
+        nome[strcspn(nome, "\n")] = '\0';
         limparBuffer();
 
         // Verifica se o nome é válido
@@ -64,7 +65,7 @@ void cadastrar_prof(void) {
     } while (!validaNome(nome)); // Continua pedindo até que um nome válido seja inserido
 
   printf("\n");
-
+  
   // Loop para validar o e-mail
     do {
         printf("\t//// Digite o e-mail: ");
