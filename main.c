@@ -6,7 +6,7 @@
 ///               Projeto Sistema de Planejamento de Dietas              ///
 ///              Developed by Diêgo Axel,  Luís Henrique                 ///
 ///                           and Kaio Márcio                            ///
-///                             Versão 0.7                               ///
+///                             Versão 0.8                               ///
 ////////////////////////////////////////////////////////////////////////////
 
 
