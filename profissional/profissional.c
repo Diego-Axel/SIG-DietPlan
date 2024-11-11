@@ -8,7 +8,7 @@
 
 // Funções
 
-char menu_profissional(void) {
+char menu_profissional(void) {  
   char op_profissional;
 
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
@@ -109,8 +109,9 @@ void cadastrar_prof(void) {
 
 // Loop para validar o CRN
     do {
-        printf("\t//// Digite o CRN : ");
-        scanf("%9s", crn); // Lê até 9 dígitos, sem considerar o caractere nulo
+        printf("\t//// Digite o CRN (XXXXX/CRN-X) : ");
+        fgets(crn, 12, stdin); // Lê até 11 dígitos, sem considerar o caractere nulo
+        crn[strcspn(crn, "\n")] = '\0';
         limparBuffer();
 
         // Verifica se o CRN é válido

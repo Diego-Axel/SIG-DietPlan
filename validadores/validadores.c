@@ -106,9 +106,9 @@ int validaFone(char *telefone) {
 
 // Função para validar CRN
 
-int validaCRN(const char *crn) {
+int validaCRN(char *crn) {
 
-  if (crn == NULL || strlen(crn) != 11) {        //verifica o tamanho do formato do CRN (xxxxx/CRN-x)
+  if (strlen(crn) != 11) {        //verifica o tamanho do formato do CRN (xxxxx/CRN-x)
     return 0;
   }
   
