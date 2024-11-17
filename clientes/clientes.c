@@ -92,10 +92,19 @@ void cadastrar_cliente(void) {
     } while (!validaFone(telefone)); // Continua pedindo até que um telefone válido seja inserido
 
   printf("\n");
-  
-  printf("\t//// Digite seu cpf: ");
-  scanf("%[0-9.-]", cpf);
-  limparBuffer();
+
+// Loop para validar o CPF
+    do {
+        printf("\t//// Digite o CPF (apenas números): ");
+        scanf("%11s", cpf); // Lê até 11 dígitos, sem considerar o caractere nulo
+        limparBuffer();
+
+        // Verifica se o CPF é válido
+        if (!valida_CPF(cpf)) {
+            printf("\t//// CPF inválido. Tente novamente.\n");
+        }
+    } while (!valida_CPF(cpf)); // Continua pedindo até que um CPF válido seja inserido
+
   printf("\n");
   printf("\t//// Cliente cadastrado com sucesso!");
   printf("\n");
