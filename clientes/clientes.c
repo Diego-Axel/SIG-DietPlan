@@ -78,11 +78,21 @@ void cadastrar_cliente(void) {
     } while (!validaEmail(email)); // Continua pedindo até que um e-mail válido seja inserido
 
   printf("\n");
-  
-  printf("\t//// Digite seu telefone: ");
-  scanf("%[0-9 ()-]", telefone);
-  limparBuffer();
+
+// Loop para validar o telefone
+    do {
+        printf("\t//// Digite o telefone no formato (XX) XXXXX-XXXX: ");
+        fgets(telefone, 16, stdin); // Limita a entrada a 15 caracteres
+        telefone[strcspn(telefone, "\n")] = '\0';
+        limparBuffer();
+
+        if (!validaFone(telefone)) {
+            printf("\t//// Telefone inválido. Tente novamente.\n");
+        }
+    } while (!validaFone(telefone)); // Continua pedindo até que um telefone válido seja inserido
+
   printf("\n");
+  
   printf("\t//// Digite seu cpf: ");
   scanf("%[0-9.-]", cpf);
   limparBuffer();
