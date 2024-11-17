@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "clientes.h"
 #include "../utilitarios/utis.h" // Assinatura das utilidades
+#include "../validadores/validadores.h" // Assinatura dos validadores
 
 // Funções 
 
@@ -49,10 +50,21 @@ void cadastrar_cliente(void) {
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\n");
-  printf("\t//// Digite seu nome: ");
-  scanf("%[A-Z a-z]", nome);
-  limparBuffer();
+  // Loop para validar o nome
+  do {
+        printf("\t//// Digite o nome: ");
+        fgets(nome, 40, stdin); // Limita a entrada a 39 caracteres
+        nome[strcspn(nome, "\n")] = '\0';
+        limparBuffer();
+
+        // Verifica se o nome é válido
+        if (!validaNome(nome)) {
+            printf("\t//// Nome inválido. Tente novamente.\n");
+        }
+    } while (!validaNome(nome)); // Continua pedindo até que um nome válido seja inserido
+  
   printf("\n");
+
   printf("\t//// Digite seu e-mail: ");
   scanf("%[A-Z a-z@.0-9]", email);
   limparBuffer();
