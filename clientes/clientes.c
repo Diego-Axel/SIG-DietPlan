@@ -65,10 +65,20 @@ void cadastrar_cliente(void) {
   
   printf("\n");
 
-  printf("\t//// Digite seu e-mail: ");
-  scanf("%[A-Z a-z@.0-9]", email);
-  limparBuffer();
+ // Loop para validar o e-mail
+    do {
+        printf("\t//// Digite o e-mail: ");
+        scanf("%29s", email); // Limita a entrada a 29 caracteres
+        limparBuffer();
+
+        // Verifica se o e-mail é válido
+        if (!validaEmail(email)) {
+            printf("\t//// E-mail inválido. Tente novamente.\n");
+        }
+    } while (!validaEmail(email)); // Continua pedindo até que um e-mail válido seja inserido
+
   printf("\n");
+  
   printf("\t//// Digite seu telefone: ");
   scanf("%[0-9 ()-]", telefone);
   limparBuffer();
