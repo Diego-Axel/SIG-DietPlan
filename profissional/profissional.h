@@ -11,6 +11,7 @@ struct profissional {
     char telefone[16];
     char cpf[13];
     char crn[10];
+    int status;
 };
 
 char menu_profissional(void);
