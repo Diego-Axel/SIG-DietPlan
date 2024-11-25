@@ -3,6 +3,16 @@
 #ifndef PROFISSIONAL
 #define PROFISSIONAL
 
+typedef struct profissional Profissional
+
+struct profissional {
+    char nome[40];
+    char email[30];
+    char telefone[16];
+    char cpf[13];
+    char crn[10];
+};
+
 char menu_profissional(void);
 void cadastrar_prof(void);
 void exibir_prof(void);
