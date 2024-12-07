@@ -3,7 +3,7 @@
 #ifndef PROFISSIONAL
 #define PROFISSIONAL
 
-typedef struct profissional Profissional
+typedef struct profissional Profissional;
 
 struct profissional {
     char nome[40];

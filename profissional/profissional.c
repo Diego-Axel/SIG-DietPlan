@@ -2,6 +2,7 @@
 
 #include <stdio.h> 
 #include <stdlib.h>
+#include <string.h>
 #include "profissional.h"
 #include "../utilitarios/utis.h" // Assinatura das utilidades
 #include "../validadores/validadores.h" // Assinatura dos validadores
@@ -31,6 +32,18 @@ char menu_profissional(void) {
   limparBuffer();
   
   return op_profissional;
+}
+
+void grava_prof(Profissional* prf) {
+  FILE* fp;
+  fp = fopen("profissional.dat", "ab");
+  if (fp == NULL) {
+    printf("Erro na abertura do arquivo!\n");
+    printf("Não é possível continuar...\n");
+    exit(1);
+  }
+  fwrite(prf, sizeof(Profissional), 1, fp);
+  fclose(fp);
 }
 
 
