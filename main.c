@@ -45,7 +45,7 @@ int main(void) {
   char op_agendar;
   char op_profissional;
   char op_relatorio;
-
+  Profissional* profissional;
 
   do { 
     op_principal = menu_principal();
@@ -104,7 +104,8 @@ int main(void) {
       do {
         op_profissional = menu_profissional();
         if (op_profissional == '1') {
-          cadastrar_prof();
+          profissional = cadastrar_prof();
+          grava_prof(profissional);
         }
         else if (op_profissional == '2') {
           exibir_prof();

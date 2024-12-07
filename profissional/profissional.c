@@ -34,6 +34,7 @@ char menu_profissional(void) {
   return op_profissional;
 }
 
+// Função para gravar profissional
 void grava_prof(Profissional* prf) {
   FILE* fp;
   fp = fopen("profissional.dat", "ab");
@@ -47,15 +48,9 @@ void grava_prof(Profissional* prf) {
 }
 
 
-void cadastrar_prof(void) {
-
-  // Variavéis
-  char nome[40];
-  char email[30];
-  char telefone[16];
-  char cpf[13];
-  char crn[10];
-
+Profissional* cadastrar_prof(void) {
+  Profissional* prf;
+  prf = (Profissional*) malloc(sizeof(Profissional));
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\t///                                                                        ///\n");
@@ -67,78 +62,82 @@ void cadastrar_prof(void) {
 // Loop para validar o nome
     do {
         printf("\t//// Digite o nome: ");
-        fgets(nome, 40, stdin); // Limita a entrada a 39 caracteres
-        nome[strcspn(nome, "\n")] = '\0';
+        fgets(prf->nome, 40, stdin); // Limita a entrada a 39 caracteres
+        prf->nome[strcspn(prf->nome, "\n")] = '\0';
         limparBuffer();
 
         // Verifica se o nome é válido
-        if (!validaNome(nome)) {
+        if (!validaNome(prf->nome)) {
             printf("\t//// Nome inválido. Tente novamente.\n");
         }
-    } while (!validaNome(nome)); // Continua pedindo até que um nome válido seja inserido
+    } while (!validaNome(prf->nome)); // Continua pedindo até que um nome válido seja inserido
 
   printf("\n");
   
   // Loop para validar o e-mail
     do {
         printf("\t//// Digite o e-mail: ");
-        scanf("%29s", email); // Limita a entrada a 29 caracteres
+        scanf("%29s", prf->email); // Limita a entrada a 29 caracteres
         limparBuffer();
 
         // Verifica se o e-mail é válido
-        if (!validaEmail(email)) {
+        if (!validaEmail(prf->email)) {
             printf("\t//// E-mail inválido. Tente novamente.\n");
         }
-    } while (!validaEmail(email)); // Continua pedindo até que um e-mail válido seja inserido
+    } while (!validaEmail(prf->email)); // Continua pedindo até que um e-mail válido seja inserido
 
   printf("\n");
 
  // Loop para validar o telefone
     do {
         printf("\t//// Digite o telefone no formato (XX) XXXXX-XXXX: ");
-        fgets(telefone, 16, stdin); // Limita a entrada a 15 caracteres
-        telefone[strcspn(telefone, "\n")] = '\0';
+        fgets(prf->telefone, 16, stdin); // Limita a entrada a 15 caracteres
+        prf->telefone[strcspn(prf->telefone, "\n")] = '\0';
         limparBuffer();
 
-        if (!validaFone(telefone)) {
+        if (!validaFone(prf->telefone)) {
             printf("\t//// Telefone inválido. Tente novamente.\n");
         }
-    } while (!validaFone(telefone)); // Continua pedindo até que um telefone válido seja inserido
+    } while (!validaFone(prf->telefone)); // Continua pedindo até que um telefone válido seja inserido
 
   printf("\n");
 
   // Loop para validar o CPF
     do {
         printf("\t//// Digite o CPF (apenas números): ");
-        scanf("%11s", cpf); // Lê até 11 dígitos, sem considerar o caractere nulo
+        scanf("%11s", prf->cpf); // Lê até 11 dígitos, sem considerar o caractere nulo
         limparBuffer();
 
         // Verifica se o CPF é válido
-        if (!valida_CPF(cpf)) {
+        if (!valida_CPF(prf->cpf)) {
             printf("\t//// CPF inválido. Tente novamente.\n");
         }
-    } while (!valida_CPF(cpf)); // Continua pedindo até que um CPF válido seja inserido
+    } while (!valida_CPF(prf->cpf)); // Continua pedindo até que um CPF válido seja inserido
 
   printf("\n");
 
 // Loop para validar o CRN
     do {
         printf("\t//// Digite o CRN (XXXXX/CRN-X) : ");
-        fgets(crn, 12, stdin); // Lê até 11 dígitos, sem considerar o caractere nulo
-        crn[strcspn(crn, "\n")] = '\0';
+        fgets(prf->crn, 12, stdin); // Lê até 11 dígitos, sem considerar o caractere nulo
+        prf->crn[strcspn(prf->crn, "\n")] = '\0';
         limparBuffer();
 
         // Verifica se o CRN é válido
-        if (!validaCRN(crn)) {
+        if (!validaCRN(prf->crn)) {
             printf("\t//// CRN inválido. Tente novamente.\n");
         }
-    } while (!validaCRN(crn)); // Continua pedindo até que um CRN válido seja inserido
+    } while (!validaCRN(prf->crn)); // Continua pedindo até que um CRN válido seja inserido
+
+// Indica status como ativo
+  prf->status = 'A';
 
   printf("\n");
   printf("\t//// Profissional cadastrado com sucesso!");
   printf("\n");
   printf("\tTecle <ENTER> para prosseguir... ");
   getchar();
+  return prf;
 }
 
 
