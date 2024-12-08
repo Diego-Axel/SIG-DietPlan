@@ -2,6 +2,7 @@
 
 #include <stdio.h> 
 #include <stdlib.h>
+#include <string.h>
 #include "clientes.h"
 #include "../utilitarios/utis.h" // Assinatura das utilidades
 #include "../validadores/validadores.h" // Assinatura dos validadores
@@ -31,6 +32,19 @@ char menu_cliente(void) {
   scanf("%c", &op_cliente);
   limparBuffer();
   return op_cliente;
+}
+
+
+void grava_cliente(Cliente* prf) {
+  FILE* fp;
+  fp = fopen("cliente.dat", "ab");
+  if (fp == NULL) {
+    printf("Erro na abertura do arquivo!\n");
+    printf("Não é possível continuar...\n");
+    exit(1);
+  }
+  fwrite(prf, sizeof(Cliente), 1, fp);
+  fclose(fp);
 }
 
 

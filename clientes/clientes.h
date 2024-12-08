@@ -3,9 +3,9 @@
 #ifndef CLIENTES
 #define CLIENTES
 
-typedef struct clientes Clientes;
+typedef struct cliente Cliente;
 
-struct clientes {
+struct cliente {
     char nome[40];
     char email[30];
     char telefone[16];
