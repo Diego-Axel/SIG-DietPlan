@@ -34,8 +34,9 @@ char menu_cliente(void) {
   return op_cliente;
 }
 
+// Função para gravar cliente
 
-void grava_cliente(Cliente* prf) {
+void grava_cliente(Cliente* clt) {
   FILE* fp;
   fp = fopen("cliente.dat", "ab");
   if (fp == NULL) {
@@ -43,87 +44,87 @@ void grava_cliente(Cliente* prf) {
     printf("Não é possível continuar...\n");
     exit(1);
   }
-  fwrite(prf, sizeof(Cliente), 1, fp);
+  fwrite(clt, sizeof(Cliente), 1, fp);
   fclose(fp);
 }
 
 
-void cadastrar_cliente(void) {
-
-  // Variavéis
-  char nome[40];
-  char email[30];
-  char telefone[13];
-  char cpf[13];
+Cliente* cadastrar_cliente(void) {
+  Cliente* clt;
+  clt = (Cliente*) malloc(sizeof(Cliente));
 
 
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\t///                                                                        ///\n");
-  printf("\t///                            Cadastar cliente                            ///\n");
+  printf("\t///                            Cadastrar cliente                            ///\n");
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\n");
   // Loop para validar o nome
   do {
         printf("\t//// Digite o nome: ");
-        fgets(nome, 40, stdin); // Limita a entrada a 39 caracteres
-        nome[strcspn(nome, "\n")] = '\0';
+        fgets(clt->nome, 40, stdin); // Limita a entrada a 39 caracteres
+        clt->nome[strcspn(clt->nome, "\n")] = '\0';
         limparBuffer();
 
         // Verifica se o nome é válido
-        if (!validaNome(nome)) {
+        if (!validaNome(clt->nome)) {
             printf("\t//// Nome inválido. Tente novamente.\n");
         }
-    } while (!validaNome(nome)); // Continua pedindo até que um nome válido seja inserido
+    } while (!validaNome(clt->nome)); // Continua pedindo até que um nome válido seja inserido
   
   printf("\n");
 
  // Loop para validar o e-mail
     do {
         printf("\t//// Digite o e-mail: ");
-        scanf("%29s", email); // Limita a entrada a 29 caracteres
+        scanf("%29s", clt->email); // Limita a entrada a 29 caracteres
         limparBuffer();
 
         // Verifica se o e-mail é válido
-        if (!validaEmail(email)) {
+        if (!validaEmail(clt->email)) {
             printf("\t//// E-mail inválido. Tente novamente.\n");
         }
-    } while (!validaEmail(email)); // Continua pedindo até que um e-mail válido seja inserido
+    } while (!validaEmail(clt->email)); // Continua pedindo até que um e-mail válido seja inserido
 
   printf("\n");
 
 // Loop para validar o telefone
     do {
         printf("\t//// Digite o telefone no formato (XX) XXXXX-XXXX: ");
-        fgets(telefone, 16, stdin); // Limita a entrada a 15 caracteres
-        telefone[strcspn(telefone, "\n")] = '\0';
+        fgets(clt->telefone, 16, stdin); // Limita a entrada a 15 caracteres
+        clt->telefone[strcspn(clt->telefone, "\n")] = '\0';
         limparBuffer();
 
-        if (!validaFone(telefone)) {
+        if (!validaFone(clt->telefone)) {
             printf("\t//// Telefone inválido. Tente novamente.\n");
         }
-    } while (!validaFone(telefone)); // Continua pedindo até que um telefone válido seja inserido
+    } while (!validaFone(clt->telefone)); // Continua pedindo até que um telefone válido seja inserido
 
   printf("\n");
 
 // Loop para validar o CPF
     do {
         printf("\t//// Digite o CPF (apenas números): ");
-        scanf("%11s", cpf); // Lê até 11 dígitos, sem considerar o caractere nulo
+        scanf("%11s", clt->cpf); // Lê até 11 dígitos, sem considerar o caractere nulo
         limparBuffer();
 
         // Verifica se o CPF é válido
-        if (!valida_CPF(cpf)) {
+        if (!valida_CPF(clt->cpf)) {
             printf("\t//// CPF inválido. Tente novamente.\n");
         }
-    } while (!valida_CPF(cpf)); // Continua pedindo até que um CPF válido seja inserido
+    } while (!valida_CPF(clt->cpf)); // Continua pedindo até que um CPF válido seja inserido
+
+    // Indica status como ativo
+  clt->status = 'A';
 
   printf("\n");
   printf("\t//// Cliente cadastrado com sucesso!");
   printf("\n");
   printf("\tTecle <ENTER> para prosseguir... ");
   getchar();
+  return clt;
 }
 
 

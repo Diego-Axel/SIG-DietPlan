@@ -46,6 +46,7 @@ int main(void) {
   char op_profissional;
   char op_relatorio;
   Profissional* profissional;
+  Cliente* cliente;
 
   do { 
     op_principal = menu_principal();
@@ -53,7 +54,8 @@ int main(void) {
       do {
         op_cliente = menu_cliente();
         if (op_cliente == '1') {
-          cadastrar_cliente();
+          cliente = cadastrar_cliente();
+          grava_cliente(cliente);
         }
         else if (op_cliente == '2') {
           exibir_cliente();

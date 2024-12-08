@@ -10,10 +10,12 @@ struct cliente {
     char email[30];
     char telefone[16];
     char cpf[13];
+    char status;
 };
 
 char menu_cliente(void);
-void cadastrar_cliente(void);
+Cliente* cadastrar_cliente(void);
+void grava_cliente(Cliente*);
 void exibir_cliente(void);
 void alterar_cliente(void);
 void excluir_cliente(void);
