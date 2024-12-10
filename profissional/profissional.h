@@ -17,6 +17,9 @@ struct profissional {
 char menu_profissional(void);
 Profissional* cadastrar_prof(void);
 void grava_prof(Profissional*);
+
+Profissional* buscar_prof(char*);
+
 void exibir_prof(void);
 void recadastrar_prof(void);
 void excluir_prof(void);
