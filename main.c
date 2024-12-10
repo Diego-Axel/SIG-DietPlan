@@ -110,7 +110,7 @@ int main(void) {
           grava_prof(profissional);
         }
         else if (op_profissional == '2') {
-          exibir_prof();
+          pesquisar_prof();
         }
         else if (op_profissional == '3') {
           recadastrar_prof();

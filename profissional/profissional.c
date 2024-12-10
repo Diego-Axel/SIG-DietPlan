@@ -141,26 +141,31 @@ Profissional* cadastrar_prof(void) {
 }
 
 // Função para buscar profissional
-Profissional* buscar_prof(char* crn) {
+Profissional* buscar_prof(void) {
     FILE* fp;
     Profissional* prf;
+    char crn[12];
 
     prf = (Profissional*) malloc(sizeof(Profissional));
     fp = fopen("profissional.dat", "rb");
     if (fp == NULL) {
         printf("Erro na abertura do arquivo!\n");
         printf("Não é possível continuar...\n");
+        exit(1);
     }
-    while (fread(prf, sizeof(Profissional), 1, fp)) {
+
+    while(!feof(fp)) {
+      fread(prf, sizeof(Profissional), 1, fp);
       if ((strcmp(prf->crn, crn) == 0) && (prf->status == 'A')) {
           fclose(fp);
           return prf;
-      }
+      } 
     }
     fclose(fp);
     return NULL;
 }
 
+// Função para mostrar a tela de inserir o CRN
 char* tela_pesquisar_prof(void) {
     char* crn;
     crn = (char*) malloc(12*sizeof(char*));
@@ -177,6 +182,7 @@ char* tela_pesquisar_prof(void) {
       printf("\n");
       printf("\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
       scanf("%c", &continuar);
+      getchar();
       limparBuffer();
       if (continuar == '0') {
         break;
@@ -219,6 +225,16 @@ void exibir_prof(Profissional* prf) {
     getchar();
 }
 
+void pesquisar_prof(void){
+  Profissional* prf;
+  char* crn;
+
+  crn = tela_pesquisar_prof();
+  prf = buscar_prof();
+  exibir_prof(prf);
+  free(prf);
+  free(crn);
+}
 // Adaptado do Chatgpt
 void recadastrar_prof(void) {
 

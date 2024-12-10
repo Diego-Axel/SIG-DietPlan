@@ -10,15 +10,15 @@ struct profissional {
     char email[30];
     char telefone[16];
     char cpf[13];
-    char crn[10];
+    char crn[12];
     char status;
 };
 
 char menu_profissional(void);
 Profissional* cadastrar_prof(void);
 void grava_prof(Profissional*);
-
-Profissional* buscar_prof(char*);
+void pesquisar_prof(void);
+Profissional* buscar_prof();
 char* tela_pesquisar_prof(void);
 void exibir_prof(Profissional*);
 void recadastrar_prof(void);
