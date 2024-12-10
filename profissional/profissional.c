@@ -141,10 +141,9 @@ Profissional* cadastrar_prof(void) {
 }
 
 // Função para buscar profissional
-Profissional* buscar_prof(void) {
+Profissional* buscar_prof(char* crn) {
     FILE* fp;
     Profissional* prf;
-    char crn[12];
 
     prf = (Profissional*) malloc(sizeof(Profissional));
     fp = fopen("profissional.dat", "rb");
@@ -182,7 +181,6 @@ char* tela_pesquisar_prof(void) {
       printf("\n");
       printf("\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
       scanf("%c", &continuar);
-      getchar();
       limparBuffer();
       if (continuar == '0') {
         break;
@@ -195,7 +193,7 @@ char* tela_pesquisar_prof(void) {
       printf("\t//////////////////////////////////////////////////////////////////////////////\n");
       printf("\n");
       printf("\t//// Digite o CRN do profissional a ser exibido: ");
-      scanf("%[0-9.-]", crn);
+      scanf("%s", crn);
       limparBuffer();
       return crn;
     }
@@ -230,7 +228,7 @@ void pesquisar_prof(void){
   char* crn;
 
   crn = tela_pesquisar_prof();
-  prf = buscar_prof();
+  prf = buscar_prof(crn);
   exibir_prof(prf);
   free(prf);
   free(crn);
