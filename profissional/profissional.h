@@ -19,8 +19,8 @@ Profissional* cadastrar_prof(void);
 void grava_prof(Profissional*);
 
 Profissional* buscar_prof(char*);
-
-void exibir_prof(void);
+char* tela_pesquisar_prof(void);
+void exibir_prof(Profissional*);
 void recadastrar_prof(void);
 void excluir_prof(void);
 

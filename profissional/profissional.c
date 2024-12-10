@@ -47,26 +47,6 @@ void grava_prof(Profissional* prf) {
   fclose(fp);
 }
 
-// Função para buscar profissional
-Profissional* buscar_prof(char* crn) {
-  FILE* fp;
-  Profissional* prf;
-
-  prf = (Profissional*) malloc(sizeof(Profissional));
-  fp = fopen("profissional.dat", "rb");
-  if (fp == NULL) {
-      printf("Erro na abertura do arquivo!\n");
-      printf("Não é possível continuar...\n");
-  }
-  while (fread(prf, sizeof(Profissional), 1, fp)) {
-    if ((strcmp(prf->crn, crn) == 0) && (prf->status == 'A')) {
-        fclose(fp);
-        return prf;
-    }
-  }
-  fclose(fp);
-  return NULL;
-}
 // Função para cadastrar profissional
 Profissional* cadastrar_prof(void) {
   Profissional* prf;
@@ -160,50 +140,83 @@ Profissional* cadastrar_prof(void) {
   return prf;
 }
 
+// Função para buscar profissional
+Profissional* buscar_prof(char* crn) {
+    FILE* fp;
+    Profissional* prf;
 
-void exibir_prof(void) {
-  char continuar;
-  char cpf[13];
-  
-  while (continuar != '0') {
-    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-    printf("\t///                                                                        ///\n");
-    printf("\t///                          Exibir profissional                           ///\n");
-    printf("\t///                              [0] Retornar                              ///\n");
-    printf("\t///                                                                        ///\n");
-    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-    printf("\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
-    scanf("%c", &continuar);
-    limparBuffer();
-    if (continuar == '0') {
-      break;
+    prf = (Profissional*) malloc(sizeof(Profissional));
+    fp = fopen("profissional.dat", "rb");
+    if (fp == NULL) {
+        printf("Erro na abertura do arquivo!\n");
+        printf("Não é possível continuar...\n");
     }
-    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-    printf("\t///                                                                        ///\n");
-    printf("\t///                             Exibir profissional                        ///\n");
-    printf("\t///                                                                        ///\n");
-    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-    printf("\t//// Digite o CPF do profissional a ser exibido: ");
-    scanf("%[0-9.-]", cpf);
-    limparBuffer();
-    printf("\n");
-    printf("\t//// Nome: \n");
-    printf("\n");
-    printf("\t//// E-mail: \n");
-    printf("\n");
-    printf("\t//// Telefone: \n");
-    printf("\n");
-    printf("\t//// CPF: \n");
-    printf("\n");
-    printf("\t//// CRN: \n");
-    printf("\n");
+    while (fread(prf, sizeof(Profissional), 1, fp)) {
+      if ((strcmp(prf->crn, crn) == 0) && (prf->status == 'A')) {
+          fclose(fp);
+          return prf;
+      }
+    }
+    fclose(fp);
+    return NULL;
+}
+
+char* tela_pesquisar_prof(void) {
+    char* crn;
+    crn = (char*) malloc(12*sizeof(char*));
+    char continuar;
+    
+    while (continuar != '0') {
+      system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+      printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+      printf("\t///                                                                        ///\n");
+      printf("\t///                          Exibir profissional                           ///\n");
+      printf("\t///                              [0] Retornar                              ///\n");
+      printf("\t///                                                                        ///\n");
+      printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+      printf("\n");
+      printf("\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
+      scanf("%c", &continuar);
+      limparBuffer();
+      if (continuar == '0') {
+        break;
+      }
+      system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+      printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+      printf("\t///                                                                        ///\n");
+      printf("\t///                             Exibir profissional                        ///\n");
+      printf("\t///                                                                        ///\n");
+      printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+      printf("\n");
+      printf("\t//// Digite o CRN do profissional a ser exibido: ");
+      scanf("%[0-9.-]", crn);
+      limparBuffer();
+      return crn;
+    }
+} 
+
+void exibir_prof(Profissional* prf) {
+
+  if (prf == NULL) {
+      printf("\n\t//// Profissional Inexistente !\n");
+  } else {
+      printf("\n");
+      printf("\t//// Profissional Cadastrado !\n");
+      printf("\n");
+      printf("\t//// Nome: %s\n", prf->nome);
+      printf("\n");
+      printf("\t//// E-mail: %s\n", prf->email);
+      printf("\n");
+      printf("\t//// Telefone: %s\n", prf->telefone);
+      printf("\n");
+      printf("\t//// CPF: %s\n", prf->cpf);
+      printf("\n");
+      printf("\t//// CRN: %s\n", prf->crn);
+      printf("\n");
+      printf("\t//// Status: %c\n", prf->status);
+    }
     printf("\ttecle <ENTER> para continuar: ");
     getchar();
-  }
 }
 
 // Adaptado do Chatgpt
