@@ -35,7 +35,7 @@ char menu_profissional(void) {
 }
 
 // Função para gravar profissional
-void grava_prof(Profissional* prf) {
+void gravar_prof(Profissional* prf) {
   FILE* fp;
   fp = fopen("profissional.dat", "ab");
   if (fp == NULL) {
@@ -48,13 +48,21 @@ void grava_prof(Profissional* prf) {
 }
 
 // Função para cadastrar profissional
-Profissional* cadastrar_prof(void) {
+void cadastrar_prof(void){
+    Profissional* prf;
+
+    prf = tela_cadastrar_prof();
+    gravar_prof(prf);
+    free(prf);
+}
+
+Profissional* tela_cadastrar_prof(void) {
   Profissional* prf;
   prf = (Profissional*) malloc(sizeof(Profissional));
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\t///                                                                        ///\n");
-  printf("\t///                            Cadastar profissional                       ///\n");
+  printf("\t///                            Cadastrar profissional                      ///\n");
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\n");
@@ -233,16 +241,87 @@ void pesquisar_prof(void){
   free(prf);
   free(crn);
 }
-// Adaptado do Chatgpt
-void recadastrar_prof(void) {
 
-  // Variáveis
-  char nome[40];
-  char email[30];
-  char telefone[13];
-  char cpf[13];
-  char crn[10];
+// funçao para alterar dados 
+Profissional* recadastrar_prof(void) {
+  Profissional* prf;
+  prf = (Profissional*) malloc(sizeof(Profissional));
+  system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                         Recadastrar profissional                       ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n");
 
+// Loop para validar o nome
+    do {
+        printf("\t//// Digite o nome: ");
+        fgets(prf->nome, 40, stdin); // Limita a entrada a 39 caracteres
+        prf->nome[strcspn(prf->nome, "\n")] = '\0';
+        limparBuffer();
+
+        // Verifica se o nome é válido
+        if (!validaNome(prf->nome)) {
+            printf("\t//// Nome inválido. Tente novamente.\n");
+        }
+    } while (!validaNome(prf->nome)); // Continua pedindo até que um nome válido seja inserido
+
+  printf("\n");
+  
+  // Loop para validar o e-mail
+    do {
+        printf("\t//// Digite o e-mail: ");
+        scanf("%29s", prf->email); // Limita a entrada a 29 caracteres
+        limparBuffer();
+
+        // Verifica se o e-mail é válido
+        if (!validaEmail(prf->email)) {
+            printf("\t//// E-mail inválido. Tente novamente.\n");
+        }
+    } while (!validaEmail(prf->email)); // Continua pedindo até que um e-mail válido seja inserido
+
+  printf("\n");
+
+ // Loop para validar o telefone
+    do {
+        printf("\t//// Digite o telefone no formato (XX) XXXXX-XXXX: ");
+        fgets(prf->telefone, 16, stdin); // Limita a entrada a 15 caracteres
+        prf->telefone[strcspn(prf->telefone, "\n")] = '\0';
+        limparBuffer();
+
+        if (!validaFone(prf->telefone)) {
+            printf("\t//// Telefone inválido. Tente novamente.\n");
+        }
+    } while (!validaFone(prf->telefone)); // Continua pedindo até que um telefone válido seja inserido
+
+  printf("\n");
+
+  // Loop para validar o CPF
+    do {
+        printf("\t//// Digite o CPF (apenas números): ");
+        scanf("%11s", prf->cpf); // Lê até 11 dígitos, sem considerar o caractere nulo
+        limparBuffer();
+
+        // Verifica se o CPF é válido
+        if (!valida_CPF(prf->cpf)) {
+            printf("\t//// CPF inválido. Tente novamente.\n");
+        }
+    } while (!valida_CPF(prf->cpf)); // Continua pedindo até que um CPF válido seja inserido
+  
+  printf("\n");
+  printf("\t//// Profissional recadastrado com sucesso!");
+  printf("\n");
+  printf("\tTecle <ENTER> para prosseguir... ");
+  getchar();
+  return prf;
+}
+
+char* tela_recadastrar_prof(void) {
+  char* crn;
+  crn = (char*) malloc(12*sizeof(char*));
+
+  printf("\n");
   system("clear || cls"); // se for Linux use 'clear', se for Windows use 'cls'
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\t///                                                                        ///\n");
@@ -250,8 +329,57 @@ void recadastrar_prof(void) {
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\n");
+  printf("\t//// Digite o CRN do profissional a ser recadastrado: ");
+  scanf("%s", crn);
+  limparBuffer();
+  return crn;
+}
 
-  // Simulação de busca de dados antigos (pode ser substituído por uma busca real em arquivo ou banco de dados)
+void regravar_prof(Profissional* prf) {
+  int find;
+  FILE* fp;
+  Profissional* prof_lido;
+
+  prof_lido = (Profissional*) malloc(sizeof(Profissional));
+  fp = fopen("profissional.dat", "r+b");
+  if (fp == NULL) {
+    printf("Erro na abertura do arquivo!\n");
+    printf("Não é possível continuar...\n");
+    exit(1);
+  }
+
+  while (!feof(fp)) {
+    find = 0;
+    fread(prof_lido, sizeof(Profissional), 1, fp) && !find;
+    if (strcmp(prof_lido->crn, prf->crn) == 0) {
+        find == 1;
+        fseek(fp, -1*sizeof(Profissional), SEEK_CUR);
+    fwrite(prf, sizeof(Profissional), 1, fp);
+    break;
+    }
+  }
+    fclose(fp);
+    free(prof_lido);
+}
+
+void atualiza_prof(void) {
+  Profissional* prf;
+  char* crn;
+
+  crn = tela_recadastrar_prof();
+  prf = buscar_prof(crn);
+
+  if (prf == NULL) {
+    printf("\n\t//// Profissional Inexistente !\n");
+  } else {
+    prf = recadastrar_prof();
+    strcpy(prf->crn, crn);
+    regravar_prof(prf);
+    free(prf);
+  }
+  free(crn);
+}
+  /* Simulação de busca de dados antigos (pode ser substituído por uma busca real em arquivo ou banco de dados)
   printf("\t//// Dados antigos:\n");
   printf("\tNome: João da Silva\n");
   printf("\tEmail: joao.silva@email.com\n");
@@ -291,8 +419,7 @@ void recadastrar_prof(void) {
   printf("\n");
   printf("\tTecle <ENTER> para prosseguir... ");
   getchar();
-}
-
+*/
 
 void excluir_prof(void) {
 

@@ -106,14 +106,13 @@ int main(void) {
       do {
         op_profissional = menu_profissional();
         if (op_profissional == '1') {
-          profissional = cadastrar_prof();
-          grava_prof(profissional);
+          cadastrar_prof();
         }
         else if (op_profissional == '2') {
           pesquisar_prof();
         }
         else if (op_profissional == '3') {
-          recadastrar_prof();
+          atualiza_prof();
         }
         else if (op_profissional == '4') {
           excluir_prof();
