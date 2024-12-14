@@ -3,6 +3,7 @@
 #include <stdio.h> 
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "profissional.h"
 #include "../utilitarios/utis.h" // Assinatura das utilidades
 #include "../validadores/validadores.h" // Assinatura dos validadores
@@ -213,7 +214,7 @@ void exibir_prof(Profissional* prf) {
       printf("\n\t//// Profissional Inexistente !\n");
   } else {
       printf("\n");
-      printf("\t//// Profissional Cadastrado !\n");
+      printf("\t//// Profissional Encontrado !\n");
       printf("\n");
       printf("\t//// Nome: %s\n", prf->nome);
       printf("\n");
@@ -379,67 +380,56 @@ void atualiza_prof(void) {
   }
   free(crn);
 }
-  /* Simulação de busca de dados antigos (pode ser substituído por uma busca real em arquivo ou banco de dados)
-  printf("\t//// Dados antigos:\n");
-  printf("\tNome: João da Silva\n");
-  printf("\tEmail: joao.silva@email.com\n");
-  printf("\tTelefone: (11) 91234-5678\n");
-  printf("\tCPF: 123.456.789-00\n");
-  printf("\tCRN: 123456\n");
-  printf("\n");
 
-  // Solicitação de novos dados
-  printf("\t//// Digite o novo nome do profissional (ou pressione ENTER para manter o atual): ");
-  fgets(nome, sizeof(nome), stdin);
+char* tela_excluir_prof(void) {
+
+  char* crn;
+  crn = (char*) malloc(12*sizeof(char*));
+
+  printf("\n");
+  system("clear || cls"); // se for Linux use 'clear', se for Windows use 'cls'
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                          Excluir Profissional                          ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n");
+  printf("\t//// Digite o CRN do profissional a ser excluído: ");
+  scanf("%s", crn);
   limparBuffer();
-  printf("\n");
-
-  printf("\t//// Digite o novo e-mail (ou pressione ENTER para manter o atual): ");
-  fgets(email, sizeof(email), stdin);
-  limparBuffer();
-  printf("\n");
-
-  printf("\t//// Digite o novo telefone (ou pressione ENTER para manter o atual): ");
-  fgets(telefone, sizeof(telefone), stdin);
-  limparBuffer();
-  printf("\n");
-
-  printf("\t//// Digite o novo CPF (ou pressione ENTER para manter o atual): ");
-  fgets(cpf, sizeof(cpf), stdin);
-  limparBuffer();
-  printf("\n");
-
-  printf("\t//// Digite o novo CRN (ou pressione ENTER para manter o atual): ");
-  fgets(crn, sizeof(crn), stdin);
-  limparBuffer();
-  printf("\n");
-
-  // Confirmar a operação de recadastramento
-  printf("\t//// Recadastramento realizado com sucesso!");
-  printf("\n");
-  printf("\tTecle <ENTER> para prosseguir... ");
-  getchar();
-*/
+  return crn;
+} 
 
 void excluir_prof(void) {
+  Profissional* prf;
+  char* crn;
+  char confirma;
+  crn = tela_excluir_prof();
+  prf = (Profissional*) malloc(sizeof(Profissional));
+  prf = buscar_prof(crn);
+  if (prf == NULL) {
+    printf("\n\t//// Profissional Inexistente !\n");
+  } else {
+    printf("\n\t//// Profissional Encontrado!\n");
+    printf("\t//// Nome: %s\n", prf->nome);
+    printf("\n\t//// Deseja excluir esse profissional? [S/N]: ");
 
-  // Variáveis
-  char respprof;
-
-  system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-  printf("\t///                                                                        ///\n");
-  printf("\t///                      Excluir dados do profissional                     ///\n");
-  printf("\t///                                                                        ///\n");
-  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-  printf("\tDeseja excluir os dados do profissional selecionado? s/n");
-  scanf(" %c", &respprof);
-  limparBuffer();
-  if (respprof == 's') {
-    printf("\tDados do profissional excluídos!\n");
-  } else { 
-    printf("\tTecle <ENTER> para continuar: \n");
-    getchar();
+    do {
+        scanf("%c", &confirma);
+        limparBuffer();
+        confirma = toupper(confirma);
+        if (confirma == 'S') {
+          prf->status = 'I';
+          regravar_prof(prf);
+          printf("\n\t//// Profissional Excluído com Sucesso!\n");
+        } else if (confirma == 'N') {
+          printf("\n\t//// Operação Cancelada!\n");
+        } else {
+          printf("\n\t //// Operação Inválida! Tente [S/N]: ");
+        }
+    } while(confirma != 'S' && confirma != 'N');
+    
+    free(prf);
   }
-
-} 
+  free(crn);
+}

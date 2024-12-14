@@ -18,13 +18,13 @@ void cadastrar_prof(void);
 void pesquisar_prof(void);
 void atualiza_prof(void);
 void excluir_prof(void);
-char menu_profissional(void);
 Profissional* tela_cadastrar_prof(void);
-void grava_prof(Profissional*);
-Profissional* buscar_prof(char*);
 char* tela_pesquisar_prof(void);
-void exibir_prof(Profissional*);
 char* tela_recadastrar_prof(void);
+char* tela_excluir_prof(void);
+char menu_profissional(void);
+Profissional* buscar_prof(char*);
+void exibir_prof(Profissional*);
+void grava_prof(Profissional*);
 void regravar_prof(Profissional*);
-
 #endif
