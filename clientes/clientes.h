@@ -16,6 +16,7 @@ struct cliente {
 char menu_cliente(void);
 Cliente* cadastrar_cliente(void);
 void grava_cliente(Cliente*);
+Cliente* buscar_cliente(char*);
 void exibir_cliente(void);
 void alterar_cliente(void);
 void excluir_cliente(void);

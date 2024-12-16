@@ -48,7 +48,30 @@ void grava_cliente(Cliente* clt) {
   fclose(fp);
 }
 
+// Função para buscar cliente
+Cliente* buscar_cliente(char* cpf) {
+  FILE* fp;
+  Cliente* clt;
 
+  clt = (Cliente*) malloc(sizeof(Cliente));
+  fp = fopen("cliente.dat", "rb");
+  if (fp == NULL) {
+      printf("Erro na abertura do arquivo!\n");
+      printf("Não é possível continuar...\n");
+  }
+  while (fread(clt, sizeof(Cliente), 1, fp)) {
+    if ((strcmp(clt->cpf, cpf) == 0) && (clt->status == 'A')) {
+        fclose(fp);
+        return clt;
+    }
+  }
+  fclose(fp);
+  return NULL;
+}
+
+  
+
+// Função para cadastrar cliente
 Cliente* cadastrar_cliente(void) {
   Cliente* clt;
   clt = (Cliente*) malloc(sizeof(Cliente));
