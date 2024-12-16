@@ -130,10 +130,9 @@ Cliente* cadastrar_cliente(void) {
 
 
 // Função para buscar cliente
-Cliente* buscar_cliente(void) {
+Cliente* buscar_cliente(char* cpf) {
     FILE* fp;
     Cliente* clt;
-    char cpf[12];
     clt = (Cliente*) malloc(sizeof(Cliente));
     fp = fopen("cliente.dat", "rb");
     if (fp == NULL) {
@@ -169,7 +168,6 @@ char* tela_pesquisar_cliente(void) {
       printf("\n");
       printf("\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
       scanf("%c", &continuar);
-      getchar();
       limparBuffer();
       if (continuar == '0') {
         break;
@@ -212,13 +210,13 @@ void exibir_cliente(Cliente* clt) {
   Cliente* clt;
   char* cpf;
   cpf = tela_pesquisar_cliente();
-  clt = buscar_cliente();
+  clt = buscar_cliente(cpf);
   exibir_cliente(clt);
   free(clt);
   free(cpf);
 }
 
-  
+// Adaptado do ChatGPT  
 void alterar_cliente(void) {
 
   // Variáveis
