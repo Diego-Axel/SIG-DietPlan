@@ -47,28 +47,6 @@ void grava_cliente(Cliente* clt) {
   fwrite(clt, sizeof(Cliente), 1, fp);
   fclose(fp);
 }
-
-// Função para buscar cliente
-Cliente* buscar_cliente(char* cpf) {
-  FILE* fp;
-  Cliente* clt;
-
-  clt = (Cliente*) malloc(sizeof(Cliente));
-  fp = fopen("cliente.dat", "rb");
-  if (fp == NULL) {
-      printf("Erro na abertura do arquivo!\n");
-      printf("Não é possível continuar...\n");
-  }
-  while (fread(clt, sizeof(Cliente), 1, fp)) {
-    if ((strcmp(clt->cpf, cpf) == 0) && (clt->status == 'A')) {
-        fclose(fp);
-        return clt;
-    }
-  }
-  fclose(fp);
-  return NULL;
-}
-
   
 
 // Função para cadastrar cliente
@@ -151,46 +129,78 @@ Cliente* cadastrar_cliente(void) {
 }
 
 
-void exibir_cliente(void) {
-  char continuar;
-  char cpf[13];
-  
-  while (continuar != '0') {
-    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-    printf("\t///                                                                        ///\n");
-    printf("\t///                             Exibir cliente                             ///\n");
-    printf("\t///                              [0] Retornar                              ///\n");
-    printf("\t///                                                                        ///\n");
-    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-    printf("\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
-    scanf("%c", &continuar);
-    limparBuffer();
-    if (continuar == '0') {
-      break;
+// Função para buscar cliente
+Cliente* buscar_cliente(char* cpf) {
+    FILE* fp;
+    Cliente* clt;
+    clt = (Cliente*) malloc(sizeof(Cliente));
+    fp = fopen("cliente.dat", "rb");
+    if (fp == NULL) {
+        printf("Erro na abertura do arquivo!\n");
+        printf("Não é possível continuar...\n");
     }
-    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-    printf("\t///                                                                        ///\n");
-    printf("\t///                             Exibir cliente                             ///\n");
-    printf("\t///                                                                        ///\n");
-    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-    printf("\t//// Digite o CPF do Cliente a ser exibido: ");
-    scanf("%[0-9.-]", cpf);
-    limparBuffer();
-    printf("\n");
-    printf("\t//// Nome: \n");
-    printf("\n");
-    printf("\t//// E-mail: \n");
-    printf("\n");
-    printf("\t//// Telefone: \n");
-    printf("\n");
-    printf("\t//// CPF: \n");
-    printf("\n");
-    printf("\ttecle <ENTER> para continuar: ");
-    getchar();
+    while (fread(clt, sizeof(Cliente), 1, fp)) {
+      if ((strcmp(clt->cpf, cpf) == 0) && (clt->status == 'A')) {
+          fclose(fp);
+          return clt;
+      }
+    }
+    fclose(fp);
+    return NULL;
+}
+
+
+char* tela_pesquisar_cliente(void) {
+    char* cpf;
+    cpf = (char*) malloc(12*sizeof(char*));
+    char continuar;
+    
+    while (continuar != '0') {
+      system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+      printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+      printf("\t///                                                                        ///\n");
+      printf("\t///                             Exibir cliente                             ///\n");
+      printf("\t///                              [0] Retornar                              ///\n");
+      printf("\t///                                                                        ///\n");
+      printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+      printf("\n");
+      printf("\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
+      scanf("%c", &continuar);
+      limparBuffer();
+      if (continuar == '0') {
+        break;
+      }
+      system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+      printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+      printf("\t///                                                                        ///\n");
+      printf("\t///                               Exibir cliente                           ///\n");
+      printf("\t///                                                                        ///\n");
+      printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+      printf("\n");
+      printf("\t//// Digite o CPF do cliente a ser exibido: ");
+      scanf("%[0-9.-]", cpf);
+      limparBuffer();
+      return cpf;
+    }
+} 
+void exibir_cliente(Cliente* clt) {
+  if (clt == NULL) {
+      printf("\n\t//// Cliente inexistente !\n");
+  } else {
+      printf("\n");
+      printf("\t//// Cliente cadastrado !\n");
+      printf("\n");
+      printf("\t//// Nome: %s\n", clt->nome);
+      printf("\n");
+      printf("\t//// E-mail: %s\n", clt->email);
+      printf("\n");
+      printf("\t//// Telefone: %s\n", clt->telefone);
+      printf("\n");
+      printf("\t//// CPF: %s\n", clt->cpf);
+      printf("\n");
+      printf("\t//// Status: %c\n", clt->status);
+      printf("\ttecle <ENTER> para continuar: ");
+      getchar();
   }
 }
 

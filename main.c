@@ -57,7 +57,7 @@ int main(void) {
           grava_cliente(cliente);
         }
         else if (op_cliente == '2') {
-          exibir_cliente();
+          exibir_cliente(cliente);
         }
         else if (op_cliente == '3') {
           alterar_cliente();
