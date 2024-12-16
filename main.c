@@ -45,7 +45,7 @@ int main(void) {
   char op_agendar;
   char op_profissional;
   char op_relatorio;
-  Cliente* cliente;
+  
 
   do { 
     op_principal = menu_principal();

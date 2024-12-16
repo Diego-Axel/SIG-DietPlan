@@ -3,9 +3,11 @@
 #include <stdio.h> 
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "clientes.h"
 #include "../utilitarios/utis.h" // Assinatura das utilidades
 #include "../validadores/validadores.h" // Assinatura dos validadores
+
 
 // Funções 
 
@@ -196,7 +198,7 @@ void exibir_cliente(Cliente* clt) {
       printf("\n\t//// Cliente inexistente !\n");
   } else {
       printf("\n");
-      printf("\t//// Cliente cadastrado !\n");
+      printf("\t//// Cliente encontrado !\n");
       printf("\n");
       printf("\t//// Nome: %s\n", clt->nome);
       printf("\n");
@@ -294,7 +296,7 @@ Cliente* recadastrar_cliente(void) {
   getchar();
   return clt;
   }
-  
+
 // Função para recadastrar Cliente
   char* tela_recadastrar_cliente(void) {
   char* cpf;
@@ -359,71 +361,57 @@ void atualiza_cliente(void) {
   }
   free(cpf);
 }
-/* Simulação de busca de dados antigos (pode ser substituído por uma busca real em arquivo ou banco de dados)
 
-  printf("\t//// Dados antigos:\n");
-  printf("\tNome: João da Silva\n");
-  printf("\tEmail: joao.silva@email.com\n");
-  printf("\tTelefone: (11) 91234-5678\n");
-  printf("\tCPF: 123.456.789-00\n");
-  printf("\tCRN: 123456\n");
+
+char* tela_excluir_cliente(void) {
+  
+    char* cpf;
+    cpf = (char*) malloc(12*sizeof(char*));
+  
   printf("\n");
-
-  // Solicitação de novos dados
-  printf("\t//// Digite o novo nome do profissional (ou pressione ENTER para manter o atual): ");
-  fgets(nome, sizeof(nome), stdin);
-  limparBuffer();
-  printf("\n");
-
-  printf("\t//// Digite o novo e-mail (ou pressione ENTER para manter o atual): ");
-  fgets(email, sizeof(email), stdin);
-  limparBuffer();
-  printf("\n");
-
-  printf("\t//// Digite o novo telefone (ou pressione ENTER para manter o atual): ");
-  fgets(telefone, sizeof(telefone), stdin);
-  limparBuffer();
-  printf("\n");
-
-  printf("\t//// Digite o novo CPF (ou pressione ENTER para manter o atual): ");
-  fgets(cpf, sizeof(cpf), stdin);
-  limparBuffer();
-  printf("\n");
-
-  // Confirmar a operação de recadastramento
-  printf("\t//// Recadastramento realizado com sucesso!");
-  printf("\n");
-  printf("\tTecle <ENTER> para prosseguir... ");
-  getchar();
-
-*/
-
-void excluir_cliente(void) {
-
-  // Variáveis
-  char resp;
-
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\t///                                                                        ///\n");
-  printf("\t///                        Excluir Dados do Cliente                        ///\n");
+  printf("\t///                             Excluir Cliente                            ///\n");
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\n");
-  printf("\tDeseja excluir os dados do Cliente selecionado (S/N) ");
-  scanf("%c", &resp);
+  printf("\t//// Digite o CPF do cliente a ser excluído: ");
+  scanf("%s", cpf);
   limparBuffer();
-  printf("\n");
-  if ((resp == 's') || (resp == 'S')) {
-    printf("\tDados do cilente excluídos!\n");
-    printf("\n");
-    printf("\ttecle <ENTER> para continuar... ");
-    getchar();
-  } 
-  else { 
-    printf("\tExclusão Cancelada!\n");
-    printf("\n");
-    printf("\tTecle <ENTER> para continuar... ");
-    getchar();
-  }
+  return cpf;
 }
+
+void excluir_cliente(void) {
+  Cliente* clt;
+  char* cpf;
+  char confirma;
+  cpf = tela_excluir_cliente();
+  clt = (Cliente*) malloc(sizeof(Cliente));
+  clt = buscar_cliente(cpf);
+  if (clt == NULL) {
+    printf("\n\t//// Cliente Inexistente !\n");
+  } else {
+    printf("\n\t//// Cliente Encontrado!\n");
+    printf("\t//// Nome: %s\n", clt->nome);
+    printf("\n\t//// Deseja excluir esse cliente? [S/N]: ");
+    do {
+        scanf("%c", &confirma);
+        limparBuffer();
+        confirma = toupper(confirma);
+        if (confirma == 'S') {
+          clt->status = 'I';
+          regravar_cliente(clt);
+          printf("\n\t//// Cliente Excluído com Sucesso!\n");
+        } else if (confirma == 'N') {
+          printf("\n\t//// Operação Cancelada!\n");
+        } else {
+          printf("\n\t //// Operação Inválida! Tente [S/N]: ");
+        }
+    } while(confirma != 'S' && confirma != 'N');
+    
+    free(clt);
+  }
+  free(cpf);
+}
+

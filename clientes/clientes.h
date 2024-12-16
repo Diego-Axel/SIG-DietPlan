@@ -17,13 +17,14 @@ void cadastrar_cliente(void);
 void pesquisar_cliente(void);
 void atualiza_cliente(void);
 void excluir_cliente(void);
-char menu_cliente(void);
 Cliente* tela_cadastrar_cliente(void);
-void grava_cliente(Cliente*);
-Cliente* buscar_cliente(char*);
 char* tela_pesquisar_cliente(void);
-void exibir_cliente(Cliente*);
 char* tela_recadastrar_cliente(void);
+char* tela_excluir_cliente(void);
+char menu_cliente(void);
+Cliente* buscar_cliente(char*);
+void exibir_cliente(Cliente*);
+void grava_cliente(Cliente*);
 void regravar_cliente(Cliente*);
 
 #endif
