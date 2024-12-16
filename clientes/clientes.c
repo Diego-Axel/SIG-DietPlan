@@ -293,7 +293,9 @@ Cliente* recadastrar_cliente(void) {
   printf("\tTecle <ENTER> para prosseguir... ");
   getchar();
   return clt;
-
+  }
+  
+// Função para recadastrar Cliente
   char* tela_recadastrar_cliente(void) {
   char* cpf;
   cpf = (char*) malloc(12*sizeof(char*));
@@ -346,7 +348,7 @@ void atualiza_cliente(void) {
 
   cpf = tela_recadastrar_cliente();
   clt = buscar_cliente(cpf);
-  
+
   if (clt == NULL) {
     printf("\n\t//// Cliente Inexistente !\n");
   } else {
@@ -424,3 +426,4 @@ void excluir_cliente(void) {
     printf("\tTecle <ENTER> para continuar... ");
     getchar();
   }
+}
