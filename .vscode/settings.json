@@ -4,5 +4,6 @@
         "wchar.h": "c",
         "ctype.h": "c"
     },
-    "makefile.configureOnOpen": false
+    "makefile.configureOnOpen": false,
+    "C_Cpp.errorSquiggles": "disabled"
 }

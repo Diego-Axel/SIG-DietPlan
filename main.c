@@ -53,14 +53,13 @@ int main(void) {
       do {
         op_cliente = menu_cliente();
         if (op_cliente == '1') {
-          cliente = cadastrar_cliente();
-          grava_cliente(cliente);
+          cadastrar_cliente();
         }
         else if (op_cliente == '2') {
           pesquisar_cliente();
         }
         else if (op_cliente == '3') {
-          alterar_cliente();
+          atualiza_cliente();
         }
         else if (op_cliente == '4') {
           excluir_cliente();

@@ -295,20 +295,6 @@ Profissional* recadastrar_prof(void) {
             printf("\t//// Telefone inválido. Tente novamente.\n");
         }
     } while (!validaFone(prf->telefone)); // Continua pedindo até que um telefone válido seja inserido
-
-  printf("\n");
-
-  // Loop para validar o CPF
-    do {
-        printf("\t//// Digite o CPF (apenas números): ");
-        scanf("%11s", prf->cpf); // Lê até 11 dígitos, sem considerar o caractere nulo
-        limparBuffer();
-
-        // Verifica se o CPF é válido
-        if (!valida_CPF(prf->cpf)) {
-            printf("\t//// CPF inválido. Tente novamente.\n");
-        }
-    } while (!valida_CPF(prf->cpf)); // Continua pedindo até que um CPF válido seja inserido
   
   printf("\n");
   printf("\t//// Profissional recadastrado com sucesso!");

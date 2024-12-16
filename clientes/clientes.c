@@ -36,7 +36,7 @@ char menu_cliente(void) {
 
 // Função para gravar cliente
 
-void grava_cliente(Cliente* clt) {
+void gravar_cliente(Cliente* clt) {
   FILE* fp;
   fp = fopen("cliente.dat", "ab");
   if (fp == NULL) {
@@ -50,7 +50,13 @@ void grava_cliente(Cliente* clt) {
   
 
 // Função para cadastrar cliente
-Cliente* cadastrar_cliente(void) {
+void cadastrar_cliente(void){
+    Cliente* clt;
+    clt = tela_cadastrar_cliente();
+    gravar_cliente(clt);
+    free(clt);
+}
+Cliente* tela_cadastrar_cliente(void) {
   Cliente* clt;
   clt = (Cliente*) malloc(sizeof(Cliente));
 
@@ -216,29 +222,149 @@ void exibir_cliente(Cliente* clt) {
   free(cpf);
 }
 
-// Adaptado do ChatGPT  
-void alterar_cliente(void) {
 
-  // Variáveis
-  char nome[40];
-  char email[30];
-  char telefone[13];
-  char cpf[13];
-
-  system("clear || cls"); // se for Linux use 'clear', se for Windows use 'cls'
+// funçao para alterar dados 
+Cliente* recadastrar_cliente(void) {
+  Cliente* clt;
+  clt = (Cliente*) malloc(sizeof(Cliente));
+  system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\t///                                                                        ///\n");
-  printf("\t///                             Alterar Cliente                            ///\n");
+  printf("\t///                            Recadastrar cliente                         ///\n");
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\n");
 
-  // Simulação de busca de dados antigos (pode ser substituído por uma busca real em arquivo ou banco de dados)
+// Loop para validar o nome
+    do {
+        printf("\t//// Digite o nome: ");
+        fgets(clt->nome, 40, stdin); // Limita a entrada a 39 caracteres
+        clt->nome[strcspn(clt->nome, "\n")] = '\0';
+        limparBuffer();
+        // Verifica se o nome é válido
+        if (!validaNome(clt->nome)) {
+            printf("\t//// Nome inválido. Tente novamente.\n");
+        }
+    } while (!validaNome(clt->nome)); // Continua pedindo até que um nome válido seja inserido
+
+  printf("\n");
+
+  // Loop para validar o e-mail
+    do {
+        printf("\t//// Digite o e-mail: ");
+        scanf("%29s", clt->email); // Limita a entrada a 29 caracteres
+        limparBuffer();
+        // Verifica se o e-mail é válido
+        if (!validaEmail(clt->email)) {
+            printf("\t//// E-mail inválido. Tente novamente.\n");
+        }
+    } while (!validaEmail(clt->email)); // Continua pedindo até que um e-mail válido seja inserido
+
+  printf("\n");
+
+   // Loop para validar o telefone
+    do {
+        printf("\t//// Digite o telefone no formato (XX) XXXXX-XXXX: ");
+        fgets(clt->telefone, 16, stdin); // Limita a entrada a 15 caracteres
+        clt->telefone[strcspn(clt->telefone, "\n")] = '\0';
+        limparBuffer();
+        if (!validaFone(clt->telefone)) {
+            printf("\t//// Telefone inválido. Tente novamente.\n");
+        }
+    } while (!validaFone(clt->telefone)); // Continua pedindo até que um telefone válido seja inserido
+
+  printf("\n");
+
+    // Loop para validar o CPF
+    do {
+        printf("\t//// Digite o CPF (apenas números): ");
+        scanf("%11s", clt->cpf); // Lê até 11 dígitos, sem considerar o caractere nulo
+        limparBuffer();
+
+    // Verifica se o CPF é válido
+        if (!valida_CPF(clt->cpf)) {
+            printf("\t//// CPF inválido. Tente novamente.\n");
+        }
+    } while (!valida_CPF(clt->cpf)); // Continua pedindo até que um CPF válido seja inserido
+
+    printf("\n");
+  printf("\t//// Profissional recadastrado com sucesso!");
+  printf("\n");
+  printf("\tTecle <ENTER> para prosseguir... ");
+  getchar();
+  return clt;
+
+  char* tela_recadastrar_cliente(void) {
+  char* cpf;
+  cpf = (char*) malloc(12*sizeof(char*));
+
+ printf("\n");
+
+  system("clear || cls"); // se for Linux use 'clear', se for Windows use 'cls'
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                             Recadastrar Cliente                        ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n");
+  printf("\t//// Digite o CPF do profissional a ser recadastrado: ");
+  scanf("%s", cpf);
+  limparBuffer();
+  return cpf;
+}
+
+void regravar_cliente(Cliente* clt) {
+  int find;
+  FILE* fp;
+  Cliente* cliente_lido;
+
+  cliente_lido = (Cliente*) malloc(sizeof(Cliente));
+  fp = fopen("cliente.dat", "r+b");
+  if (fp == NULL) {
+    printf("Erro na abertura do arquivo!\n");
+    printf("Não é possível continuar...\n");
+    exit(1);
+  }
+
+  while (!feof(fp)) {
+    find = 0;
+    fread(cliente_lido, sizeof(Cliente), 1, fp) && !find;
+    if (strcmp(cliente_lido->cpf, clt->cpf) == 0) {
+        find == 1;
+        fseek(fp, -1*sizeof(Cliente), SEEK_CUR);
+    fwrite(clt, sizeof(Cliente), 1, fp);
+    break;
+    }
+  }
+    fclose(fp);
+    free(cliente_lido);
+}
+
+void atualiza_cliente(void) {
+  Cliente* clt;
+  char* cpf;
+
+  cpf = tela_recadastrar_cliente();
+  clt = buscar_cliente(cpf);
+  
+  if (clt == NULL) {
+    printf("\n\t//// Cliente Inexistente !\n");
+  } else {
+    clt = recadastrar_cliente();
+    strcpy(clt->cpf, cpf);
+    regravar_cliente(clt);
+    free(clt);
+  }
+  free(cpf);
+}
+/* Simulação de busca de dados antigos (pode ser substituído por uma busca real em arquivo ou banco de dados)
+
   printf("\t//// Dados antigos:\n");
   printf("\tNome: João da Silva\n");
   printf("\tEmail: joao.silva@email.com\n");
   printf("\tTelefone: (11) 91234-5678\n");
   printf("\tCPF: 123.456.789-00\n");
+  printf("\tCRN: 123456\n");
   printf("\n");
 
   // Solicitação de novos dados
@@ -267,8 +393,8 @@ void alterar_cliente(void) {
   printf("\n");
   printf("\tTecle <ENTER> para prosseguir... ");
   getchar();
-}
 
+*/
 
 void excluir_cliente(void) {
 
@@ -298,4 +424,3 @@ void excluir_cliente(void) {
     printf("\tTecle <ENTER> para continuar... ");
     getchar();
   }
-}
