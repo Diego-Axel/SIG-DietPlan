@@ -130,16 +130,19 @@ Cliente* cadastrar_cliente(void) {
 
 
 // Função para buscar cliente
-Cliente* buscar_cliente(char* cpf) {
+Cliente* buscar_cliente(void) {
     FILE* fp;
     Cliente* clt;
+    char cpf[12];
     clt = (Cliente*) malloc(sizeof(Cliente));
     fp = fopen("cliente.dat", "rb");
     if (fp == NULL) {
         printf("Erro na abertura do arquivo!\n");
         printf("Não é possível continuar...\n");
+        exit(1);
     }
-    while (fread(clt, sizeof(Cliente), 1, fp)) {
+    while(!feof(fp)) {
+      fread(clt, sizeof(Cliente), 1, fp);
       if ((strcmp(clt->cpf, cpf) == 0) && (clt->status == 'A')) {
           fclose(fp);
           return clt;
@@ -149,7 +152,7 @@ Cliente* buscar_cliente(char* cpf) {
     return NULL;
 }
 
-
+// Função para mostrar a tela de inserir o CPF
 char* tela_pesquisar_cliente(void) {
     char* cpf;
     cpf = (char*) malloc(12*sizeof(char*));
@@ -166,6 +169,7 @@ char* tela_pesquisar_cliente(void) {
       printf("\n");
       printf("\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
       scanf("%c", &continuar);
+      getchar();
       limparBuffer();
       if (continuar == '0') {
         break;
@@ -178,7 +182,7 @@ char* tela_pesquisar_cliente(void) {
       printf("\t//////////////////////////////////////////////////////////////////////////////\n");
       printf("\n");
       printf("\t//// Digite o CPF do cliente a ser exibido: ");
-      scanf("%[0-9.-]", cpf);
+      scanf("%s", cpf);
       limparBuffer();
       return cpf;
     }
@@ -199,12 +203,22 @@ void exibir_cliente(Cliente* clt) {
       printf("\t//// CPF: %s\n", clt->cpf);
       printf("\n");
       printf("\t//// Status: %c\n", clt->status);
-      printf("\ttecle <ENTER> para continuar: ");
-      getchar();
+   }
+    printf("\ttecle <ENTER> para continuar: ");
+    getchar();
   }
+
+  void pesquisar_cliente(void){
+  Cliente* clt;
+  char* cpf;
+  cpf = tela_pesquisar_cliente();
+  clt = buscar_cliente();
+  exibir_cliente(clt);
+  free(clt);
+  free(cpf);
 }
 
-
+  
 void alterar_cliente(void) {
 
   // Variáveis

@@ -57,7 +57,7 @@ int main(void) {
           grava_cliente(cliente);
         }
         else if (op_cliente == '2') {
-          exibir_cliente(cliente);
+          pesquisar_cliente();
         }
         else if (op_cliente == '3') {
           alterar_cliente();
