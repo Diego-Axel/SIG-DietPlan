@@ -8,6 +8,25 @@
 #include "../utilitarios/utis.h" // Assinatura das utilidades
 #include "../validadores/validadores.h" // Assinatura dos validadores
 
+void modulo_cliente(void) {
+  
+  char opcao;
+
+  do {
+        opcao = menu_cliente();
+        
+        switch(opcao) {
+            case '1': cadastrar_cliente();
+                      break;
+            case '2': exibir_cliente();
+                      break;
+            case '3': alterar_cliente();
+                      break;
+            case '4': excluir_cliente();
+                      break;
+        }
+  } while(opcao != '0');
+}
 
 // Funções 
 

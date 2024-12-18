@@ -41,7 +41,7 @@ char menu_dieta(void) {
   printf("\t///                                                                        ///\n");
   printf("\t///                         [1] Cadastrar Dieta                            ///\n");
   printf("\t///                         [2] Exibir Dieta                               ///\n"); 
-  printf("\t///                         [3] Alterar Dieta                              ///\n"); 
+  printf("\t///                         [3] Alterar Dados da Dieta                     ///\n"); 
   printf("\t///                         [4] Excluir Dieta                              ///\n");
   printf("\t///                         [0] Retornar ao Menu Principal                 ///\n");
   printf("\t///                                                                        ///\n");
