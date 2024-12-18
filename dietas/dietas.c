@@ -36,3 +36,16 @@ void cadastrar_dieta(void){
     gravar_dieta(dts);
     free(dts);
 }
+
+// Função para exibir profissional
+void pesquisar_dieta(void){
+  Dietas* dts;
+  char* id;
+
+  id = tela_pesquisar_dieta();
+  dts = buscar_dieta(id);
+  exibir_dieta(dts);
+  free(dts);
+  free(id);
+}
+
