@@ -18,9 +18,9 @@ void modulo_cliente(void) {
         switch(opcao) {
             case '1': cadastrar_cliente();
                       break;
-            case '2': exibir_cliente();
+            case '2': pesquisar_cliente();
                       break;
-            case '3': alterar_cliente();
+            case '3': atualizar_cliente();
                       break;
             case '4': excluir_cliente();
                       break;
@@ -29,6 +29,82 @@ void modulo_cliente(void) {
 }
 
 // Funções 
+
+// Função para cadastrar cliente
+void cadastrar_cliente(void){
+    Cliente* clt;
+
+    clt = tela_cadastrar_cliente();
+    gravar_cliente(clt);
+    free(clt);
+}
+
+// Função para exibir cliente
+void pesquisar_cliente(void){
+  Cliente* clt;
+  char* cpf;
+
+  cpf = tela_pesquisar_cliente();
+  clt = buscar_cliente(cpf);
+  exibir_cliente(clt);
+  free(clt);
+  free(cpf);
+}
+
+// Função para alterar cliente
+void atualizar_cliente(void) {
+  Cliente* clt;
+  char* cpf;
+
+  cpf = tela_recadastrar_cliente();
+  clt = buscar_cliente(cpf);
+
+  if (clt == NULL) {
+    printf("\n\t//// Cliente Inexistente !\n");
+  } else {
+    clt = recadastrar_cliente();
+    strcpy(clt->cpf, cpf);
+    regravar_cliente(clt);
+    free(clt);
+  }
+  free(cpf);
+}
+
+// Função para excluir cliente
+void excluir_cliente(void) {
+  Cliente* clt;
+  char* cpf;
+  char confirma;
+  cpf = tela_excluir_cliente();
+  clt = (Cliente*) malloc(sizeof(Cliente));
+  clt = buscar_cliente(cpf);
+  if (clt == NULL) {
+    printf("\n\t//// Cliente Inexistente !\n");
+  } else {
+    printf("\n\t//// Cliente Encontrado!\n");
+    printf("\t//// Nome: %s\n", clt->nome);
+    printf("\n\t//// Deseja excluir esse cliente? [S/N]: ");
+
+    do {
+        scanf("%c", &confirma);
+        limparBuffer();
+        confirma = toupper(confirma);
+        if (confirma == 'S') {
+          clt->status = 'I';
+          regravar_cliente(clt);
+          printf("\n\t//// Cliente Excluído com Sucesso!\n");
+        } else if (confirma == 'N') {
+          printf("\n\t//// Operação Cancelada!\n");
+        } else {
+          printf("\n\t //// Operação Inválida! Tente [S/N]: ");
+        }
+    } while(confirma != 'S' && confirma != 'N');
+    
+    free(clt);
+  }
+  free(cpf);
+}
+
 
 char menu_cliente(void) {
 
@@ -52,11 +128,11 @@ char menu_cliente(void) {
   printf("\t//// Escolha uma opção: "); 
   scanf("%c", &op_cliente);
   limparBuffer();
+
   return op_cliente;
 }
 
 // Função para gravar cliente
-
 void gravar_cliente(Cliente* clt) {
   FILE* fp;
   fp = fopen("cliente.dat", "ab");
@@ -69,14 +145,34 @@ void gravar_cliente(Cliente* clt) {
   fclose(fp);
 }
   
+// Função para regravar cliente
+void regravar_cliente(Cliente* clt) {
+  int find;
+  FILE* fp;
+  Cliente* cliente_lido;
 
-// Função para cadastrar cliente
-void cadastrar_cliente(void){
-    Cliente* clt;
-    clt = tela_cadastrar_cliente();
-    gravar_cliente(clt);
-    free(clt);
+  cliente_lido = (Cliente*) malloc(sizeof(Cliente));
+  fp = fopen("cliente.dat", "r+b");
+  if (fp == NULL) {
+    printf("Erro na abertura do arquivo!\n");
+    printf("Não é possível continuar...\n");
+    exit(1);
+  }
+
+  while (!feof(fp)) {
+    find = 0;
+    fread(cliente_lido, sizeof(Cliente), 1, fp) && !find;
+    if (strcmp(cliente_lido->cpf, clt->cpf) == 0) {
+        find == 1;
+        fseek(fp, -1*sizeof(Cliente), SEEK_CUR);
+    fwrite(clt, sizeof(Cliente), 1, fp);
+    break;
+    }
+  }
+    fclose(fp);
+    free(cliente_lido);
 }
+
 Cliente* tela_cadastrar_cliente(void) {
   Cliente* clt;
   clt = (Cliente*) malloc(sizeof(Cliente));
@@ -155,6 +251,61 @@ Cliente* tela_cadastrar_cliente(void) {
   return clt;
 }
 
+// Função para mostrar a tela de inserir o CPF
+char* tela_pesquisar_cliente(void) {
+    char* cpf;
+    cpf = (char*) malloc(12*sizeof(char*));
+    
+      printf("\n");
+      system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+      printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+      printf("\t///                                                                        ///\n");
+      printf("\t///                               Exibir cliente                           ///\n");
+      printf("\t///                                                                        ///\n");
+      printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+      printf("\n");
+      printf("\t//// Digite o CPF do cliente a ser exibido: ");
+      scanf("%s", cpf);
+      limparBuffer();
+      return cpf;
+} 
+
+char* tela_recadastrar_cliente(void) {
+  char* cpf;
+  cpf = (char*) malloc(12*sizeof(char*));
+
+  printf("\n");
+  system("clear || cls"); // se for Linux use 'clear', se for Windows use 'cls'
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                             Recadastrar Cliente                        ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n");
+  printf("\t//// Digite o CPF do profissional a ser recadastrado: ");
+  scanf("%s", cpf);
+  limparBuffer();
+  return cpf;
+}
+
+char* tela_excluir_cliente(void) {
+  
+    char* cpf;
+    cpf = (char*) malloc(12*sizeof(char*));
+  
+  printf("\n");
+  system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                             Excluir Cliente                            ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n");
+  printf("\t//// Digite o CPF do cliente a ser excluído: ");
+  scanf("%s", cpf);
+  limparBuffer();
+  return cpf;
+}
 
 // Função para buscar cliente
 Cliente* buscar_cliente(char* cpf) {
@@ -178,40 +329,6 @@ Cliente* buscar_cliente(char* cpf) {
     return NULL;
 }
 
-// Função para mostrar a tela de inserir o CPF
-char* tela_pesquisar_cliente(void) {
-    char* cpf;
-    cpf = (char*) malloc(12*sizeof(char*));
-    char continuar;
-    
-    while (continuar != '0') {
-      system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-      printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-      printf("\t///                                                                        ///\n");
-      printf("\t///                             Exibir cliente                             ///\n");
-      printf("\t///                              [0] Retornar                              ///\n");
-      printf("\t///                                                                        ///\n");
-      printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-      printf("\n");
-      printf("\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
-      scanf("%c", &continuar);
-      limparBuffer();
-      if (continuar == '0') {
-        break;
-      }
-      system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-      printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-      printf("\t///                                                                        ///\n");
-      printf("\t///                               Exibir cliente                           ///\n");
-      printf("\t///                                                                        ///\n");
-      printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-      printf("\n");
-      printf("\t//// Digite o CPF do cliente a ser exibido: ");
-      scanf("%s", cpf);
-      limparBuffer();
-      return cpf;
-    }
-} 
 void exibir_cliente(Cliente* clt) {
   if (clt == NULL) {
       printf("\n\t//// Cliente inexistente !\n");
@@ -233,15 +350,6 @@ void exibir_cliente(Cliente* clt) {
     getchar();
   }
 
-  void pesquisar_cliente(void){
-  Cliente* clt;
-  char* cpf;
-  cpf = tela_pesquisar_cliente();
-  clt = buscar_cliente(cpf);
-  exibir_cliente(clt);
-  free(clt);
-  free(cpf);
-}
 
 
 // funçao para alterar dados 
@@ -316,121 +424,5 @@ Cliente* recadastrar_cliente(void) {
   return clt;
   }
 
-// Função para recadastrar Cliente
-  char* tela_recadastrar_cliente(void) {
-  char* cpf;
-  cpf = (char*) malloc(12*sizeof(char*));
 
- printf("\n");
-
-  system("clear || cls"); // se for Linux use 'clear', se for Windows use 'cls'
-  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-  printf("\t///                                                                        ///\n");
-  printf("\t///                             Recadastrar Cliente                        ///\n");
-  printf("\t///                                                                        ///\n");
-  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-  printf("\n");
-  printf("\t//// Digite o CPF do profissional a ser recadastrado: ");
-  scanf("%s", cpf);
-  limparBuffer();
-  return cpf;
-}
-
-void regravar_cliente(Cliente* clt) {
-  int find;
-  FILE* fp;
-  Cliente* cliente_lido;
-
-  cliente_lido = (Cliente*) malloc(sizeof(Cliente));
-  fp = fopen("cliente.dat", "r+b");
-  if (fp == NULL) {
-    printf("Erro na abertura do arquivo!\n");
-    printf("Não é possível continuar...\n");
-    exit(1);
-  }
-
-  while (!feof(fp)) {
-    find = 0;
-    fread(cliente_lido, sizeof(Cliente), 1, fp) && !find;
-    if (strcmp(cliente_lido->cpf, clt->cpf) == 0) {
-        find == 1;
-        fseek(fp, -1*sizeof(Cliente), SEEK_CUR);
-    fwrite(clt, sizeof(Cliente), 1, fp);
-    break;
-    }
-  }
-    fclose(fp);
-    free(cliente_lido);
-}
-
-void atualiza_cliente(void) {
-  Cliente* clt;
-  char* cpf;
-
-  cpf = tela_recadastrar_cliente();
-  clt = buscar_cliente(cpf);
-
-  if (clt == NULL) {
-    printf("\n\t//// Cliente Inexistente !\n");
-  } else {
-    clt = recadastrar_cliente();
-    strcpy(clt->cpf, cpf);
-    regravar_cliente(clt);
-    free(clt);
-  }
-  free(cpf);
-}
-
-
-char* tela_excluir_cliente(void) {
   
-    char* cpf;
-    cpf = (char*) malloc(12*sizeof(char*));
-  
-  printf("\n");
-  system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-  printf("\t///                                                                        ///\n");
-  printf("\t///                             Excluir Cliente                            ///\n");
-  printf("\t///                                                                        ///\n");
-  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-  printf("\n");
-  printf("\t//// Digite o CPF do cliente a ser excluído: ");
-  scanf("%s", cpf);
-  limparBuffer();
-  return cpf;
-}
-
-void excluir_cliente(void) {
-  Cliente* clt;
-  char* cpf;
-  char confirma;
-  cpf = tela_excluir_cliente();
-  clt = (Cliente*) malloc(sizeof(Cliente));
-  clt = buscar_cliente(cpf);
-  if (clt == NULL) {
-    printf("\n\t//// Cliente Inexistente !\n");
-  } else {
-    printf("\n\t//// Cliente Encontrado!\n");
-    printf("\t//// Nome: %s\n", clt->nome);
-    printf("\n\t//// Deseja excluir esse cliente? [S/N]: ");
-    do {
-        scanf("%c", &confirma);
-        limparBuffer();
-        confirma = toupper(confirma);
-        if (confirma == 'S') {
-          clt->status = 'I';
-          regravar_cliente(clt);
-          printf("\n\t//// Cliente Excluído com Sucesso!\n");
-        } else if (confirma == 'N') {
-          printf("\n\t//// Operação Cancelada!\n");
-        } else {
-          printf("\n\t //// Operação Inválida! Tente [S/N]: ");
-        }
-    } while(confirma != 'S' && confirma != 'N');
-    
-    free(clt);
-  }
-  free(cpf);
-}
-

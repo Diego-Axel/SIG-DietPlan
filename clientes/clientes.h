@@ -26,5 +26,5 @@ Cliente* buscar_cliente(char*);
 void exibir_cliente(Cliente*);
 void grava_cliente(Cliente*);
 void regravar_cliente(Cliente*);
-
+Cliente* recadastrar_cliente(void);
 #endif

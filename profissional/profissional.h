@@ -27,4 +27,5 @@ Profissional* buscar_prof(char*);
 void exibir_prof(Profissional*);
 void grava_prof(Profissional*);
 void regravar_prof(Profissional*);
+Profissional* recadastrar_prof(void);
 #endif
