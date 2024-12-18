@@ -103,3 +103,28 @@ void excluir_dieta(void) {
   }
   free(id);
 }
+
+char menu_dietas(void) {  
+  char op_dieta;
+
+  system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                               Módulo Dietas                            ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                         [1] Cadastrar Dieta                            ///\n");
+  printf("\t///                         [2] Exibir Dieta                               ///\n"); 
+  printf("\t///                         [3] Alterar dados da Dieta                     ///\n"); 
+  printf("\t///                         [4] Excluir Dieta                              ///\n");
+  printf("\t///                         [0] Retornar ao Menu Principal                 ///\n");  
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n"); 
+  printf("\tEscolha uma opção: ");
+  scanf(" %c", &op_dieta);
+  limparBuffer();
+  
+  return op_dieta;
+}
