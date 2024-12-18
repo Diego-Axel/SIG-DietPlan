@@ -28,7 +28,7 @@ void modulo_dieta(void) {
 
 // Funções 
 
-// Função para cadastrar profissional
+// Função para cadastrar dieta
 void cadastrar_dieta(void){
     Dietas* dts;
 
@@ -37,7 +37,7 @@ void cadastrar_dieta(void){
     free(dts);
 }
 
-// Função para exibir profissional
+// Função para exibir dieta
 void pesquisar_dieta(void){
   Dietas* dts;
   char* id;
@@ -49,3 +49,21 @@ void pesquisar_dieta(void){
   free(id);
 }
 
+// Função para alterar dieta
+void atualizar_dieta(void) {
+  Dietas* dts;
+  char* id;
+
+  id = tela_recadastrar_dieta();
+  dts = buscar_dieta(id);
+
+  if (dts == NULL) {
+    printf("\n\t//// Dieta Inexistente !\n");
+  } else {
+    dts = recadastrar_dieta();
+    strcpy(dts->id, id);
+    regravar_dieta(dts);
+    free(dts);
+  }
+  free(id);
+}
