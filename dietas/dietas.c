@@ -128,3 +128,17 @@ char menu_dietas(void) {
   
   return op_dieta;
 }
+
+// Função para gravar dietas
+void gravar_dieta(Dietas* dts) {
+  FILE* fp;
+  fp = fopen("dietas.dat", "ab");
+  if (fp == NULL) {
+    printf("Erro na abertura do arquivo!\n");
+    printf("Não é possível continuar...\n");
+    exit(1);
+  }
+  fwrite(dts, sizeof(Dietas), 1, fp);
+  fclose(fp);
+}
+
