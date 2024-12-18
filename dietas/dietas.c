@@ -142,3 +142,30 @@ void gravar_dieta(Dietas* dts) {
   fclose(fp);
 }
 
+// Função para regravar dietas
+void regravar_dieta(Dietas* dts) {
+  int find;
+  FILE* fp;
+  Dietas* dieta_lida;
+
+  dieta_lida = (Dietas*) malloc(sizeof(Dietas));
+  fp = fopen("dietas.dat", "r+b");
+  if (fp == NULL) {
+    printf("Erro na abertura do arquivo!\n");
+    printf("Não é possível continuar...\n");
+    exit(1);
+  }
+
+  while (!feof(fp)) {
+    find = 0;
+    fread(dieta_lida, sizeof(Dietas), 1, fp) && !find;
+    if (strcmp(dieta_lida->id, dts->id) == 0) {
+        find == 1;
+        fseek(fp, -1*sizeof(Dietas), SEEK_CUR);
+    fwrite(dts, sizeof(Dietas), 1, fp);
+    break;
+    }
+  }
+    fclose(fp);
+    free(dieta_lida);
+}
