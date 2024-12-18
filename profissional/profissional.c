@@ -8,6 +8,26 @@
 #include "../utilitarios/utis.h" // Assinatura das utilidades
 #include "../validadores/validadores.h" // Assinatura dos validadores
 
+void modulo_profissional(void) {
+  
+  char opcao;
+
+  do {
+        opcao = menu_profissional();
+        
+        switch(opcao) {
+            case '1': cadastrar_profissional();
+                      break;
+            case '2': exibir_profissional();
+                      break;
+            case '3': alterar_profissional();
+                      break;
+            case '4': excluir_profissional();
+                      break;
+        }
+  } while(opcao != '0');
+}
+
 // Funções
 
 char menu_profissional(void) {  

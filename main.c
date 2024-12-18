@@ -45,7 +45,7 @@ int main(void) {
                       break;
             case '2': modulo_cliente();
                       break;
-            case '3': menu_profissional();
+            case '3': modulo_profissional();
                       break;
             case '4': menu_relatorio();
                       break;
