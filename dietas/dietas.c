@@ -67,3 +67,39 @@ void atualizar_dieta(void) {
   }
   free(id);
 }
+
+// Função para excluir dieta
+void excluir_dieta(void) {
+  Dietas* dts;
+  char* id;
+  char confirma;
+  id = tela_excluir_dieta();
+  dts = (Dietas*) malloc(sizeof(Dietas));
+  dts = buscar_dieta(id);
+  if (dts == NULL) {
+    printf("\n\t//// Dieta Inexistente !\n");
+  } else {
+    printf("\n\t//// Dieta Encontrada!\n");
+    printf("\t//// Tipo: %s\n", dts->tipo);
+    printf("\t//// Cliente: %s\n", dts->cpf_cliente);
+    printf("\n\t//// Deseja excluir essa dieta? [S/N]: ");
+
+    do {
+        scanf("%c", &confirma);
+        limparBuffer();
+        confirma = toupper(confirma);
+        if (confirma == 'S') {
+          dts->status = 'I';
+          regravar_dieta(dts);
+          printf("\n\t//// Dieta Excluída com Sucesso!\n");
+        } else if (confirma == 'N') {
+          printf("\n\t//// Operação Cancelada!\n");
+        } else {
+          printf("\n\t //// Operação Inválida! Tente [S/N]: ");
+        }
+    } while(confirma != 'S' && confirma != 'N');
+    
+    free(dts);
+  }
+  free(id);
+}
