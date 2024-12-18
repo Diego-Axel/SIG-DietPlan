@@ -41,7 +41,7 @@ int main(void) {
         opcao = menu_principal();
 
         switch(opcao) {
-            case '1': menu_dieta(); 
+            case '1': modulo_dieta(); 
                       break;
             case '2': menu_cliente();
                       break;

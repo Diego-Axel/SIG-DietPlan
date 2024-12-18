@@ -5,6 +5,27 @@
 #include "dietas.h"
 #include "../utilitarios/utis.h" // Assinatura das utilidades
 
+
+void modulo_dieta(void) {
+  
+  char opcao;
+
+  do {
+        opcao = menu_dieta();
+        
+        switch(opcao) {
+            case '1': cadastrar_dieta();
+                      break;
+            case '2': exibir_dieta();
+                      break;
+            case '3': alterar_dieta();
+                      break;
+            case '4': excluir_dieta();
+                      break;
+        }
+  } while(opcao != '0');
+}
+
 // Funções 
 
 char menu_dieta(void) {
@@ -18,11 +39,10 @@ char menu_dieta(void) {
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\t///                                                                        ///\n");
-  printf("\t///                         [1] Avaliação                                  ///\n");
-  printf("\t///                         [2] Dieta para hipertrófia                     ///\n"); 
-  printf("\t///                         [3] Dieta para perda de peso                   ///\n"); 
-  printf("\t///                         [4] Reavaliação                                ///\n");
-  printf("\t///                         [5] Adicionar nova dieta                       ///\n");
+  printf("\t///                         [1] Cadastrar Dieta                            ///\n");
+  printf("\t///                         [2] Exibir Dieta                               ///\n"); 
+  printf("\t///                         [3] Alterar Dieta                              ///\n"); 
+  printf("\t///                         [4] Excluir Dieta                              ///\n");
   printf("\t///                         [0] Retornar ao Menu Principal                 ///\n");
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
