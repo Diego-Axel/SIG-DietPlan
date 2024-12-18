@@ -16,7 +16,7 @@ struct profissional {
 
 void cadastrar_prof(void);
 void pesquisar_prof(void);
-void atualiza_prof(void);
+void atualizar_prof(void);
 void excluir_prof(void);
 Profissional* tela_cadastrar_prof(void);
 char* tela_pesquisar_prof(void);
@@ -25,7 +25,7 @@ char* tela_excluir_prof(void);
 char menu_profissional(void);
 Profissional* buscar_prof(char*);
 void exibir_prof(Profissional*);
-void grava_prof(Profissional*);
+void gravar_prof(Profissional*);
 void regravar_prof(Profissional*);
 Profissional* recadastrar_prof(void);
 #endif
