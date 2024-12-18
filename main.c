@@ -23,9 +23,6 @@
 // Assinatura dieta
 #include "dietas/dietas.h"
 
-// Assinatura agendamento
-#include "agendamento/agendamento.h"
-
 // Assinaturas do profissional
 #include "profissional/profissional.h"
 
