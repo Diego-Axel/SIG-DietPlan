@@ -18,9 +18,9 @@ void modulo_profissional(void) {
         switch(opcao) {
             case '1': cadastrar_profissional();
                       break;
-            case '2': exibir_profissional();
+            case '2': pesquisar_profissional();
                       break;
-            case '3': alterar_profissional();
+            case '3': atualizar_profissional();
                       break;
             case '4': excluir_profissional();
                       break;
@@ -29,6 +29,81 @@ void modulo_profissional(void) {
 }
 
 // Funções
+
+// Função para cadastrar profissional
+void cadastrar_profissional(void){
+    Profissional* prf;
+
+    prf = tela_cadastrar_prof();
+    gravar_prof(prf);
+    free(prf);
+}
+
+// Função para exibir profissional
+void pesquisar_profissional(void){
+  Profissional* prf;
+  char* crn;
+
+  crn = tela_pesquisar_prof();
+  prf = buscar_prof(crn);
+  exibir_prof(prf);
+  free(prf);
+  free(crn);
+}
+
+// Função para alterar profissional
+void atualizar_profissional(void) {
+  Profissional* prf;
+  char* crn;
+
+  crn = tela_recadastrar_prof();
+  prf = buscar_prof(crn);
+
+  if (prf == NULL) {
+    printf("\n\t//// Profissional Inexistente !\n");
+  } else {
+    prf = recadastrar_prof();
+    strcpy(prf->crn, crn);
+    regravar_prof(prf);
+    free(prf);
+  }
+  free(crn);
+}
+
+// Função para excluir profissional
+void excluir_profissional(void) {
+  Profissional* prf;
+  char* crn;
+  char confirma;
+  crn = tela_excluir_prof();
+  prf = (Profissional*) malloc(sizeof(Profissional));
+  prf = buscar_prof(crn);
+  if (prf == NULL) {
+    printf("\n\t//// Profissional Inexistente !\n");
+  } else {
+    printf("\n\t//// Profissional Encontrado!\n");
+    printf("\t//// Nome: %s\n", prf->nome);
+    printf("\n\t//// Deseja excluir esse profissional? [S/N]: ");
+
+    do {
+        scanf("%c", &confirma);
+        limparBuffer();
+        confirma = toupper(confirma);
+        if (confirma == 'S') {
+          prf->status = 'I';
+          regravar_prof(prf);
+          printf("\n\t//// Profissional Excluído com Sucesso!\n");
+        } else if (confirma == 'N') {
+          printf("\n\t//// Operação Cancelada!\n");
+        } else {
+          printf("\n\t //// Operação Inválida! Tente [S/N]: ");
+        }
+    } while(confirma != 'S' && confirma != 'N');
+    
+    free(prf);
+  }
+  free(crn);
+}
 
 char menu_profissional(void) {  
   char op_profissional;
@@ -68,13 +143,32 @@ void gravar_prof(Profissional* prf) {
   fclose(fp);
 }
 
-// Função para cadastrar profissional
-void cadastrar_prof(void){
-    Profissional* prf;
+// Função para regravar profissional
+void regravar_prof(Profissional* prf) {
+  int find;
+  FILE* fp;
+  Profissional* prof_lido;
 
-    prf = tela_cadastrar_prof();
-    gravar_prof(prf);
-    free(prf);
+  prof_lido = (Profissional*) malloc(sizeof(Profissional));
+  fp = fopen("profissional.dat", "r+b");
+  if (fp == NULL) {
+    printf("Erro na abertura do arquivo!\n");
+    printf("Não é possível continuar...\n");
+    exit(1);
+  }
+
+  while (!feof(fp)) {
+    find = 0;
+    fread(prof_lido, sizeof(Profissional), 1, fp) && !find;
+    if (strcmp(prof_lido->crn, prf->crn) == 0) {
+        find == 1;
+        fseek(fp, -1*sizeof(Profissional), SEEK_CUR);
+    fwrite(prf, sizeof(Profissional), 1, fp);
+    break;
+    }
+  }
+    fclose(fp);
+    free(prof_lido);
 }
 
 Profissional* tela_cadastrar_prof(void) {
@@ -169,6 +263,63 @@ Profissional* tela_cadastrar_prof(void) {
   return prf;
 }
 
+
+// Função para mostrar a tela de inserir o CRN
+char* tela_pesquisar_prof(void) {
+    char* crn;
+    crn = (char*) malloc(12*sizeof(char*));
+
+    printf("\n");
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+    printf("\t///                                                                        ///\n");
+    printf("\t///                             Exibir profissional                        ///\n");
+    printf("\t///                                                                        ///\n");
+    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t//// Digite o CRN do profissional a ser exibido: ");
+    scanf("%s", crn);
+    limparBuffer();
+    return crn;
+} 
+
+char* tela_recadastrar_prof(void) {
+  char* crn;
+  crn = (char*) malloc(12*sizeof(char*));
+
+  printf("\n");
+  system("clear || cls"); // se for Linux use 'clear', se for Windows use 'cls'
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                        Recadastrar profissional                        ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n");
+  printf("\t//// Digite o CRN do profissional a ser recadastrado: ");
+  scanf("%s", crn);
+  limparBuffer();
+  return crn;
+}
+
+char* tela_excluir_prof(void) {
+
+  char* crn;
+  crn = (char*) malloc(12*sizeof(char*));
+
+  printf("\n");
+  system("clear || cls"); // se for Linux use 'clear', se for Windows use 'cls'
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                          Excluir Profissional                          ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n");
+  printf("\t//// Digite o CRN do profissional a ser excluído: ");
+  scanf("%s", crn);
+  limparBuffer();
+  return crn;
+} 
+
 // Função para buscar profissional
 Profissional* buscar_prof(char* crn) {
     FILE* fp;
@@ -193,40 +344,6 @@ Profissional* buscar_prof(char* crn) {
     return NULL;
 }
 
-// Função para mostrar a tela de inserir o CRN
-char* tela_pesquisar_prof(void) {
-    char* crn;
-    crn = (char*) malloc(12*sizeof(char*));
-    char continuar;
-    
-    while (continuar != '0') {
-      system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-      printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-      printf("\t///                                                                        ///\n");
-      printf("\t///                          Exibir profissional                           ///\n");
-      printf("\t///                              [0] Retornar                              ///\n");
-      printf("\t///                                                                        ///\n");
-      printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-      printf("\n");
-      printf("\t//// tecle <ENTER> para prosseguir e '0' para RETORNAR: ");
-      scanf("%c", &continuar);
-      limparBuffer();
-      if (continuar == '0') {
-        break;
-      }
-      system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-      printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-      printf("\t///                                                                        ///\n");
-      printf("\t///                             Exibir profissional                        ///\n");
-      printf("\t///                                                                        ///\n");
-      printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-      printf("\n");
-      printf("\t//// Digite o CRN do profissional a ser exibido: ");
-      scanf("%s", crn);
-      limparBuffer();
-      return crn;
-    }
-} 
 
 void exibir_prof(Profissional* prf) {
 
@@ -252,16 +369,6 @@ void exibir_prof(Profissional* prf) {
     getchar();
 }
 
-void pesquisar_prof(void){
-  Profissional* prf;
-  char* crn;
-
-  crn = tela_pesquisar_prof();
-  prf = buscar_prof(crn);
-  exibir_prof(prf);
-  free(prf);
-  free(crn);
-}
 
 // funçao para alterar dados 
 Profissional* recadastrar_prof(void) {
@@ -322,120 +429,4 @@ Profissional* recadastrar_prof(void) {
   printf("\tTecle <ENTER> para prosseguir... ");
   getchar();
   return prf;
-}
-
-char* tela_recadastrar_prof(void) {
-  char* crn;
-  crn = (char*) malloc(12*sizeof(char*));
-
-  printf("\n");
-  system("clear || cls"); // se for Linux use 'clear', se for Windows use 'cls'
-  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-  printf("\t///                                                                        ///\n");
-  printf("\t///                        Recadastrar profissional                        ///\n");
-  printf("\t///                                                                        ///\n");
-  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-  printf("\n");
-  printf("\t//// Digite o CRN do profissional a ser recadastrado: ");
-  scanf("%s", crn);
-  limparBuffer();
-  return crn;
-}
-
-void regravar_prof(Profissional* prf) {
-  int find;
-  FILE* fp;
-  Profissional* prof_lido;
-
-  prof_lido = (Profissional*) malloc(sizeof(Profissional));
-  fp = fopen("profissional.dat", "r+b");
-  if (fp == NULL) {
-    printf("Erro na abertura do arquivo!\n");
-    printf("Não é possível continuar...\n");
-    exit(1);
-  }
-
-  while (!feof(fp)) {
-    find = 0;
-    fread(prof_lido, sizeof(Profissional), 1, fp) && !find;
-    if (strcmp(prof_lido->crn, prf->crn) == 0) {
-        find == 1;
-        fseek(fp, -1*sizeof(Profissional), SEEK_CUR);
-    fwrite(prf, sizeof(Profissional), 1, fp);
-    break;
-    }
-  }
-    fclose(fp);
-    free(prof_lido);
-}
-
-void atualiza_prof(void) {
-  Profissional* prf;
-  char* crn;
-
-  crn = tela_recadastrar_prof();
-  prf = buscar_prof(crn);
-
-  if (prf == NULL) {
-    printf("\n\t//// Profissional Inexistente !\n");
-  } else {
-    prf = recadastrar_prof();
-    strcpy(prf->crn, crn);
-    regravar_prof(prf);
-    free(prf);
-  }
-  free(crn);
-}
-
-char* tela_excluir_prof(void) {
-
-  char* crn;
-  crn = (char*) malloc(12*sizeof(char*));
-
-  printf("\n");
-  system("clear || cls"); // se for Linux use 'clear', se for Windows use 'cls'
-  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-  printf("\t///                                                                        ///\n");
-  printf("\t///                          Excluir Profissional                          ///\n");
-  printf("\t///                                                                        ///\n");
-  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-  printf("\n");
-  printf("\t//// Digite o CRN do profissional a ser excluído: ");
-  scanf("%s", crn);
-  limparBuffer();
-  return crn;
-} 
-
-void excluir_prof(void) {
-  Profissional* prf;
-  char* crn;
-  char confirma;
-  crn = tela_excluir_prof();
-  prf = (Profissional*) malloc(sizeof(Profissional));
-  prf = buscar_prof(crn);
-  if (prf == NULL) {
-    printf("\n\t//// Profissional Inexistente !\n");
-  } else {
-    printf("\n\t//// Profissional Encontrado!\n");
-    printf("\t//// Nome: %s\n", prf->nome);
-    printf("\n\t//// Deseja excluir esse profissional? [S/N]: ");
-
-    do {
-        scanf("%c", &confirma);
-        limparBuffer();
-        confirma = toupper(confirma);
-        if (confirma == 'S') {
-          prf->status = 'I';
-          regravar_prof(prf);
-          printf("\n\t//// Profissional Excluído com Sucesso!\n");
-        } else if (confirma == 'N') {
-          printf("\n\t//// Operação Cancelada!\n");
-        } else {
-          printf("\n\t //// Operação Inválida! Tente [S/N]: ");
-        }
-    } while(confirma != 'S' && confirma != 'N');
-    
-    free(prf);
-  }
-  free(crn);
 }
