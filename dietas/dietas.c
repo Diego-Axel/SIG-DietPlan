@@ -303,3 +303,27 @@ char* tela_excluir_dieta(void) {
   limparBuffer();
   return dts;
 } 
+
+// Função para buscar dieta
+Dietas* buscar_dieta(char* id) {
+    FILE* fp;
+    Dietas* dts;
+
+    dts = (Dietas*) malloc(sizeof(Dietas));
+    fp = fopen("dietas.dat", "rb");
+    if (fp == NULL) {
+        printf("Erro na abertura do arquivo!\n");
+        printf("Não é possível continuar...\n");
+        exit(1);
+    }
+
+    while(!feof(fp)) {
+      fread(dts, sizeof(Dietas), 1, fp);
+      if ((strcmp(dts->id, id) == 0) && (dts->status == 'A')) {
+          fclose(fp);
+          return dts;
+      } 
+    }
+    fclose(fp);
+    return NULL;
+}
