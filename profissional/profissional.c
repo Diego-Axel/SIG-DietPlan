@@ -370,7 +370,7 @@ void exibir_prof(Profissional* prf) {
 }
 
 
-// funçao para alterar dados 
+// funçao para alterar dados do profissional
 Profissional* recadastrar_prof(void) {
   Profissional* prf;
   prf = (Profissional*) malloc(sizeof(Profissional));
