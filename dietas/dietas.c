@@ -327,3 +327,23 @@ Dietas* buscar_dieta(char* id) {
     fclose(fp);
     return NULL;
 }
+
+void exibir_dieta(Dietas* dts) {
+
+  if (dts == NULL) {
+      printf("\n\t//// Dieta Inexistente !\n");
+  } else {
+      printf("\n");
+      printf("\t//// Dieta Encontrada !\n");
+      printf("\n");
+      printf("\t//// Tipo: %s\n", dts->tipo);
+      printf("\n");
+      printf("\t//// Cliente: %s\n", dts->cpf_cliente);
+      printf("\n");
+      printf("\t//// Profissional: %s\n", dts->crn_profissional);
+      printf("\n");
+      printf("\t//// Status: %c\n", dts->status);
+    }
+    printf("\ttecle <ENTER> para continuar: ");
+    getchar();
+}
