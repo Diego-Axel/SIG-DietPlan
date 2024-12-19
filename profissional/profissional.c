@@ -241,7 +241,7 @@ Profissional* tela_cadastrar_prof(void) {
 
 // Loop para validar o CRN
     do {
-        printf("\t//// Digite o CRN (XXXXX/CRN-X) : ");
+        printf("\t//// Digite o CRN (XXXXX/CRN-X): ");
         fgets(prf->crn, 12, stdin); // Lê até 11 dígitos, sem considerar o caractere nulo
         prf->crn[strcspn(prf->crn, "\n")] = '\0';
         limparBuffer();

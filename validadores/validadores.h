@@ -11,5 +11,5 @@ int validaFone(char*);
 int validaCRN(char* crn);
 int digitos_iguais(const char* cpf);
 int valida_CPF(const char* cpf); 
-
+int validaID(char*);
 #endif

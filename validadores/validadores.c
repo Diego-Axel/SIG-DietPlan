@@ -173,3 +173,18 @@ int valida_CPF(const char * cpf) {
 
     return 1;
 }
+
+int validaID(char* id) {
+
+    if(strlen(id) != 7) {
+        return 0;
+    }
+
+    for(int i = 0; i < 7; i++) {
+        if (!isdigit(id[i])) {
+            return 0;
+        }
+    }
+
+    return 1;
+}

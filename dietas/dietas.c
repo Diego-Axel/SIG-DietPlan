@@ -169,3 +169,79 @@ void regravar_dieta(Dietas* dts) {
     fclose(fp);
     free(dieta_lida);
 }
+
+Dietas* tela_cadastrar_dieta(void) {
+  Dietas* dts;
+  dts = (Dietas*) malloc(sizeof(Dietas));
+  system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                            Cadastrar Dieta                             ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n");
+
+// Loop para validar o id da dieta
+  do {
+    printf("\t//// ID da dieta(apenas números): ");
+    scanf("%7s", dts->id);
+    limpabuffer();
+
+    // Verifica se o id é válido
+    if (!validaID(dts->id)) {
+        printf("\t//// ID Inválido. Tente Novamente.\n");
+    }
+  } (!validaID(dts->id));
+
+  // Loop para validar o tipo da dieta
+    do {
+        printf("\t//// Tipo da Dieta: ");
+        fgets(dts->tipo, 25, stdin); // Limita a entrada a 25 caracteres
+        dts->tipo[strcspn(dts->tipo, "\n")] = '\0';
+        limparBuffer();
+
+        // Verifica se o tipo é válido
+        if (!validaNome(dts->tipo)) {
+            printf("\t//// Informação inválida. Tente novamente.\n");
+        }
+    } while (!validaNome(dts->tipo)); // Continua pedindo até que uma informação válido seja inserido
+
+  printf("\n");
+
+  // Loop para validar o CPF
+    do {
+        printf("\t//// Digite o CPF do Cliente (apenas números): ");
+        scanf("%11s", dts->cpf_cliente); // Lê até 11 dígitos, sem considerar o caractere nulo
+        limparBuffer();
+
+        // Verifica se o CPF é válido
+        if (!valida_CPF(dts->cpf_cliente)) {
+            printf("\t//// CPF inválido. Tente novamente.\n");
+        }
+    } while (!valida_CPF(dts->cpf_cliente)); // Continua pedindo até que um CPF válido seja inserido
+
+  printf("\n");
+
+// Loop para validar o CRN
+    do {
+        printf("\t//// Digite o CRN do Profissional(XXXXX/CRN-X): ");
+        fgets(dts->crn_profissional, 12, stdin); // Lê até 11 dígitos, sem considerar o caractere nulo
+        dts->crn_profissional[strcspn(dts->crn_profissional, "\n")] = '\0';
+        limparBuffer();
+
+        // Verifica se o CRN é válido
+        if (!validaCRN(dts->crn_profissional)) {
+            printf("\t//// CRN inválido. Tente novamente.\n");
+        }
+    } while (!validaCRN(dts->crn_profissional)); // Continua pedindo até que um CRN válido seja inserido
+
+// Indica status como ativo
+  dts->status = 'A';
+
+  printf("\n");
+  printf("\t//// Dieta Cadastrada com Sucesso!");
+  printf("\n");
+  printf("\tTecle <ENTER> para Prosseguir... ");
+  getchar();
+  return dts;
+}
