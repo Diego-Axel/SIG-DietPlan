@@ -2,16 +2,18 @@
 
 #include <stdio.h> 
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 #include "dietas.h"
 #include "../utilitarios/utis.h" // Assinatura das utilidades
-
+#include "../validadores/validadores.h" // Assinatura dos validadores
 
 void modulo_dieta(void) {
   
   char opcao;
 
   do {
-        opcao = menu_dieta();
+        opcao = menu_dietas();
         
         switch(opcao) {
             case '1': cadastrar_dieta();
@@ -156,16 +158,15 @@ void regravar_dieta(Dietas* dts) {
     exit(1);
   }
 
-  while (!feof(fp)) {
+  
     find = 0;
-    fread(dieta_lida, sizeof(Dietas), 1, fp) && !find;
-    if (strcmp(dieta_lida->id, dts->id) == 0) {
-        find == 1;
-        fseek(fp, -1*sizeof(Dietas), SEEK_CUR);
-    fwrite(dts, sizeof(Dietas), 1, fp);
-    break;
+    while(fread(dieta_lida, sizeof(Dietas), 1, fp) && !find) {
+      if (strcmp(dieta_lida->id, dts->id) == 0) {
+          find == 1;
+          fseek(fp, -1*sizeof(Dietas), SEEK_CUR);
+      fwrite(dts, sizeof(Dietas), 1, fp);
+      }
     }
-  }
     fclose(fp);
     free(dieta_lida);
 }
@@ -185,13 +186,13 @@ Dietas* tela_cadastrar_dieta(void) {
   do {
     printf("\t//// ID da dieta(apenas números): ");
     scanf("%7s", dts->id);
-    limpabuffer();
+    limparBuffer();
 
     // Verifica se o id é válido
     if (!validaID(dts->id)) {
         printf("\t//// ID Inválido. Tente Novamente.\n");
     }
-  } (!validaID(dts->id));
+  } while (!validaID(dts->id));
 
   // Loop para validar o tipo da dieta
     do {

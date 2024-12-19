@@ -157,16 +157,15 @@ void regravar_prof(Profissional* prf) {
     exit(1);
   }
 
-  while (!feof(fp)) {
+  
     find = 0;
-    fread(prof_lido, sizeof(Profissional), 1, fp) && !find;
-    if (strcmp(prof_lido->crn, prf->crn) == 0) {
-        find == 1;
-        fseek(fp, -1*sizeof(Profissional), SEEK_CUR);
-    fwrite(prf, sizeof(Profissional), 1, fp);
-    break;
+    while(fread(prof_lido, sizeof(Profissional), 1, fp) && !find) {
+      if (strcmp(prof_lido->crn, prf->crn) == 0) {
+          find == 1;
+          fseek(fp, -1*sizeof(Profissional), SEEK_CUR);
+      fwrite(prf, sizeof(Profissional), 1, fp);
+      }
     }
-  }
     fclose(fp);
     free(prof_lido);
 }

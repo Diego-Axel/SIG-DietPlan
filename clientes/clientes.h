@@ -13,6 +13,7 @@ struct cliente {
     char status;
 };
 
+void modulo_cliente(void);
 void cadastrar_cliente(void);
 void pesquisar_cliente(void);
 void atualizar_cliente(void);

@@ -14,10 +14,11 @@ struct profissional {
     char status;
 };
 
-void cadastrar_prof(void);
-void pesquisar_prof(void);
-void atualizar_prof(void);
-void excluir_prof(void);
+void modulo_profissional(void);
+void cadastrar_profissional(void);
+void pesquisar_profissional(void);
+void atualizar_profissional(void);
+void excluir_profissional(void);
 Profissional* tela_cadastrar_prof(void);
 char* tela_pesquisar_prof(void);
 char* tela_recadastrar_prof(void);

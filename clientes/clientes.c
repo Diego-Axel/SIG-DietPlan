@@ -158,17 +158,15 @@ void regravar_cliente(Cliente* clt) {
     printf("Não é possível continuar...\n");
     exit(1);
   }
-
-  while (!feof(fp)) {
+  
     find = 0;
-    fread(cliente_lido, sizeof(Cliente), 1, fp) && !find;
-    if (strcmp(cliente_lido->cpf, clt->cpf) == 0) {
-        find == 1;
-        fseek(fp, -1*sizeof(Cliente), SEEK_CUR);
-    fwrite(clt, sizeof(Cliente), 1, fp);
-    break;
+    while(fread(cliente_lido, sizeof(Cliente), 1, fp) && !find) {
+      if (strcmp(cliente_lido->cpf, clt->cpf) == 0) {
+          find == 1;
+          fseek(fp, -1*sizeof(Cliente), SEEK_CUR);
+      fwrite(clt, sizeof(Cliente), 1, fp);
+      }
     }
-  }
     fclose(fp);
     free(cliente_lido);
 }

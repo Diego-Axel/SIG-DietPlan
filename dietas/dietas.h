@@ -13,6 +13,7 @@ struct dietas {
     char status;
 };
 
+void modulo_dieta(void);
 void cadastrar_dieta(void);
 void pesquisar_dieta(void);
 void atualizar_dieta(void);
