@@ -245,3 +245,23 @@ Dietas* tela_cadastrar_dieta(void) {
   getchar();
   return dts;
 }
+
+
+// Função para mostrar a tela de inserir o ID
+char* tela_pesquisar_dieta(void) {
+    char* dts;
+    dts = (char*) malloc(12*sizeof(char*));
+
+    printf("\n");
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+    printf("\t///                                                                        ///\n");
+    printf("\t///                             Exibir Dieta                               ///\n");
+    printf("\t///                                                                        ///\n");
+    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    printf("\t//// Digite o ID da dieta a ser exibida: ");
+    scanf("%s", dts);
+    limparBuffer();
+    return dts;
+} 
