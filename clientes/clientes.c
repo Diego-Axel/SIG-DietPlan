@@ -93,8 +93,13 @@ void excluir_cliente(void) {
           clt->status = 'I';
           regravar_cliente(clt);
           printf("\n\t//// Cliente Excluído com Sucesso!\n");
+          printf("\tTecle <ENTER> para prosseguir... ");
+          getchar();
+
         } else if (confirma == 'N') {
           printf("\n\t//// Operação Cancelada!\n");
+          printf("\tTecle <ENTER> para prosseguir... ");
+          getchar();
         } else {
           printf("\n\t //// Operação Inválida! Tente [S/N]: ");
         }

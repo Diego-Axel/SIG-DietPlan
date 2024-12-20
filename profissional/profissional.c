@@ -93,8 +93,13 @@ void excluir_profissional(void) {
           prf->status = 'I';
           regravar_prof(prf);
           printf("\n\t//// Profissional Excluído com Sucesso!\n");
+          printf("\tTecle <ENTER> para prosseguir... ");
+          getchar();
+
         } else if (confirma == 'N') {
           printf("\n\t//// Operação Cancelada!\n");
+          printf("\tTecle <ENTER> para prosseguir... ");
+          getchar();
         } else {
           printf("\n\t //// Operação Inválida! Tente [S/N]: ");
         }

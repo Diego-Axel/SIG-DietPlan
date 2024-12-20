@@ -94,8 +94,13 @@ void excluir_dieta(void) {
           dts->status = 'I';
           regravar_dieta(dts);
           printf("\n\t//// Dieta Excluída com Sucesso!\n");
+          printf("\tTecle <ENTER> para prosseguir... ");
+          getchar();
+
         } else if (confirma == 'N') {
           printf("\n\t//// Operação Cancelada!\n");
+          printf("\tTecle <ENTER> para prosseguir... ");
+          getchar();
         } else {
           printf("\n\t //// Operação Inválida! Tente [S/N]: ");
         }
@@ -251,7 +256,7 @@ Dietas* tela_cadastrar_dieta(void) {
 // Função para mostrar a tela de inserir o ID
 char* tela_pesquisar_dieta(void) {
     char* dts;
-    dts = (char*) malloc(12*sizeof(char*));
+    dts = (char*) malloc(8*sizeof(char*));
 
     printf("\n");
     system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'

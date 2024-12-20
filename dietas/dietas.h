@@ -6,7 +6,7 @@
 typedef struct dietas Dietas;
 
 struct dietas {
-    char id[7];
+    char id[8];
     char cpf_cliente[13];
     char crn_profissional[12];
     char tipo[25];
