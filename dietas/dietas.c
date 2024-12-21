@@ -190,7 +190,7 @@ Dietas* tela_cadastrar_dieta(void) {
 // Loop para validar o id da dieta
   do {
     printf("\t//// ID da dieta(apenas números): ");
-    scanf("%7s", dts->id);
+    scanf("%8s", dts->id);
     limparBuffer();
 
     // Verifica se o id é válido
