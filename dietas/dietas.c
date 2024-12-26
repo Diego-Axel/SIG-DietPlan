@@ -192,7 +192,7 @@ Dietas* tela_cadastrar_dieta(void) {
     printf("\t//// ID da dieta(apenas números): ");
     scanf("%8s", dts->id);
     limparBuffer();
-
+    printf("\n");
     // Verifica se o id é válido
     if (!validaID(dts->id)) {
         printf("\t//// ID Inválido. Tente Novamente.\n");
@@ -204,7 +204,6 @@ Dietas* tela_cadastrar_dieta(void) {
         printf("\t//// Tipo da Dieta: ");
         fgets(dts->tipo, 25, stdin); // Limita a entrada a 25 caracteres
         dts->tipo[strcspn(dts->tipo, "\n")] = '\0';
-        limparBuffer();
 
         // Verifica se o tipo é válido
         if (!validaNome(dts->tipo)) {
@@ -372,7 +371,6 @@ Dietas* recadastrar_dieta(void) {
         printf("\t//// Tipo da Dieta: ");
         fgets(dts->tipo, 25, stdin); // Limita a entrada a 25 caracteres
         dts->tipo[strcspn(dts->tipo, "\n")] = '\0';
-        limparBuffer();
 
         // Verifica se o tipo é válido
         if (!validaNome(dts->tipo)) {
