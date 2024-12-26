@@ -406,19 +406,7 @@ Cliente* recadastrar_cliente(void) {
 
   printf("\n");
 
-    // Loop para validar o CPF
-    do {
-        printf("\t//// Digite o CPF (apenas números): ");
-        scanf("%11s", clt->cpf); // Lê até 11 dígitos, sem considerar o caractere nulo
-        limparBuffer();
-
-    // Verifica se o CPF é válido
-        if (!valida_CPF(clt->cpf)) {
-            printf("\t//// CPF inválido. Tente novamente.\n");
-        }
-    } while (!valida_CPF(clt->cpf)); // Continua pedindo até que um CPF válido seja inserido
-
-    printf("\n");
+  printf("\n");
   printf("\t//// Profissional recadastrado com sucesso!");
   printf("\n");
   printf("\tTecle <ENTER> para prosseguir... ");
