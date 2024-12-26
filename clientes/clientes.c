@@ -184,7 +184,7 @@ Cliente* tela_cadastrar_cliente(void) {
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\t///                                                                        ///\n");
-  printf("\t///                            Cadastrar cliente                            ///\n");
+  printf("\t///                            Cadastrar cliente                           ///\n");
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\n");
@@ -193,7 +193,6 @@ Cliente* tela_cadastrar_cliente(void) {
         printf("\t//// Digite o nome: ");
         fgets(clt->nome, 40, stdin); // Limita a entrada a 39 caracteres
         clt->nome[strcspn(clt->nome, "\n")] = '\0';
-        limparBuffer();
 
         // Verifica se o nome é válido
         if (!validaNome(clt->nome)) {
@@ -372,7 +371,7 @@ Cliente* recadastrar_cliente(void) {
         printf("\t//// Digite o nome: ");
         fgets(clt->nome, 40, stdin); // Limita a entrada a 39 caracteres
         clt->nome[strcspn(clt->nome, "\n")] = '\0';
-        limparBuffer();
+
         // Verifica se o nome é válido
         if (!validaNome(clt->nome)) {
             printf("\t//// Nome inválido. Tente novamente.\n");
