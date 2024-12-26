@@ -191,7 +191,6 @@ Profissional* tela_cadastrar_prof(void) {
         printf("\t//// Digite o nome: ");
         fgets(prf->nome, 40, stdin); // Limita a entrada a 39 caracteres
         prf->nome[strcspn(prf->nome, "\n")] = '\0';
-        limparBuffer();
 
         // Verifica se o nome é válido
         if (!validaNome(prf->nome)) {
@@ -391,7 +390,6 @@ Profissional* recadastrar_prof(void) {
         printf("\t//// Digite o nome: ");
         fgets(prf->nome, 40, stdin); // Limita a entrada a 39 caracteres
         prf->nome[strcspn(prf->nome, "\n")] = '\0';
-        limparBuffer();
 
         // Verifica se o nome é válido
         if (!validaNome(prf->nome)) {
