@@ -7,7 +7,26 @@
 
 // Funções
 
-char menu_relatorio(void) {
+void modulo_relatorio(void) {
+  
+  char opcao;
+
+  do {
+        opcao = menu_relatorios();
+        
+        switch(opcao) {
+            case '1': relatorios_profissional();
+                      break;
+            case '2': relatorios_clientes();
+                      break;
+            case '3': relatorios_dietas();
+                      break;
+        }
+  } while(opcao != '0');
+}
+
+
+char menu_relatorios(void) {
 
   char op_relatorio;
 
@@ -18,8 +37,9 @@ char menu_relatorio(void) {
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\t///                                                                        ///\n");
-  printf("\t///                         [1] Clientes cadastrados                       ///\n");
-  printf("\t///                         [2] Profisionais cadastrados                   ///\n"); 
+  printf("\t///                         [1] Relatórios de Profissionais                ///\n");
+  printf("\t///                         [2] Relatórios de Clientes                     ///\n");
+  printf("\t///                         [3] Relatórios de Dietas                       ///\n");
   printf("\t///                         [0] Retornar ao Menu Principal                 ///\n");  
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");

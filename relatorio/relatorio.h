@@ -3,7 +3,7 @@
 #ifndef RELATORIO
 #define RELATORIO
 
-char menu_relatorio(void);
+char menu_relatorios(void);
 void relatorio_clientes(void);
 void relatorio_profissional(void);
 
