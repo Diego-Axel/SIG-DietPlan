@@ -7,13 +7,13 @@ CC := gcc
 CFLAGS := -Wall -Wextra -pedantic
 
 # Source files
-SRCS := main.c interfacePrincipal/interfaces.c clientes/clientes.c dietas/dietas.c profissional/profissional.c relatorio/relatorio.c utilitarios/utis.c validadores/validadores.c
+SRCS := main.c interfacePrincipal/interfaces.c clientes/clientes.c dietas/dietas.c profissional/profissional.c relatorio/relatorio.c utilitarios/utis.c validadores/validadores.c relatorio/relclientes.c relatorio/reldietas.c relatorio/relprofissional.c
 
 # Object files
 OBJS := $(SRCS:.c=.o)
 
 # Header files
-HDRS := interfacePrincipal/interfaces.h clientes/clientes.h dietas/dietas.h profissional/profissional.h relatorio/relatorio.h utilitarios/utis.h validadores/validadores.h
+HDRS := interfacePrincipal/interfaces.h clientes/clientes.h dietas/dietas.h profissional/profissional.h relatorio/relatorio.h utilitarios/utis.h validadores/validadores.h relatorio/relclientes.h relatorio/reldietas.h relatorio/relprofissional.h
 
 # Executable name
 TARGET := main
