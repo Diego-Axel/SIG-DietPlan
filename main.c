@@ -4,8 +4,8 @@
 ///               Departamento de Computação e Tecnologia                ///
 ///                  Disciplina DCT1106 -- Programação                   ///
 ///               Projeto Sistema de Planejamento de Dietas              ///
-///              Developed by Diêgo Axel,  Luís Henrique                 ///
-///                           and Kaio Márcio                            ///
+///              Developed by Diêgo Axel,  Luís Henrique,                ///
+///                   Kaio Márcio and Fillipe Medeiros                   ///
 ///                             Versão 0.8                               ///
 ////////////////////////////////////////////////////////////////////////////
 
@@ -47,7 +47,7 @@ int main(void) {
                       break;
             case '3': modulo_profissional();
                       break;
-            case '4': menu_relatorio();
+            case '4': modulo_relatorio();
                       break;
             case '5': menu_info();
                       break;

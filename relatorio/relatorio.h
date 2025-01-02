@@ -4,7 +4,7 @@
 #define RELATORIO
 
 char menu_relatorios(void);
-void relatorio_clientes(void);
+char modulo_relatorios(void);
 void relatorio_profissional(void);
 
 #endif
