@@ -14,11 +14,11 @@ void modulo_relprofissional(void){
         opcao = menu_relprofissional();
 
         switch(opcao) {
-            case 1: relprofissional_geral();
+            case '1': relprofissional_geral();
                     break;
-            case 2: relprofissional_ativos();
+            case '2': relprofissional_ativos();
                     break;
-            case 3: relprofissional_inativos();
+            case '3': relprofissional_inativos();
                     break;
         }
     } while(opcao != '0');

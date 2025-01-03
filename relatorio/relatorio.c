@@ -5,7 +5,7 @@
 #include "relatorio.h"
 #include "../utilitarios/utis.h" // Assinatura das utilidades
 #include "relclientes.h"
-#include "relprofissional.c"
+#include "relprofissional.h"
 
 // Funções
 
@@ -48,4 +48,4 @@ char menu_relatorios(void) {
   scanf("%c", &op_relatorio);
   limparBuffer();
   return op_relatorio;
-}
+} 
