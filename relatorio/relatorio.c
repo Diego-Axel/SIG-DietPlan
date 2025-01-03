@@ -5,6 +5,7 @@
 #include "relatorio.h"
 #include "../utilitarios/utis.h" // Assinatura das utilidades
 #include "relclientes.h"
+#include "relprofissional.c"
 
 // Funções
 
@@ -16,7 +17,7 @@ void modulo_relatorio(void) {
         opcao = menu_relatorios();
         
         switch(opcao) {
-            case '1': relatorio_profissional();
+            case '1': modulo_relprofissional();
                       break;
             case '2': modulo_relclientes();
                       break;
