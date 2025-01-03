@@ -25,3 +25,26 @@ void modulo_relprofissional(void){
 }
 
 
+char menu_relprofissional(void) {
+
+  char op_relatorio;
+
+  system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                         Módulo Relatório Profissional                  ///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///                         [1] Relatório Geral                            ///\n");
+  printf("\t///                         [2] Profissionais Ativos                       ///\n");
+  printf("\t///                         [3] Profissionais Inativos                     ///\n");
+  printf("\t///                         [0] Retornar ao Menu Principal                 ///\n");  
+  printf("\t///                                                                        ///\n");
+  printf("\t//////////////////////////////////////////////////////////////////////////////\n");
+  printf("\n"); 
+  printf("\t//// Escolha uma opção: "); 
+  scanf("%c", &op_relatorio);
+  limparBuffer();
+  return op_relatorio;
+}
