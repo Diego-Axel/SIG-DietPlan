@@ -84,10 +84,10 @@ void reldietas_geral(void) {
         printf("\t//// Status: %c\n", diet->status);
         printf("\n");
         printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+        free(cpf);
+        free(crn);
     } 
     free(diet);
-    free(cpf);
-    free(crn);
     printf("\n");
     printf("\ttecle <ENTER> para continuar... ");
     getchar();
