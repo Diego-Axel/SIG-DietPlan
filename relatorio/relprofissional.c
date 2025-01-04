@@ -83,6 +83,7 @@ void relprofissional_geral(void) {
             printf("\n");
             printf("\t//////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
     } 
+    free(prf);
     printf("\n");
     printf("\ttecle <ENTER> para continuar... ");
     getchar();
@@ -122,6 +123,7 @@ void relprofissional_ativos(void) {
             printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
         }
     } 
+    free(prf);
     printf("\n");
     printf("\ttecle <ENTER> para continuar... ");
     getchar();
@@ -161,6 +163,7 @@ void relprofissional_inativos(void) {
             printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
         }
     } 
+    free(prf);
     printf("\n");
     printf("\ttecle <ENTER> para continuar... ");
     getchar();

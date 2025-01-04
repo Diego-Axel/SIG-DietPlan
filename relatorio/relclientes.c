@@ -81,10 +81,10 @@ void relclientes_geral(void) {
         printf("\n");
         printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
     } 
+    free(clt);
     printf("\n");
     printf("\ttecle <ENTER> para continuar... ");
     getchar();
-
 }
 
 
@@ -120,6 +120,7 @@ void relclientes_ativos(void) {
         printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
         }
     } 
+    free(clt);
     printf("\n");
     printf("\ttecle <ENTER> para continuar... ");
     getchar();
@@ -159,6 +160,7 @@ void relclientes_inativos(void) {
         printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
         }
     } 
+    free(clt);
     printf("\n");
     printf("\ttecle <ENTER> para continuar... ");
     getchar();

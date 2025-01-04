@@ -85,6 +85,9 @@ void reldietas_geral(void) {
         printf("\n");
         printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
     } 
+    free(diet);
+    free(cpf);
+    free(crn);
     printf("\n");
     printf("\ttecle <ENTER> para continuar... ");
     getchar();
@@ -104,10 +107,11 @@ char* get_cliente (char* cpf){
     while(fread(clt, sizeof(Cliente), 1, fp)){
         if(strcmp(clt->cpf, cpf) == 0){
             fclose(fp);
-            return(clt->nome);
+            return (clt->nome);
         }
     }
     fclose(fp);
+    free(clt);
     return NULL;
 }
 
@@ -125,9 +129,10 @@ char* get_prof (char* crn){
     while(fread(prf, sizeof(Profissional), 1, fp)){
         if(strcmp(prf->crn, crn) == 0){
             fclose(fp);
-            return(prf->nome);
+            return (prf->nome);
         }
     }
     fclose(fp);
+    free(prf);
     return NULL;
 }
