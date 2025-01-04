@@ -54,24 +54,7 @@ char menu_relclientes(void) {
 void relclientes_geral(void) {
     FILE* fp;
     Cliente* clt;
-    char continuar;
-  
-  do {
-    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-    printf("\t///                                                                        ///\n");
-    printf("\t///                             Relatório Geral                            ///\n");
-    printf("\t///                                                                        ///\n");
-    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n"); 
-    printf("\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
-    scanf("%c", &continuar);
-    limparBuffer();
-    if (continuar == '0') {
-      printf("\n");
-      printf("\t-> Consulta Cancelada <-\n");
-      break;
-    }
+
     fp = fopen("cliente.dat", "rb");
     if (fp == NULL){
         printf("Erro na abertura do arquivo!\n");
@@ -101,35 +84,14 @@ void relclientes_geral(void) {
     printf("\n");
     printf("\ttecle <ENTER> para continuar... ");
     getchar();
-  } while (continuar != '0');
-  printf("\n"); 
-  printf("\ttecle <ENTER> para retornar... ");
-  getchar();
-  
+
 }
 
 
 void relclientes_ativos(void) {
     FILE* fp;
     Cliente* clt;
-    char continuar;
-  
-  do {
-    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-    printf("\t///                                                                        ///\n");
-    printf("\t///                         Relatório Clientes Ativos                      ///\n");
-    printf("\t///                                                                        ///\n");
-    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n"); 
-    printf("\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
-    scanf("%c", &continuar);
-    limparBuffer();
-    if (continuar == '0') {
-      printf("\n");
-      printf("\t-> Consulta Cancelada <-\n");
-      break;
-    }
+
     fp = fopen("cliente.dat", "rb");
     if (fp == NULL){
         printf("Erro na abertura do arquivo!\n");
@@ -161,10 +123,6 @@ void relclientes_ativos(void) {
     printf("\n");
     printf("\ttecle <ENTER> para continuar... ");
     getchar();
-  } while (continuar != '0');
-  printf("\n"); 
-  printf("\ttecle <ENTER> para retornar... ");
-  getchar();
   
 }
 
@@ -172,24 +130,7 @@ void relclientes_ativos(void) {
 void relclientes_inativos(void) {
     FILE* fp;
     Cliente* clt;
-    char continuar;
-  
-  do {
-    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
-    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-    printf("\t///                                                                        ///\n");
-    printf("\t///                        Relatório Clientes Inativos                     ///\n");
-    printf("\t///                                                                        ///\n");
-    printf("\t//////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n"); 
-    printf("\t//// tecle <ENTER> para continuar ou '0' Para CANELAR e RETORNAR: ");
-    scanf("%c", &continuar);
-    limparBuffer();
-    if (continuar == '0') {
-      printf("\n");
-      printf("\t-> Consulta Cancelada <-\n");
-      break;
-    }
+
     fp = fopen("cliente.dat", "rb");
     if (fp == NULL){
         printf("Erro na abertura do arquivo!\n");
@@ -221,9 +162,5 @@ void relclientes_inativos(void) {
     printf("\n");
     printf("\ttecle <ENTER> para continuar... ");
     getchar();
-  } while (continuar != '0');
-  printf("\n"); 
-  printf("\ttecle <ENTER> para retornar... ");
-  getchar();
   
 }
