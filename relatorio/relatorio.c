@@ -21,6 +21,8 @@ void modulo_relatorio(void) {
                       break;
             case '2': modulo_relclientes();
                       break;
+            case '3': modulo_reldietas();
+                      break;
         }
   } while(opcao != '0');
 }
