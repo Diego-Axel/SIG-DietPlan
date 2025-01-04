@@ -104,6 +104,12 @@ void menu_dev(void) {
   printf("\t///    |   Kaio Márcio   |            Celular: (83) 98716-3046             ///\n");
   printf("\t///    +-----------------+            Github: Kaiom20                      ///\n");
   printf("\t///                                                                        ///\n");
+  printf("\t///------------------------------------------------------------------------///\n");
+  printf("\t///                                                                        ///\n");
+  printf("\t///    +------------------+            E-mail: fillipemdrs.63@gmail.com    ///\n");
+  printf("\t///    | Fillipe Medeiros |            Celular: (83) 98131-6252            ///\n");
+  printf("\t///    +------------------+            Github: fillipemdrs                 ///\n");
+  printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
   printf("\n"); 
   printf("\tTecle <ENTER> para retornar...");
