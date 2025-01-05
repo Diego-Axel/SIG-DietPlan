@@ -21,6 +21,8 @@ void modulo_reldietas(void) {
         switch(opcao) {
             case '1': reldietas_geral();
                       break;
+            case '2': reldietas_ativas();
+                      break;
         }
   } while(opcao != '0');
 }
@@ -89,9 +91,56 @@ void reldietas_geral(void) {
     } 
     free(diet);
     printf("\n");
-    printf("\ttecle <ENTER> para continuar... ");
+    printf("\tTecle <ENTER> para continuar... ");
     getchar();
 }
+
+
+
+void reldietas_ativas(void) {
+    FILE* fp;
+    Dietas* diet;
+    char* cpf;
+    char* crn;
+  
+    fp = fopen("dietas.dat", "rb");
+    if (fp == NULL){
+        printf("Erro na abertura do arquivo!\n");
+        printf("Não é possível continuar...\n");
+        exit(1);
+    }
+    diet = (Dietas*) malloc (sizeof(Dietas));
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+     printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\t///                                                                                                       ///\n");
+    printf("\t///                                        Relatório Dietas Ativas                                        ///\n");
+    printf("\t///                                                                                                       ///\n");
+    printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+    while (fread(diet, sizeof(Dietas), 1, fp)) {
+        if (diet->status != 'I') {
+            printf("\n\t//// ID da Dieta: %s\n", diet->id);
+            printf("\n");
+            cpf = get_cliente(diet->cpf_cliente);
+            printf("\t//// Cliente: %s\n", cpf);
+            printf("\n");
+            crn = get_prof(diet->crn_profissional);
+            printf("\t//// Profissional: %s\n", crn);
+            printf("\n");
+            printf("\t//// Tipo: %s\n", diet->tipo);
+            printf("\n");
+            printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+            free(cpf);
+            free(crn);
+        }
+    }
+    free(diet);
+    printf("\n");
+    printf("\tTecle <ENTER> para continuar...");
+    getchar();
+
+}
+
+
 
 char* get_cliente (char* cpf){
     FILE* fp;
