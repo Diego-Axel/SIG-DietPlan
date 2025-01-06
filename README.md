@@ -112,6 +112,14 @@ Esse projeto foi desenvolvido com o seguinte editor de código:
 - E-mail: kaiomacl.20@gmail.com
 - Celular: (83) 98716-3046
 
+### Fillipe Medeiros ->
+- Github: [fillipemdrs](https://github.com/fillipemdrs) 
+- Linkedin: [Fillipe Medeiros Araújo Morais](https://www.linkedin.com/in/fillipe-medeiros-ara%C3%BAjo-morais-13bb68334/)
+- Instagram: https://www.instagram.com/fillipemdrs/
+- Portifólio: 
+- E-mail: fillipemdrs.63@gmail.com
+- Celular: (83) 98131-6252
+
 ##  Sobre
 
 - Este é um Projeto do Curso de Sistemas de Informação da Universidade Federal do Rio Grande do Norte(UFRN).
