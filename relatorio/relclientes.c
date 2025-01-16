@@ -21,6 +21,7 @@ void modulo_relclientes(void) {
             case '2': relclientes_ativos();
                       break;
             case '3': relclientes_inativos();
+                      break;
         }
   } while(opcao != '0');
 }
