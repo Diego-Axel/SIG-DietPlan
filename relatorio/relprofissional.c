@@ -219,3 +219,28 @@ ListaProf* lista_ordenada_prof(void) {
 }
 
 
+void imprime_lista_prof(ListaProf* l){
+    if(l == NULL){
+        printf("\tNão existem profissionais cadastrados!\n");
+        printf("\tTecle <ENTER> para prosseguir... ");
+        getchar();
+        return;
+    }
+    while(l != NULL){
+        printf("\n\t//// Nome: %s\n", l->prf->nome);
+        printf("\n");
+        printf("\t//// E-mail: %s\n", l->prf->email);
+        printf("\n");
+        printf("\t//// Telefone: %s\n", l->prf->telefone);
+        printf("\n");
+        printf("\t//// CPF: %s\n", l->prf->cpf);
+        printf("\n");
+        printf("\t//// CRN: %s\n", l->prf->crn);
+        printf("\n");
+        printf("\t//// Status: %c\n", l->prf->status);
+        printf("\n");
+        printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+        l = l->prox;
+    }
+}
+
