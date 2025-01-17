@@ -244,3 +244,15 @@ void imprime_lista_prof(ListaProf* l){
     }
 }
 
+//Créditos: Flavius Gorgônio || @flgorgonio
+void limpa_lista_prof(ListaProf* l){
+    ListaProf *p = l;
+	while (p != NULL){
+		ListaProf *t = p->prox;
+		free(p->prf);
+        free(p);
+		p = t;
+	}
+}
+
+
