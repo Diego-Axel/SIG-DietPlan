@@ -241,7 +241,7 @@ char* get_prof (char* crn){
 
 
 //Créditos: Fillipe, João Victor e ChatGPT.
-ListaDiet* lista_ordenada(void) {
+ListaDiet* lista_ordenada_diet(void) {
     FILE* fp;
     Dietas* diet;
     ListaDiet* novo;
@@ -286,7 +286,10 @@ ListaDiet* lista_ordenada(void) {
 }
 
 
-void imprime_lista(ListaDiet* l){
+void imprime_lista_diet(ListaDiet* l){
+    char* cpf;
+    char* crn;
+    
     if(l == NULL){
         printf("\tNão existem dietas cadastradas!\n");
         printf("\tTecle <ENTER> para prosseguir... ");
@@ -317,7 +320,7 @@ void imprime_lista(ListaDiet* l){
 
 
 //Créditos: Flavius Gorgônio || @flgorgonio
-void limpa_lista(ListaDiet* l){
+void limpa_lista_diet(ListaDiet* l){
     ListaDiet* p = l;
 	while (p != NULL){
 		ListaDiet* t = p->prox;
@@ -336,9 +339,9 @@ void reldietas_ordenado(void){
     printf("\t///                                    (Ordem Crescente em Calorias)                                      ///\n");
     printf("\t///                                                                                                       ///\n");
     printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
-    ListaDiet* l = lista_ordenada();
-    imprime_lista(l);
-    limpa_lista(l);
+    ListaDiet* l = lista_ordenada_diet();
+    imprime_lista_diet(l);
+    limpa_lista_diet(l);
     printf("\n");
     printf("\ttecle <ENTER> para continuar... ");
     getchar();

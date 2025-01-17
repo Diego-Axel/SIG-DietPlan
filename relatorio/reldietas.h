@@ -13,9 +13,9 @@ void reldietas_inativas(void);
 char* get_cliente (char* cpf);
 char* get_prof (char* crn);
 
-ListaDiet* lista_ordenada(void);
-void imprime_lista(ListaDiet* l);
-void limpa_lista(ListaDiet* l);
+ListaDiet* lista_ordenada_diet(void);
+void imprime_lista_diet(ListaDiet* l);
+void limpa_lista_diet(ListaDiet* l);
 void reldietas_ordenado(void);
 
 #endif
