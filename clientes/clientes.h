@@ -13,6 +13,14 @@ struct cliente {
     char status;
 };
 
+typedef struct lista Lista;
+
+struct lista{
+    Cliente* clt;
+    Lista* prox;
+};
+
+
 void modulo_cliente(void);
 void cadastrar_cliente(void);
 void pesquisar_cliente(void);

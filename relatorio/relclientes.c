@@ -22,6 +22,8 @@ void modulo_relclientes(void) {
                       break;
             case '3': relclientes_inativos();
                       break;
+            case '4': relclientes_ordenado();
+                      break;
         }
   } while(opcao != '0');
 }
@@ -41,6 +43,7 @@ char menu_relclientes(void) {
   printf("\t///                         [1] Relatório Geral                            ///\n");
   printf("\t///                         [2] Clientes Ativos                            ///\n");
   printf("\t///                         [3] Clientes Inativos                          ///\n");
+  printf("\t///                         [4] Clientes (Ordem Alfabética)                ///\n");
   printf("\t///                         [0] Retornar ao Menu Principal                 ///\n");  
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
@@ -166,4 +169,50 @@ void relclientes_inativos(void) {
     printf("\ttecle <ENTER> para continuar... ");
     getchar();
   
+}
+
+
+//Créditos: ChatGPT, Fillipe e João Victor.
+Lista* lista_ordenada(void) {
+    FILE* fp;
+    Cliente* clt;
+    Lista* novo;
+    Lista* l = NULL;
+
+    fp = fopen("cliente.dat", "rb");
+    if (fp == NULL) {
+        printf("Erro na abertura do arquivo!\n");
+        printf("Não é possível continuar...\n");
+        exit(1);
+    }
+
+    while (1) {
+        clt = (Cliente*) malloc(sizeof(Cliente)); 
+        if (fread(clt, sizeof(Cliente), 1, fp) != 1) { 
+            free(clt); 
+            break; 
+        }
+        
+        novo = (Lista*) malloc(sizeof(Lista));
+        novo->clt = clt;   
+        novo->prox = NULL; 
+
+        if (l == NULL) {
+            l = novo; 
+        } else if (strcmp(novo->clt->nome, l->clt->nome) < 0) {
+            novo->prox = l;
+            l = novo; 
+        } else {
+            Lista* ant = l;
+            Lista* atu = l->prox;
+            while ((atu != NULL) && (strcmp(novo->clt->nome, atu->clt->nome) > 0)) {
+                ant = atu;
+                atu = atu->prox;
+            }
+            ant->prox = novo; 
+            novo->prox = atu;
+        }
+    }
+    fclose(fp); 
+    return l;   
 }
