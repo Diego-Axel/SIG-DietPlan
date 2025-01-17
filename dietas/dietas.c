@@ -359,7 +359,7 @@ void exibir_dieta(Dietas* dts) {
       printf("\n");
       printf("\t//// Tipo: %s\n", dts->tipo);
       printf("\n");
-      printf("\t//// Quantidade de Calorias: %i\n", dts->cal);
+      printf("\t//// Quantidade de Calorias: %i  kcal\n", dts->cal);
       printf("\n");
       printf("\t//// Cliente: %s\n", dts->cpf_cliente);
       printf("\n");
