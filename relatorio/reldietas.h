@@ -15,5 +15,6 @@ char* get_prof (char* crn);
 
 ListaDiet* lista_ordenada(void);
 void imprime_lista(ListaDiet* l);
+void limpa_lista(ListaDiet* l);
 
 #endif

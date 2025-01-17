@@ -311,3 +311,15 @@ void imprime_lista(ListaDiet* l){
         l = l->prox;
     }
 }
+
+
+//Créditos: Flavius Gorgônio || @flgorgonio
+void limpa_lista(ListaDiet* l){
+    ListaDiet* p = l;
+	while (p != NULL){
+		ListaDiet* t = p->prox;
+		free(p->diet);
+        free(p);
+		p = t;
+	}
+}
