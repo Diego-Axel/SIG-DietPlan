@@ -88,7 +88,7 @@ void reldietas_geral(void) {
         printf("\n");
         printf("\t//// Tipo: %s\n", diet->tipo);
         printf("\n");
-        printf("\t//// Quantidade de Calorias: %s cal\n", diet->cal);
+        printf("\t//// Quantidade de Calorias: %i cal\n", diet->cal);
         printf("\n");
         printf("\t//// Status: %c\n", diet->status);
         printf("\n");
@@ -135,7 +135,7 @@ void reldietas_ativas(void) {
             printf("\n");
             printf("\t//// Tipo: %s\n", diet->tipo);
             printf("\n");
-            printf("\t//// Quantidade de Calorias: %s cal\n", diet->cal);
+            printf("\t//// Quantidade de Calorias: %i cal\n", diet->cal);
             printf("\n");
             printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
             free(cpf);
@@ -181,7 +181,7 @@ void reldietas_inativas(void) {
             printf("\n");
             printf("\t//// Tipo: %s\n", diet->tipo);
             printf("\n");
-            printf("\t//// Quantidade de Calorias: %s cal\n", diet->cal);
+            printf("\t//// Quantidade de Calorias: %i cal\n", diet->cal);
             printf("\n");
             printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
             free(cpf);
@@ -267,13 +267,13 @@ ListaDiet* lista_ordenada_diet(void) {
 
         if (l == NULL) {
             l = novo; 
-        } else if (strcmp(novo->diet->cal, l->diet->cal) < 0) {
+        } else if (novo->diet->cal < l->diet->cal) {
             novo->prox = l;
             l = novo; 
         } else {
             ListaDiet* ant = l;
             ListaDiet* atu = l->prox;
-            while ((atu != NULL) && (strcmp(novo->diet->cal, atu->diet->cal) > 0)) {
+            while ((atu != NULL) && (novo->diet->cal > atu->diet->cal)) {
                 ant = atu;
                 atu = atu->prox;
             }
@@ -307,7 +307,7 @@ void imprime_lista_diet(ListaDiet* l){
         printf("\n");
         printf("\t//// Tipo: %s\n", l->diet->tipo);
         printf("\n");
-        printf("\t//// Quantidade de Calorias: %s cal\n", l->diet->cal);
+        printf("\t//// Quantidade de Calorias: %i cal\n", l->diet->cal);
         printf("\n");
         printf("\t//// Status: %c\n", l->diet->status);
         printf("\n");

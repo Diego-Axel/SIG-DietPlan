@@ -10,7 +10,7 @@ struct dietas {
     char cpf_cliente[13];
     char crn_profissional[12];
     char tipo[25];
-    char cal[7];
+    int cal;
     char status;
 };
 
@@ -36,5 +36,6 @@ void exibir_dieta(Dietas*);
 void gravar_dieta(Dietas*);
 void regravar_dieta(Dietas*);
 Dietas* recadastrar_dieta(void);
+int string_to_int(char* str);
 
 #endif

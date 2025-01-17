@@ -178,6 +178,7 @@ void regravar_dieta(Dietas* dts) {
 
 Dietas* tela_cadastrar_dieta(void) {
   Dietas* dts;
+  char calorias[7];
   dts = (Dietas*) malloc(sizeof(Dietas));
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
@@ -216,14 +217,15 @@ Dietas* tela_cadastrar_dieta(void) {
   // Loop para validar as calorias da dieta
     do {
         printf("\t//// Quantidade de Calorias (APENAS NÚMEROS): ");
-        fgets(dts->cal, 10, stdin); 
-        dts->cal[strcspn(dts->cal, "\n")] = '\0';
+        fgets(calorias, 7, stdin); 
+        calorias[strcspn(calorias, "\n")] = '\0';
 
         // Verifica se todos os caracteres são dígitos
-        if (!valida_numero(dts->cal)) {
+        if (!valida_numero(calorias)) {
             printf("\t//// Informação inválida. Tente novamente.\n");
         }
-    } while (!valida_numero(dts->cal)); 
+    } while (!valida_numero(calorias));
+    dts->cal = string_to_int(calorias);
 
   printf("\n");
 
@@ -357,7 +359,7 @@ void exibir_dieta(Dietas* dts) {
       printf("\n");
       printf("\t//// Tipo: %s\n", dts->tipo);
       printf("\n");
-      printf("\t//// Quantidade de Calorias: %s\n", dts->cal);
+      printf("\t//// Quantidade de Calorias: %i\n", dts->cal);
       printf("\n");
       printf("\t//// Cliente: %s\n", dts->cpf_cliente);
       printf("\n");
@@ -373,6 +375,7 @@ void exibir_dieta(Dietas* dts) {
 // funçao para alterar dados da dieta
 Dietas* recadastrar_dieta(void) {
   Dietas* dts;
+  char calorias[7];
   dts = (Dietas*) malloc(sizeof(Dietas));
   system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
@@ -399,14 +402,15 @@ Dietas* recadastrar_dieta(void) {
 // Loop para validar as calorias da dieta
     do {
         printf("\t//// Quantidade de Calorias (APENAS NÚMEROS): ");
-        fgets(dts->cal, 10, stdin); 
-        dts->cal[strcspn(dts->cal, "\n")] = '\0';
+        fgets(calorias, 7, stdin); 
+        calorias[strcspn(calorias, "\n")] = '\0';
 
         // Verifica se todos os caracteres são dígitos
-        if (!valida_numero(dts->cal)) {
+        if (!valida_numero(calorias)) {
             printf("\t//// Informação inválida. Tente novamente.\n");
         }
-    } while (!valida_numero(dts->cal)); 
+    } while (!valida_numero(calorias));
+    dts->cal = string_to_int(calorias);
 
   printf("\n");
 
@@ -443,4 +447,22 @@ Dietas* recadastrar_dieta(void) {
   printf("\tTecle <ENTER> para prosseguir... ");
   getchar();
   return dts;
+}
+
+
+//Créditos: ChatGPT
+int string_to_int(char* str) {
+    int result = 0;  // Para armazenar o número convertido
+    int i = 0;
+
+    while (str[i] != '\0') {
+        if (isdigit(str[i])) {  // Verifica se o caractere é um dígito
+            result = result * 10 + (str[i] - '0');  // Converte caractere em número
+        } else {
+            break;  // Para no primeiro caractere não numérico
+        }
+        i++;
+    }
+
+    return result;
 }
