@@ -213,6 +213,20 @@ Dietas* tela_cadastrar_dieta(void) {
 
   printf("\n");
 
+  // Loop para validar as calorias da dieta
+    do {
+        printf("\t//// Quantidade de Calorias (APENAS NÚMEROS): ");
+        fgets(dts->tipo, 10, stdin); 
+        dts->cal[strcspn(dts->cal, "\n")] = '\0';
+
+        // Verifica se todos os caracteres são dígitos
+        if (!valida_numero(dts->cal)) {
+            printf("\t//// Informação inválida. Tente novamente.\n");
+        }
+    } while (!valida_numero(dts->cal)); 
+
+  printf("\n");
+
   // Loop para validar o CPF
     do {
         printf("\t//// Digite o CPF do Cliente (apenas números): ");
@@ -343,6 +357,8 @@ void exibir_dieta(Dietas* dts) {
       printf("\n");
       printf("\t//// Tipo: %s\n", dts->tipo);
       printf("\n");
+      printf("\t//// Quantidade de Calorias: %s\n", dts->cal);
+      printf("\n");
       printf("\t//// Cliente: %s\n", dts->cpf_cliente);
       printf("\n");
       printf("\t//// Profissional: %s\n", dts->crn_profissional);
@@ -377,6 +393,20 @@ Dietas* recadastrar_dieta(void) {
             printf("\t//// Informação inválida. Tente novamente.\n");
         }
     } while (!validaNome(dts->tipo)); // Continua pedindo até que uma informação válido seja inserido
+
+  printf("\n");
+
+// Loop para validar as calorias da dieta
+    do {
+        printf("\t//// Quantidade de Calorias (APENAS NÚMEROS): ");
+        fgets(dts->tipo, 10, stdin); 
+        dts->cal[strcspn(dts->cal, "\n")] = '\0';
+
+        // Verifica se todos os caracteres são dígitos
+        if (!valida_numero(dts->cal)) {
+            printf("\t//// Informação inválida. Tente novamente.\n");
+        }
+    } while (!valida_numero(dts->cal)); 
 
   printf("\n");
 

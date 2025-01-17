@@ -10,7 +10,7 @@ struct dietas {
     char cpf_cliente[13];
     char crn_profissional[12];
     char tipo[25];
-    char cal[10];
+    char cal[7];
     char status;
 };
 

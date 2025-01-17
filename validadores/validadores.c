@@ -188,3 +188,13 @@ int validaID(char* id) {
 
     return 1;
 }
+
+//Validação de dígitos numéricos
+int valida_numero(char * numero){
+    for (int i = 0; i < tamanho; i++){
+        if(!isdigit(numero[i])){
+            return 0;
+        }
+    }
+    return 1;
+}
