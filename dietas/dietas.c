@@ -216,7 +216,7 @@ Dietas* tela_cadastrar_dieta(void) {
   // Loop para validar as calorias da dieta
     do {
         printf("\t//// Quantidade de Calorias (APENAS NÚMEROS): ");
-        fgets(dts->tipo, 10, stdin); 
+        fgets(dts->cal, 10, stdin); 
         dts->cal[strcspn(dts->cal, "\n")] = '\0';
 
         // Verifica se todos os caracteres são dígitos
@@ -399,7 +399,7 @@ Dietas* recadastrar_dieta(void) {
 // Loop para validar as calorias da dieta
     do {
         printf("\t//// Quantidade de Calorias (APENAS NÚMEROS): ");
-        fgets(dts->tipo, 10, stdin); 
+        fgets(dts->cal, 10, stdin); 
         dts->cal[strcspn(dts->cal, "\n")] = '\0';
 
         // Verifica se todos os caracteres são dígitos

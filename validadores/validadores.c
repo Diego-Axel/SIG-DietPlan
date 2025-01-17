@@ -191,6 +191,8 @@ int validaID(char* id) {
 
 //Validação de dígitos numéricos
 int valida_numero(char * numero){
+    int tamanho = strlen(numero);
+    
     for (int i = 0; i < tamanho; i++){
         if(!isdigit(numero[i])){
             return 0;
