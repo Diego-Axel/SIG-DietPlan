@@ -50,8 +50,8 @@ void menu_info(void) {
   printf("\t///                      Sistemas de Informação - BSI                      ///\n");
   printf("\t///                    Disciplina DCT1106 -- Programação                   ///\n");
   printf("\t///                 Projeto Sistema de Planejamento De Dietas              ///\n");
-  printf("\t///                Developed by Diêgo Axel, Luís Henrique                  ///\n");
-  printf("\t///                         and Kaio Márcio                                ///\n");
+  printf("\t///                Developed by Diêgo Axel, Luís Henrique,                 ///\n");
+  printf("\t///                     Kaio Márcio and Fillipe Medeiros                   ///\n");
   printf("\t///                      Data do projeto : 18/09/2024                      ///\n");
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
