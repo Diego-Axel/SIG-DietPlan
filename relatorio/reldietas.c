@@ -235,3 +235,48 @@ char* get_prof (char* crn){
     free(prf);
     return NULL;
 }
+
+//Créditos: Fillipe, João Victor e ChatGPT.
+ListaDiet* lista_ordenada(void) {
+    FILE* fp;
+    Dietas* diet;
+    ListaDiet* novo;
+    ListaDiet* l = NULL;
+
+    fp = fopen("dietas.dat", "rb");
+    if (fp == NULL) {
+        printf("Erro na abertura do arquivo!\n");
+        printf("Não é possível continuar...\n");
+        exit(1);
+    }
+
+    while (1) {
+        diet = (Dietas*) malloc(sizeof(Dietas)); 
+        if (fread(diet, sizeof(Dietas), 1, fp) != 1) { 
+            free(diet); 
+            break; 
+        }
+        
+        novo = (ListaDiet*) malloc(sizeof(ListaDiet));
+        novo->diet = diet;   
+        novo->prox = NULL; 
+
+        if (l == NULL) {
+            l = novo; 
+        } else if (strcmp(novo->diet->cal, l->diet->cal) < 0) {
+            novo->prox = l;
+            l = novo; 
+        } else {
+            ListaDiet* ant = l;
+            ListaDiet* atu = l->prox;
+            while ((atu != NULL) && (strcmp(novo->diet->cal, atu->diet->cal) > 0)) {
+                ant = atu;
+                atu = atu->prox;
+            }
+            ant->prox = novo; 
+            novo->prox = atu;
+        }
+    }
+    fclose(fp); 
+    return l;   
+}

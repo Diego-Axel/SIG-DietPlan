@@ -14,6 +14,13 @@ struct dietas {
     char status;
 };
 
+typedef struct lista_diet ListaDiet;
+
+struct lista_diet{
+    Dietas* diet;
+    ListaDiet* prox;
+};
+
 void modulo_dieta(void);
 void cadastrar_dieta(void);
 void pesquisar_dieta(void);
