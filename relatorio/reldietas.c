@@ -236,6 +236,7 @@ char* get_prof (char* crn){
     return NULL;
 }
 
+
 //Créditos: Fillipe, João Victor e ChatGPT.
 ListaDiet* lista_ordenada(void) {
     FILE* fp;
@@ -279,4 +280,34 @@ ListaDiet* lista_ordenada(void) {
     }
     fclose(fp); 
     return l;   
+}
+
+
+void imprime_lista(ListaDiet* l){
+    if(l == NULL){
+        printf("\tNão existem dietas cadastradas!\n");
+        printf("\tTecle <ENTER> para prosseguir... ");
+        getchar();
+        return;
+    }
+    while(l != NULL){
+        printf("\n\t//// ID da Dieta: %s\n", l->diet->id);
+        printf("\n");
+        cpf = get_cliente(l->diet->cpf_cliente);
+        printf("\t//// Cliente: %s\n", cpf);
+        printf("\n");
+        crn = get_prof(l->diet->crn_profissional);
+        printf("\t//// Profissional: %s\n", crn);
+        printf("\n");
+        printf("\t//// Tipo: %s\n", l->diet->tipo);
+        printf("\n");
+        printf("\t//// Quantidade de Calorias: %s cal\n", l->diet->cal);
+        printf("\n");
+        printf("\t//// Status: %c\n", l->diet->status);
+        printf("\n");
+        printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+        free(cpf);
+        free(crn);
+        l = l->prox;
+    }
 }

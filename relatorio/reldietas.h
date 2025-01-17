@@ -13,6 +13,7 @@ void reldietas_inativas(void);
 char* get_cliente (char* cpf);
 char* get_prof (char* crn);
 
-ListaDiet* lista_ordenada(void)
+ListaDiet* lista_ordenada(void);
+void imprime_lista(ListaDiet* l);
 
 #endif
