@@ -25,6 +25,8 @@ void modulo_reldietas(void) {
                       break;
             case '3': reldietas_inativas();
                       break;
+            case '4': reldietas_ordenado();
+                      break;
         }
   } while(opcao != '0');
 }
@@ -44,6 +46,7 @@ char menu_reldietas(void) {
   printf("\t///                         [1] Relatório Geral                            ///\n");
   printf("\t///                         [2] Dietas Ativas                              ///\n");
   printf("\t///                         [3] Dietas Inativas                            ///\n");
+  printf("\t///                         [4] Dietas (Por Calorias)                      ///\n");
   printf("\t///                         [0] Retornar ao Menu Principal                 ///\n");  
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
@@ -322,4 +325,21 @@ void limpa_lista(ListaDiet* l){
         free(p);
 		p = t;
 	}
+}
+
+
+void reldietas_ordenado(void){
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\t///                                                                                                       ///\n");
+    printf("\t///                                           Relatório Dietas                                            ///\n");
+    printf("\t///                                    (Ordem Crescente em Calorias)                                      ///\n");
+    printf("\t///                                                                                                       ///\n");
+    printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+    ListaDiet* l = lista_ordenada();
+    imprime_lista(l);
+    limpa_lista(l);
+    printf("\n");
+    printf("\ttecle <ENTER> para continuar... ");
+    getchar();
 }
