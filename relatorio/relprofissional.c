@@ -256,3 +256,18 @@ void limpa_lista_prof(ListaProf* l){
 }
 
 
+void relprof_ordenado(void){
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\t///                                                                                                       ///\n");
+    printf("\t///                                          Relatório Profissional                                       ///\n");
+    printf("\t///                                            (Ordem Alfabética)                                         ///\n");
+    printf("\t///                                                                                                       ///\n");
+    printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+    ListaProf* l = lista_ordenada_prof();
+    imprime_lista_prof(l);
+    limpa_lista_prof(l);
+    printf("\n");
+    printf("\ttecle <ENTER> para continuar... ");
+    getchar();
+}
