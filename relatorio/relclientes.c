@@ -172,7 +172,7 @@ void relclientes_inativos(void) {
 }
 
 
-//Créditos: ChatGPT, Fillipe e João Victor.
+//Créditos: Fillipe, João Victor e ChatGPT.
 Lista* lista_ordenada(void) {
     FILE* fp;
     Cliente* clt;
@@ -241,7 +241,7 @@ void imprime_lista(Lista* l){
     }
 }
 
-
+//Créditos: Flavius Gorgônio || @flgorgonio
 void limpa_lista(Lista* l){
     Lista *p = l;
 	while (p != NULL){
