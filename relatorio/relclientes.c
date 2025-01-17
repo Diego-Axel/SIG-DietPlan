@@ -251,3 +251,20 @@ void limpa_lista(Lista* l){
 		p = t;
 	}
 }
+
+
+void relclientes_ordenado(void){
+    system("clear || cls"); // se for Linux use 'clear' se for Windows use 'cls'
+    printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+    printf("\t///                                                                                                       ///\n");
+    printf("\t///                                          Relatório Clientes                                           ///\n");
+    printf("\t///                                          (Ordem Alfabética)                                           ///\n");
+    printf("\t///                                                                                                       ///\n");
+    printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+    Lista* l = lista_ordenada();
+    imprime_lista(l);
+    limpa_lista(l);
+    printf("\n");
+    printf("\ttecle <ENTER> para continuar... ");
+    getchar();
+}
