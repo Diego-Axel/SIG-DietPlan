@@ -14,6 +14,14 @@ struct profissional {
     char status;
 };
 
+typedef struct lista_prof ListaProf;
+
+struct lista_prof {
+    Profissional* prf;
+    ListaProf* prox;
+};
+
+ 
 void modulo_profissional(void);
 void cadastrar_profissional(void);
 void pesquisar_profissional(void);

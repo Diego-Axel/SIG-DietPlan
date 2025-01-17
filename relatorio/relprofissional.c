@@ -20,6 +20,8 @@ void modulo_relprofissional(void){
                     break;
             case '3': relprofissional_inativos();
                     break;
+            case '4': relprof_ordenado();
+                    break;
         }
     } while(opcao != '0');
 }
@@ -39,6 +41,7 @@ char menu_relprofissional(void) {
   printf("\t///                         [1] Relatório Geral                            ///\n");
   printf("\t///                         [2] Profissionais Ativos                       ///\n");
   printf("\t///                         [3] Profissionais Inativos                     ///\n");
+  printf("\t///                         [4] Profissionais (Ordem Alfabética)           ///\n");  
   printf("\t///                         [0] Retornar ao Menu Principal                 ///\n");  
   printf("\t///                                                                        ///\n");
   printf("\t//////////////////////////////////////////////////////////////////////////////\n");
@@ -168,3 +171,51 @@ void relprofissional_inativos(void) {
     printf("\ttecle <ENTER> para continuar... ");
     getchar();
 }
+
+
+//Créditos: Fillipe, João Victor e ChatGPT.
+ListaProf* lista_ordenada_prof(void) {
+    FILE* fp;
+    Profissional* prf;
+    ListaProf* novo;
+    ListaProf* l = NULL;
+
+    fp = fopen("profissional.dat", "rb");
+    if (fp == NULL) {
+        printf("Erro na abertura do arquivo!\n");
+        printf("Não é possível continuar...\n");
+        exit(1);
+    }
+
+    while (1) {
+        prf = (Profissional*) malloc(sizeof(Profissional)); 
+        if (fread(prf, sizeof(Profissional), 1, fp) != 1) { 
+            free(prf); 
+            break; 
+        }
+        
+        novo = (ListaProf*) malloc(sizeof(ListaProf));
+        novo->prf = prf;   
+        novo->prox = NULL; 
+
+        if (l == NULL) {
+            l = novo; 
+        } else if (strcmp(novo->prf->nome, l->prf->nome) < 0) {
+            novo->prox = l;
+            l = novo; 
+        } else {
+            ListaProf* ant = l;
+            ListaProf* atu = l->prox;
+            while ((atu != NULL) && (strcmp(novo->prf->nome, atu->prf->nome) > 0)) {
+                ant = atu;
+                atu = atu->prox;
+            }
+            ant->prox = novo; 
+            novo->prox = atu;
+        }
+    }
+    fclose(fp); 
+    return l;   
+}
+
+
