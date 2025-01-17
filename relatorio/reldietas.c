@@ -88,7 +88,7 @@ void reldietas_geral(void) {
         printf("\n");
         printf("\t//// Tipo: %s\n", diet->tipo);
         printf("\n");
-        printf("\t//// Quantidade de Calorias: %i cal\n", diet->cal);
+        printf("\t//// Quantidade de Calorias: %i kcal\n", diet->cal);
         printf("\n");
         printf("\t//// Status: %c\n", diet->status);
         printf("\n");
@@ -135,7 +135,7 @@ void reldietas_ativas(void) {
             printf("\n");
             printf("\t//// Tipo: %s\n", diet->tipo);
             printf("\n");
-            printf("\t//// Quantidade de Calorias: %i cal\n", diet->cal);
+            printf("\t//// Quantidade de Calorias: %i kcal\n", diet->cal);
             printf("\n");
             printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
             free(cpf);
@@ -181,7 +181,7 @@ void reldietas_inativas(void) {
             printf("\n");
             printf("\t//// Tipo: %s\n", diet->tipo);
             printf("\n");
-            printf("\t//// Quantidade de Calorias: %i cal\n", diet->cal);
+            printf("\t//// Quantidade de Calorias: %i kcal\n", diet->cal);
             printf("\n");
             printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
             free(cpf);
@@ -307,7 +307,7 @@ void imprime_lista_diet(ListaDiet* l){
         printf("\n");
         printf("\t//// Tipo: %s\n", l->diet->tipo);
         printf("\n");
-        printf("\t//// Quantidade de Calorias: %i cal\n", l->diet->cal);
+        printf("\t//// Quantidade de Calorias: %i kcal\n", l->diet->cal);
         printf("\n");
         printf("\t//// Status: %c\n", l->diet->status);
         printf("\n");
