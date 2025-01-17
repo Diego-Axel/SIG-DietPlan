@@ -240,3 +240,14 @@ void imprime_lista(Lista* l){
         l = l->prox;
     }
 }
+
+
+void limpa_lista(Lista* l){
+    Lista *p = l;
+	while (p != NULL){
+		Lista *t = p->prox;
+		free(p->clt);
+        free(p);
+		p = t;
+	}
+}
