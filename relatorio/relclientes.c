@@ -216,3 +216,27 @@ Lista* lista_ordenada(void) {
     fclose(fp); 
     return l;   
 }
+
+
+void imprime_lista(Lista* l){
+    if(l == NULL){
+        printf("\tNão existem clientes cadastrados!\n");
+        printf("\tTecle <ENTER> para prosseguir... ");
+        getchar();
+        return;
+    }
+    while(l != NULL){
+        printf("\n\t//// Nome: %s\n", l->clt->nome);
+        printf("\n");
+        printf("\t//// E-mail: %s\n", l->clt->email);
+        printf("\n");
+        printf("\t//// Telefone: %s\n", l->clt->telefone);
+        printf("\n");
+        printf("\t//// CPF: %s\n", l->clt->cpf);
+        printf("\n");
+        printf("\t//// Status: %c\n", l->clt->status);
+        printf("\n");
+        printf("\t/////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
+        l = l->prox;
+    }
+}
